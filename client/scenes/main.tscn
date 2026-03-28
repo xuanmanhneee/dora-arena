@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://do723hs613s4o"]
+
+[ext_resource type="Script" uid="uid://bm1herfpvw3v1" path="res://scripts/main.gd" id="1_o5qli"]
+
+[node name="Control" type="Control" unique_id=1747779477]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5qli")
+
+[node name="UpButton" type="Button" parent="." unique_id=1336892568]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 448.0
+offset_top = 191.0
+offset_right = 648.0
+offset_bottom = 391.0
+theme_override_font_sizes/font_size = 60
+text = "Up"
+
+[node name="DownButton" type="Button" parent="." unique_id=385195621]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 452.0
+offset_top = 697.0
+offset_right = 652.0
+offset_bottom = 897.0
+theme_override_font_sizes/font_size = 60
+text = "Down"
+
+[node name="LeftButton" type="Button" parent="." unique_id=967705301]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 200.0
+offset_top = 440.0
+offset_right = 400.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 60
+text = "Left"
+
+[node name="RightButton" type="Button" parent="." unique_id=2095872491]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 713.0
+offset_top = 441.0
+offset_right = 913.0
+offset_bottom = 641.0
+theme_override_font_sizes/font_size = 60
+text = "Right"
+
+[node name="ShootButton" type="Button" parent="." unique_id=2018091091]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 1228.0
+offset_top = 452.0
+offset_right = 1428.0
+offset_bottom = 652.0
+theme_override_font_sizes/font_size = 60
+text = "Shoot"
+
+[node name="SkillButton" type="Button" parent="." unique_id=430425843]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 1572.0
+offset_top = 455.0
+offset_right = 1772.0
+offset_bottom = 655.0
+theme_override_font_sizes/font_size = 60
+text = "Skill"

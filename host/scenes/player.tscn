@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://kw4bjkuayhlf"]
+
+[ext_resource type="Script" uid="uid://lmqry4te2c87" path="res://scripts/player.gd" id="1_0e48y"]
+[ext_resource type="SpriteFrames" uid="uid://betyio46q7rpj" path="res://assets/player.tres" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://c1n5xc16b4smn" path="res://scenes/bullet.tscn" id="2_i3pqv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epypp"]
+radius = 34.0
+height = 92.0
+
+[node name="Player" type="CharacterBody2D" unique_id=873583831]
+script = ExtResource("1_0e48y")
+bullet = ExtResource("2_i3pqv")
+
+[node name="Visual" type="Node2D" parent="." unique_id=325332550]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" unique_id=74658931]
+position = Vector2(0, -15)
+sprite_frames = ExtResource("1_wtcfe")
+animation = &"run"
+
+[node name="Marker2D" type="Marker2D" parent="Visual" unique_id=419225394]
+position = Vector2(69, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=824260810]
+shape = SubResource("CapsuleShape2D_epypp")

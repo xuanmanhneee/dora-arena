@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c1echrifakywj"]
+
+[ext_resource type="Script" uid="uid://drlc0dhp66pwq" path="res://scripts/lobby.gd" id="1_5gu6x"]
+[ext_resource type="FontFile" uid="uid://b1ushsa75t7p3" path="res://Font/Kenney Future Narrow.ttf" id="2_q60fs"]
+
+[node name="Lobby" type="Control" unique_id=1067301343]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5gu6x")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1592374937]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1950731223]
+layout_mode = 2
+
+[node name="PlayerNameLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=2096218171]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q60fs")
+theme_override_font_sizes/font_size = 60
+placeholder_text = "Player Name"
+alignment = 1
+max_length = 20
+
+[node name="ReadyButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1419831200]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q60fs")
+theme_override_font_sizes/font_size = 60
+text = "Ready"
