@@ -1,52 +1,18 @@
-[gd_scene format=3 uid="uid://cwj2ow6hpocey"]
+[gd_scene format=3 uid="uid://biugfvkibrqbg"]
 
-[ext_resource type="Script" uid="uid://bofyspmd6b58m" path="res://scripts/game.gd" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://kw4bjkuayhlf" path="res://scenes/player.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cwj2ow6hpocey" path="res://scenes/map.tscn" id="1_lnu2h"]
+[ext_resource type="Script" uid="uid://b663tondur1k" path="res://scripts/game_manager.gd" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dtxclro44o7sp" path="res://scenes/overlay_layer.tscn" id="3_iywne"]
+[ext_resource type="Script" uid="uid://crykvjep6ff53" path="res://scripts/multiplayer_camera_2d.gd" id="3_lbhrr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0an3"]
-size = Vector2(948, 55)
+[node name="Game" type="Node" unique_id=468330071]
 
-[node name="Game" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
-script = ExtResource("1_yqjtg")
-spawn_points = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4")]
-player_scene = ExtResource("2_lnu2h")
+[node name="Map" parent="." unique_id=1767039355 instance=ExtResource("1_lnu2h")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1426846700]
+[node name="GameManager" type="Node" parent="." unique_id=2052883498]
+script = ExtResource("2_lbhrr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=383787947]
-position = Vector2(606, 579.5)
-shape = SubResource("RectangleShape2D_e0an3")
+[node name="Camera2D" type="Camera2D" parent="." unique_id=691998796]
+script = ExtResource("3_lbhrr")
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=418839520]
-offset_left = 132.0
-offset_top = 552.0
-offset_right = 1080.0
-offset_bottom = 607.0
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1809077935]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=610026441]
-position = Vector2(120, 399.5)
-shape = SubResource("RectangleShape2D_e0an3")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=911712931]
-offset_left = -354.0
-offset_top = 372.0
-offset_right = 594.0
-offset_bottom = 427.0
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=253655171]
-visible = false
-position = Vector2(187, 251)
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=1402631702]
-position = Vector2(135, 281)
-
-[node name="Marker2D2" type="Marker2D" parent="." unique_id=2032657671]
-position = Vector2(333, 277)
-
-[node name="Marker2D3" type="Marker2D" parent="." unique_id=775982842]
-position = Vector2(804, 440)
-
-[node name="Marker2D4" type="Marker2D" parent="." unique_id=678127531]
-position = Vector2(991, 444)
+[node name="OverlayLayer" parent="." unique_id=869507950 instance=ExtResource("3_iywne")]

@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -500.0
 @onready var shoot_pos: Marker2D = $Visual/Marker2D
 
 @export var bullet: PackedScene
-@export var team: TeamDef.Team = TeamDef.Team.NONE
+@export var team: Enums.Team = Enums.Team.NONE
 
 var is_stunned: bool = false
 var stun_timer: float = 0.0

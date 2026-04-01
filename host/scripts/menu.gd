@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_two_players_button_pressed():
 	GameData.mode = GameMode.LOCAL_2P
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/map.tscn")
 
 
 func _on_four_players_button_presssed():

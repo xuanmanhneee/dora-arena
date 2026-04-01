@@ -1,0 +1,17 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1774964802
+icon.svg::CompressedTexture2D::6653566025041660077::1774382756::1774964803::1::::<><><>0<>0<>c5a09e27e8547c03728ca383f62d79f8<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Font/::1774386514
+Kenney Future Narrow.ttf::FontFile::4253724526705379730::1568063159::1774964802::1::::<><><>0<>0<>aae7796021efaba514bdfdb6b35e0d29<>res://.godot/imported/Kenney Future Narrow.ttf-63c43c4bf359e078c665f62de4957a9c.fontdata::
+Kenney Future.ttf::FontFile::8675986939074511581::1568063159::1774964802::1::::<><><>0<>0<>2cddbe076e2ad7fa026ff7976972f09d<>res://.godot/imported/Kenney Future.ttf-650a700b7597083268acd5025330d170.fontdata::
+::res://scenes/::1774690622
+connection_scene.tscn::PackedScene::1428920494181524482::1774690602::0::1::::<><><>0<>0<><>::uid://bolhwbekc7ynl::::res://scripts/connection_scene.gd<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf
+lobby.tscn::PackedScene::6606143653017136837::1774690622::0::1::::<><><>0<>0<><>::uid://drlc0dhp66pwq::::res://scripts/lobby.gd<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf
+main.tscn::PackedScene::8209655708089996688::1774690622::0::1::::<><><>0<>0<><>::uid://bm1herfpvw3v1::::res://scripts/main.gd
+virtual_dpad.tscn::PackedScene::1581153646622529508::1774387338::0::1::::<><><>0<>0<><>::
+::res://scripts/::1774690622
+connection_scene.gd::GDScript::3392237015496365573::1774440010::0::1::::<>Control<><>0<>0<><>::
+input_type.gd::GDScript::3854172623203610069::1774490030::0::1::::InputType<>RefCounted<><>0<>0<><>::
+lobby.gd::GDScript::8375346796161542208::1774498883::0::1::::<>Control<><>0<>0<><>::
+main.gd::GDScript::3282793692411495412::1774490906::0::1::::<>Control<><>0<>0<><>::
+network_manager.gd::GDScript::7408130736459849459::1774489720::0::1::::<>Node<><>0<>0<><>::
