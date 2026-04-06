@@ -1,21 +1,13 @@
 [gd_scene format=3 uid="uid://cwj2ow6hpocey"]
 
-[ext_resource type="Script" uid="uid://bofyspmd6b58m" path="res://scripts/game.gd" id="1_0cso3"]
-[ext_resource type="PackedScene" uid="uid://kw4bjkuayhlf" path="res://scenes/player.tscn" id="2_2klcf"]
-[ext_resource type="Script" uid="uid://crykvjep6ff53" path="res://scripts/multiplayer_camera_2d.gd" id="3_2lpho"]
+[ext_resource type="Script" uid="uid://bfvotc8ugx54q" path="res://scripts/map.gd" id="1_paxxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(972, 20)
 
 [node name="Map" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
-script = ExtResource("1_0cso3")
+script = ExtResource("1_paxxb")
 spawn_points = [NodePath("SpawnPoints/Marker2D_1"), NodePath("SpawnPoints/Marker2D_2"), NodePath("SpawnPoints/Marker2D_3"), NodePath("SpawnPoints/Marker2D_4")]
-player_scene = ExtResource("2_2klcf")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=253655171]
-visible = false
-position = Vector2(187, 251)
-script = ExtResource("3_2lpho")
 
 [node name="SpawnPoints" type="Control" parent="." unique_id=14083712]
 layout_mode = 3

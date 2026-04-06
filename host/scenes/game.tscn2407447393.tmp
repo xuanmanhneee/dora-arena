@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dtxclro44o7sp" path="res://scenes/overlay_layer.tscn" id="3_iywne"]
 [ext_resource type="Script" uid="uid://crykvjep6ff53" path="res://scripts/multiplayer_camera_2d.gd" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://kw4bjkuayhlf" path="res://scenes/player.tscn" id="3_p57ef"]
-[ext_resource type="PackedScene" uid="uid://7rotqlvewja5" path="res://scenes/result_layer.tscn" id="6_p57ef"]
 
 [node name="Game" type="Node" unique_id=468330071]
 
@@ -15,12 +14,8 @@
 script = ExtResource("2_lbhrr")
 player_scene = ExtResource("3_p57ef")
 current_map = NodePath("../Map")
-_game_time = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=691998796]
 script = ExtResource("3_lbhrr")
 
 [node name="OverlayLayer" parent="." unique_id=869507950 instance=ExtResource("3_iywne")]
-
-[node name="ResultLayer" parent="." unique_id=301648816 instance=ExtResource("6_p57ef")]
-visible = false

@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 
+@onready var _collider: CollisionShape2D = $CollisionShape2D
 @onready var visual = $Visual
 @onready var anim: AnimatedSprite2D = $Visual/AnimatedSprite2D
 @onready var shoot_pos: Marker2D = $Visual/Marker2D
@@ -96,3 +97,8 @@ func apply_knockback(force: Vector2):
 	velocity.y = force.y
 	is_stunned = true
 	stun_timer = stun_time
+
+func freeze() -> void:
+	set_physics_process(false)
+	#set_process_input(false)
+	_collider.set_deferred("disabled", true)
