@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwj2ow6hpocey"]
 
 [ext_resource type="Script" uid="uid://bfvotc8ugx54q" path="res://scripts/map.gd" id="1_paxxb"]
+[ext_resource type="PackedScene" uid="uid://bh4ur2brrsbec" path="res://scenes/item.tscn" id="2_paxxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(972, 20)
@@ -45,3 +46,6 @@ unique_name_in_owner = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone" unique_id=1939328494]
 polygon = PackedVector2Array(-60, 56, -58, 1017, 1351, 1019, 1352, 54, 1410, 54, 1412, 1072, -138, 1072, -139, 56)
+
+[node name="Item" parent="." unique_id=2019088275 instance=ExtResource("2_paxxb")]
+position = Vector2(851, 556)

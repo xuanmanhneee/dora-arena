@@ -15,7 +15,6 @@
 script = ExtResource("2_lbhrr")
 player_scene = ExtResource("3_p57ef")
 current_map = NodePath("../Map")
-_game_time = 10.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=691998796]
 script = ExtResource("3_lbhrr")

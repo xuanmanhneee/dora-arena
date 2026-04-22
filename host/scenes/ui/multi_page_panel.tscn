@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://13s6pdett15p"]
+
+[ext_resource type="Script" uid="uid://yk6fbmsuuu43" path="res://scripts/ui/multi_page_panel.gd" id="1_abw8k"]
+[ext_resource type="PackedScene" uid="uid://ctev4vwtmunnq" path="res://scenes/ui/about_page.tscn" id="2_0mfik"]
+
+[node name="OptionsPanel" type="PanelContainer" unique_id=413375670]
+custom_minimum_size = Vector2(700, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -250.0
+offset_right = 392.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abw8k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1464361342]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=159380035]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1301733878]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Panel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=462279891]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=1224179533]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+current_tab = 0
+
+[node name="About" parent="VBoxContainer/TabContainer" unique_id=6069010 instance=ExtResource("2_0mfik")]
+layout_mode = 2
+metadata/_tab_index = 0

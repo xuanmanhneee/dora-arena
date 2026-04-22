@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dmu3lfxvv0cjh"]
+
+[ext_resource type="Script" uid="uid://cioih5uvwsrfk" path="res://scenes/ui/settings_page.gd" id="1_5oejd"]
+
+[node name="SettingsPage" type="MarginContainer" unique_id=2035506601]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -28.0
+offset_right = 2.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+script = ExtResource("1_5oejd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=436954965]
+layout_mode = 2
+
+[node name="Bgm" type="HBoxContainer" parent="VBoxContainer" unique_id=66645744]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="BgmLabel" type="Label" parent="VBoxContainer/Bgm" unique_id=1994843893]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "BGM"
+vertical_alignment = 1
+
+[node name="BgmValueLabel" type="Label" parent="VBoxContainer/Bgm" unique_id=664973417]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 50)
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BgmSlider" type="HSlider" parent="VBoxContainer/Bgm" unique_id=1299251786]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="Sfx" type="HBoxContainer" parent="VBoxContainer" unique_id=1283414187]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="SfxLabel" type="Label" parent="VBoxContainer/Sfx" unique_id=1177758382]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "SFX"
+vertical_alignment = 1
+
+[node name="SfxValueLabel" type="Label" parent="VBoxContainer/Sfx" unique_id=772214419]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 50)
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="VBoxContainer/Sfx" unique_id=799159641]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=973760162]
+layout_mode = 2
+
+[node name="Lang" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=218414324]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LangLabel" type="Label" parent="VBoxContainer/HBoxContainer/Lang" unique_id=1155858345]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Language"
+vertical_alignment = 1
+
+[node name="LangOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer/Lang" unique_id=82170304]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Vietnamese"
+popup/item_0/id = 0
+popup/item_1/text = "English"
+popup/item_1/id = 1
+
+[node name="Fps" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1686496212]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Fps" unique_id=1430456206]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "FPS"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Fps" unique_id=822232479]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Fps/HBoxContainer" unique_id=833110275]
+layout_mode = 2
+text = "30"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer/Fps/HBoxContainer" unique_id=1908220849]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Fps/HBoxContainer" unique_id=471561318]
+layout_mode = 2
+text = "60"

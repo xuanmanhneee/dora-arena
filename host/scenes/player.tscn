@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://lmqry4te2c87" path="res://scripts/player.gd" id="1_0e48y"]
 [ext_resource type="SpriteFrames" uid="uid://betyio46q7rpj" path="res://assets/player.tres" id="1_wtcfe"]
-[ext_resource type="PackedScene" uid="uid://c1n5xc16b4smn" path="res://scenes/bullet.tscn" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://7qwaxbvbhw7r" path="res://scripts/effect_manager.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://dij5efg2ae0m6" path="res://scripts/effects/effect.gd" id="4_qlg0r"]
+[ext_resource type="Resource" uid="uid://bvxsnit77xjye" path="res://scripts/effects/explosive_bullet/explosive_bullet_effect.tres" id="5_tuyoq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epypp"]
 radius = 34.0
@@ -10,7 +12,6 @@ height = 92.0
 
 [node name="Player" type="CharacterBody2D" unique_id=873583831]
 script = ExtResource("1_0e48y")
-bullet = ExtResource("2_i3pqv")
 
 [node name="Visual" type="Node2D" parent="." unique_id=325332550]
 
@@ -24,3 +25,8 @@ position = Vector2(69, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=824260810]
 shape = SubResource("CapsuleShape2D_epypp")
+
+[node name="EffectManager" type="Node" parent="." unique_id=734462188]
+script = ExtResource("3_qhqgy")
+effects = Array[ExtResource("4_qlg0r")]([ExtResource("5_tuyoq")])
+metadata/_custom_type_script = "uid://7qwaxbvbhw7r"

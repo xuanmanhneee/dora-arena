@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbsogqlsc5b8k"]
 
 [ext_resource type="Script" uid="uid://d1phi5smffgfg" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="PackedScene" uid="uid://c5p4a1c55tnwh" path="res://scenes/ui/options_panel.tscn" id="2_vjb58"]
 
 [node name="Menu" type="Control" unique_id=525895081]
 layout_mode = 3
@@ -21,21 +22,33 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1509101807]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="TwoPlayersButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=563835559]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 text = "2 Players (Local)"
 
 [node name="FourPlayersButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2117653704]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 text = "4 Players (LAN)"
 
-[node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1448785893]
+[node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=327782871]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 50)
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-text = "Settings"
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1519758711]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+text = "Quit"
+
+[node name="OptionsPanel" parent="." unique_id=1055365694 instance=ExtResource("2_vjb58")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
