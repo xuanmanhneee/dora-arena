@@ -25,6 +25,10 @@ GameData="*uid://64v32hvejmvf"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[dotnet]
+
+project/assembly_name="Host"
+
 [input]
 
 ui_left={

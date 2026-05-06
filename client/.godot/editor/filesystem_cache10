@@ -1,0 +1,30 @@
+72322a848ab928aa5c89f0cb78209805
+::res://::1778070406
+export_presets.cfg::TextFile::-1::1774963696::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::6653566025041660077::1774856098::1774856327::1::::<><><>0<>0<>c5a09e27e8547c03728ca383f62d79f8<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://asset/::1774966599
+::res://asset/background/::1775293522
+backgroundLobby.png::CompressedTexture2D::1184138748664140347::1775293511::1775293522::1::::<><><>0<>0<>23b731d1f099ac9be50fe4cb9b80adef<>res://.godot/imported/backgroundLobby.png-d9a6805dfec5249553960b640f81fe52.ctex::
+::res://asset/move/::1774925429
+dpad_element_down.png::CompressedTexture2D::8113121048304126235::1774862130::1774925429::1::::<><><>0<>0<>845f55d5942439064dde6a190d9e8693<>res://.godot/imported/dpad_element_down.png-a780d509483680aa77194e777b77f3d2.ctex::
+dpad_element_left.png::CompressedTexture2D::5163406782417754223::1774862130::1774925429::1::::<><><>0<>0<>6ff6be1880fea0250e2778a0adaac7cd<>res://.godot/imported/dpad_element_left.png-f1917cc8588647820041dffb1ff174e3.ctex::
+dpad_element_right.png::CompressedTexture2D::1694643771836074926::1774862130::1774925429::1::::<><><>0<>0<>03e9d087c0abaa90dffcd770e4413c85<>res://.godot/imported/dpad_element_right.png-86119cda3e266afdea2d0450e65b5743.ctex::
+dpad_element_up.png::CompressedTexture2D::4587202495175293461::1774862130::1774925429::1::::<><><>0<>0<>0acafa121994587dd2d9e48cd29cf37f<>res://.godot/imported/dpad_element_up.png-99dfc7c7c59739ebdd0c3e0eeaffcb87.ctex::
+ic_Shoot.png::CompressedTexture2D::3343063668051687152::1774924383::1774925374::1::::<><><>0<>0<>6e4d2c7ef584c63f0365a563f0b9d234<>res://.godot/imported/ic_Shoot.png-2fa117e985777270dcb00a807a1eddbd.ctex::
+ic_Skill.png::CompressedTexture2D::9126445069774381400::1774925258::1774925374::1::::<><><>0<>0<>8ed58e76059814beb1f979ee8324bef8<>res://.godot/imported/ic_Skill.png-1cb0d416dc77a7cd37c82b2388b21f69.ctex::
+::res://Font/::1774856327
+Kenney Future Narrow.ttf::FontFile::4253724526705379730::1774856098::1774856327::1::::<><><>0<>0<>aae7796021efaba514bdfdb6b35e0d29<>res://.godot/imported/Kenney Future Narrow.ttf-63c43c4bf359e078c665f62de4957a9c.fontdata::
+Kenney Future.ttf::FontFile::8675986939074511581::1774856098::1774856327::1::::<><><>0<>0<>2cddbe076e2ad7fa026ff7976972f09d<>res://.godot/imported/Kenney Future.ttf-650a700b7597083268acd5025330d170.fontdata::
+::res://scenes/::1775366230
+connection_scene.tscn::PackedScene::1428920494181524482::1775366230::0::1::::<><><>0<>0<><>::uid://dpf7kyolxmvos::::res://scenes/ui_theme.tres<>uid://bolhwbekc7ynl::::res://scripts/connection_scene.gd<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png
+lobby.tscn::PackedScene::6606143653017136837::1775296679::0::1::::<><><>0<>0<><>::uid://drlc0dhp66pwq::::res://scripts/lobby.gd<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf
+main.tscn::PackedScene::8209655708089996688::1775296660::0::1::::<><><>0<>0<><>::uid://bm1herfpvw3v1::::res://scripts/main.gd<>uid://b6mcs4pwwlqev::::res://asset/move/dpad_element_up.png<>uid://cftgs47opionn::::res://asset/move/dpad_element_left.png<>uid://ye5sg3w4u3pq::::res://asset/move/dpad_element_right.png<>uid://dnub6ht2c6fcl::::res://asset/move/dpad_element_down.png<>uid://bnvn1glmcosgm::::res://asset/move/ic_Shoot.png<>uid://d3a6hm0netko3::::res://asset/move/ic_Skill.png
+scroll.gdshader::Shader::2374294894463700677::1775362401::0::1::::<><><>0<>0<><>::
+ui_theme.tres::Theme::8224378678846350706::1775316727::0::1::::<><><>0<>0<><>::
+virtual_dpad.tscn::PackedScene::1581153646622529508::1774856098::0::1::::<><><>0<>0<><>::
+::res://scripts/::1775291387
+connection_scene.gd::GDScript::3392237015496365573::1774856098::0::1::::<>Control<><>0<>0<><>::
+input_type.gd::GDScript::3854172623203610069::1774856098::0::1::::InputType<>RefCounted<><>0<>0<><>::
+lobby.gd::GDScript::8375346796161542208::1774856098::0::1::::<>Control<><>0<>0<><>::
+main.gd::GDScript::3282793692411495412::1775211279::0::1::::<>Control<><>0<>0<><>::
+network_manager.gd::GDScript::7408130736459849459::1774928339::0::1::::<>Node<><>0<>0<><>::

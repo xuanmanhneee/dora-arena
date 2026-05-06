@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://c1echrifakywj"]
 
 [ext_resource type="Script" uid="uid://drlc0dhp66pwq" path="res://scripts/lobby.gd" id="1_5gu6x"]
+[ext_resource type="Texture2D" uid="uid://q4uuetjav3nj" path="res://asset/background/backgroundLobby.png" id="2_nqcc7"]
+[ext_resource type="Shader" uid="uid://83ej4jcfunxt" path="res://scenes/scroll.gdshader" id="2_pc087"]
 [ext_resource type="FontFile" uid="uid://b1ushsa75t7p3" path="res://Font/Kenney Future Narrow.ttf" id="2_q60fs"]
 
-[node name="Lobby" type="Control" unique_id=1067301343]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_apkv3"]
+shader = ExtResource("2_pc087")
+shader_parameter/speed = 0.02
+
+[node name="Lobby" type="Control" unique_id=703144223]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +17,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5gu6x")
+
+[node name="BgContainer" type="Node2D" parent="." unique_id=580285768]
+
+[node name="BG1" type="TextureRect" parent="BgContainer" unique_id=1940606222]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_apkv3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nqcc7")
+stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1592374937]
 layout_mode = 1
@@ -22,10 +43,11 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1950731223]
 layout_mode = 2
+alignment = 1
 
 [node name="PlayerNameLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=2096218171]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1000, 100)
+custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_q60fs")
 theme_override_font_sizes/font_size = 60
@@ -35,7 +57,7 @@ max_length = 20
 
 [node name="ReadyButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1419831200]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1000, 100)
+custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_q60fs")
 theme_override_font_sizes/font_size = 60

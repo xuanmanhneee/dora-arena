@@ -10,11 +10,11 @@ func connect_to_server(ip_address: String, port: int):
 	multiplayer.multiplayer_peer = peer
 
 func _on_connected():
-	get_tree().change_scene_to_file("res://lobby.tscn")
+	get_tree().change_scene_to_file("res://scenes/lobby.tscn")
 
 @rpc("authority", "reliable")
 func start_game():
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 @rpc("any_peer", "reliable")
 func register(_player_name: String):
