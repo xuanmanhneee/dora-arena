@@ -3,12 +3,16 @@ class_name Player extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 
+@onready var _collider: CollisionShape2D = $CollisionShape2D
 @onready var visual = $Visual
 @onready var anim: AnimatedSprite2D = $Visual/AnimatedSprite2D
 @onready var shoot_pos: Marker2D = $Visual/Marker2D
 
-@export var bullet: PackedScene
-@export var team: TeamDef.Team = TeamDef.Team.NONE
+const NORMAL_BULLET: PackedScene = preload("res://scenes/normal_bullet.tscn")
+const EXPLOSIVE_BULLET: PackedScene = preload("res://scenes/bullet/explosive_bullet.tscn")
+
+var bullet: PackedScene
+@export var team: Enums.Team = Enums.Team.NONE
 
 var is_stunned: bool = false
 var stun_timer: float = 0.0
@@ -22,6 +26,7 @@ var facing_dir: Vector2 = Vector2.RIGHT
 var is_shooting: bool = false
 
 func _ready() -> void:
+	bullet = NORMAL_BULLET
 	anim.play("run")
 	anim.animation_finished.connect(_on_anim_finished)
 
@@ -82,7 +87,7 @@ func _jump():
 	velocity.y = JUMP_VELOCITY
 
 func _shoot():
-	var b = bullet.instantiate() as Bullet
+	var b = bullet.instantiate() as BaseBullet
 	var pos = shoot_pos.global_position
 	b.setup(pos, facing_dir, team)
 	get_tree().current_scene.add_child(b)
@@ -96,3 +101,11 @@ func apply_knockback(force: Vector2):
 	velocity.y = force.y
 	is_stunned = true
 	stun_timer = stun_time
+
+func apply_effect():
+	bullet = EXPLOSIVE_BULLET
+
+func freeze() -> void:
+	set_physics_process(false)
+	#set_process_input(false)
+	_collider.set_deferred("disabled", true)

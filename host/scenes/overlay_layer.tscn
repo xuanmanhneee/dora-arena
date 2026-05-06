@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dtxclro44o7sp"]
+
+[ext_resource type="Script" uid="uid://cwaigeguqhref" path="res://scripts/overlay_layer.gd" id="1_2wghe"]
+
+[node name="OverlayLayer" type="CanvasLayer" unique_id=869507950]
+script = ExtResource("1_2wghe")
+
+[node name="ScoreBoards" type="Control" parent="." unique_id=1663435599]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="TeamA" type="MarginContainer" parent="ScoreBoards" unique_id=653420363]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="ScoreBoards/TeamA" unique_id=1972120317]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TeamB" type="MarginContainer" parent="ScoreBoards" unique_id=630637259]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="Label" type="Label" parent="ScoreBoards/TeamB" unique_id=1838667018]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="MarginContainer" parent="." unique_id=1798529308]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 23
+
+[node name="Label" type="Label" parent="Timer" unique_id=2071139214]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "0"

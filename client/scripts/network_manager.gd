@@ -20,7 +20,7 @@ func start_game():
 func register(_player_name: String):
 	pass
 
-@rpc("any_peer", "unreliable")
+@rpc("any_peer", "reliable")
 func send_movement_input(_move: int):
 	pass
 

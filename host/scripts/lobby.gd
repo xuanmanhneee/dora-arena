@@ -1,5 +1,7 @@
 extends Control
 
+@onready var ip_address_lineedit: LineEdit = $IpAddress/HBoxContainer/LineEdit
+
 @onready var team_a_slots = [
 	$CenterContainer/VBoxContainer/PlayerListContainer/PlayersContainer/TeamAContainer/Player1,
 	$CenterContainer/VBoxContainer/PlayerListContainer/PlayersContainer/TeamAContainer/Player2,
@@ -11,17 +13,18 @@ extends Control
 
 @onready var start_button: Button = %StartButton
 
-var player_teams: Dictionary[int, TeamDef.Team] = {}
+var player_teams: Dictionary[int, Enums.Team] = {}
 var player_names: Dictionary[int, String] = {}
 
 func _ready() -> void:
+	ip_address_lineedit.text = get_lan_ip()
 	NetworkManager.player_registered.connect(_on_player_registered)
 	start_button.pressed.connect(_on_start_button_pressed)
 
-func assign_team() -> TeamDef.Team:
-	var count1 = player_teams.values().count(TeamDef.Team.TEAM_A)
-	var count2 = player_teams.values().count(TeamDef.Team.TEAM_B)
-	return TeamDef.Team.TEAM_A if count1 <= count2 else TeamDef.Team.TEAM_B
+func assign_team() -> Enums.Team:
+	var count1 = player_teams.values().count(Enums.Team.TEAM_A)
+	var count2 = player_teams.values().count(Enums.Team.TEAM_B)
+	return Enums.Team.TEAM_A if count1 <= count2 else Enums.Team.TEAM_B
 
 func add_player(id: int, player_name: String) -> void:
 	var team = assign_team()
@@ -39,7 +42,7 @@ func _refresh_ui() -> void:
 	var b_index = 0
 	
 	for id in player_teams:
-		if player_teams[id] == TeamDef.Team.TEAM_A:
+		if player_teams[id] == Enums.Team.TEAM_A:
 			if a_index < team_a_slots.size():
 				team_a_slots[a_index].text = player_names[id]
 				a_index += 1
@@ -56,3 +59,15 @@ func _on_start_button_pressed():
 	GameData.player_names = player_names
 	NetworkManager.start_game.rpc()
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+func get_lan_ip() -> String:
+	# Lấy danh sách tất cả các địa chỉ IP của máy
+	var addresses = IP.get_local_addresses()
+	
+	for ip in addresses:
+		# 1. Kiểm tra xem có phải IPv4 không (có dấu chấm)
+		# 2. Kiểm tra xem có phải địa chỉ nội bộ (localhost) không
+		if "." in ip and not ip.begins_with("127.") and not ip.begins_with("169.254."):
+			return ip
+			
+	return "127.0.0.1" # Trả về localhost nếu không thấy mạng LAN

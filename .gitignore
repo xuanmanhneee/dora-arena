@@ -1,0 +1,17 @@
+# Chặn các file rác của Godot 4 ở mọi cấp thư mục
+**/.godot/
+**/*.tmp
+**/*.uid
+**/.import/
+
+# Chặn file cấu hình xuất game (vì thường chứa đường dẫn máy cá nhân)
+**/export_presets.cfg
+
+# Chặn file nhạc và âm thanh (Trọng tâm để giảm 80MB)
+*.mp3
+*.wav
+*.ogg
+
+# Chặn các file rác của Windows
+Thumbs.db
+desktop.ini

@@ -40,7 +40,7 @@ func send_movement_input(move: int):
 	if not multiplayer.is_server():
 		return
 	
-	if not InputType.is_valid_movement(move):
+	if not Enums.is_valid_movement(move):
 		return
 	
 	var id = multiplayer.get_remote_sender_id()
@@ -51,7 +51,7 @@ func send_action_input(action: int):
 	if not multiplayer.is_server():
 		return
 		
-	if not InputType.is_valid_action(action):
+	if not Enums.is_valid_action(action):
 		return
 	
 	var id = multiplayer.get_remote_sender_id()

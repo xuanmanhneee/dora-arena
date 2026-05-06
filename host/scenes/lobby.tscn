@@ -77,3 +77,29 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 text = "Start"
+
+[node name="IpAddress" type="MarginContainer" parent="." unique_id=1196778041]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="IpAddress" unique_id=1651898107]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="IpAddress/HBoxContainer" unique_id=109119875]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ip Address"
+
+[node name="LineEdit" type="LineEdit" parent="IpAddress/HBoxContainer" unique_id=638354875]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "255.255.255.255"
+placeholder_text = "IP ADDRESS"
+alignment = 1
+max_length = 15
