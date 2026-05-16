@@ -17,10 +17,12 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
+SettingsManager="*uid://c77tidxq38088"
 NetworkManager="*uid://by38kb8clse5y"
 GameData="*uid://64v32hvejmvf"
 GameEvents="*uid://buyrdcv8cev8g"
 AudioManager="*uid://cby1njwotgq2g"
+EventBus="*uid://py60i274fsj0"
 
 [debug]
 
@@ -30,14 +32,21 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/event_bus/plugin.cfg")
+
 [global_group]
 
 item_spawn_point=""
+
+[gui]
+
+theme/custom_font="uid://cqai0bevbeetk"
 
 [input]
 

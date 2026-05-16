@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://dbsogqlsc5b8k"]
 
 [ext_resource type="Script" uid="uid://d1phi5smffgfg" path="res://scripts/menu.gd" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://dqyemgtrrc1a0" path="res://assets/background.png" id="2_con2f"]
 [ext_resource type="PackedScene" uid="uid://c5p4a1c55tnwh" path="res://scenes/ui/options_panel.tscn" id="2_vjb58"]
+[ext_resource type="FontFile" uid="uid://cqai0bevbeetk" path="res://assets/font/HL-Comic1_normal.ttf" id="3_g3eks"]
+[ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="4_v86rl"]
+[ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="5_13sgg"]
+[ext_resource type="PackedScene" uid="uid://dukopxp62xaj3" path="res://scenes/test/placeholder_panel.tscn" id="6_v86rl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
+bg_color = Color(1, 1, 1, 0)
 
 [node name="Menu" type="Control" unique_id=525895081]
 layout_mode = 3
@@ -12,43 +20,114 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqeox")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1185859277]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=676443275]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+ratio = 1.778
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1509101807]
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=69808174]
 layout_mode = 2
-theme_override_constants/separation = 20
+texture = ExtResource("2_con2f")
 
-[node name="TwoPlayersButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=563835559]
+[node name="Control" type="Control" parent="AspectRatioContainer" unique_id=1746874486]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/Control" unique_id=1509101807]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.233
+anchor_top = 0.25
+anchor_right = 0.48645836
+anchor_bottom = 0.352
+offset_left = 760.0
+offset_top = 310.0
+offset_right = 867.99994
+offset_bottom = 618.24
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TwoPlayersButton" type="Button" parent="AspectRatioContainer/Control/VBoxContainer" unique_id=563835559]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 100)
+custom_minimum_size = Vector2(595, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("3_g3eks")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_v86rl")
+theme_override_styles/hover = ExtResource("5_13sgg")
 text = "2 Players (Local)"
 
-[node name="FourPlayersButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2117653704]
+[node name="FourPlayersButton" type="Button" parent="AspectRatioContainer/Control/VBoxContainer" unique_id=2117653704]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 100)
+custom_minimum_size = Vector2(595, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("3_g3eks")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_v86rl")
+theme_override_styles/hover = ExtResource("5_13sgg")
 text = "4 Players (LAN)"
 
-[node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=327782871]
+[node name="OptionsButton" type="Button" parent="AspectRatioContainer/Control/VBoxContainer" unique_id=327782871]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 100)
+custom_minimum_size = Vector2(595, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("3_g3eks")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_v86rl")
+theme_override_styles/hover = ExtResource("5_13sgg")
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1519758711]
+[node name="QuitButton" type="Button" parent="AspectRatioContainer/Control/VBoxContainer" unique_id=1519758711]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 100)
+custom_minimum_size = Vector2(595, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("3_g3eks")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("4_v86rl")
+theme_override_styles/hover = ExtResource("5_13sgg")
 text = "Quit"
 
-[node name="OptionsPanel" parent="." unique_id=1055365694 instance=ExtResource("2_vjb58")]
+[node name="Control2" type="Control" parent="AspectRatioContainer" unique_id=941890958]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer/Control2" unique_id=186108441]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06
+anchor_top = 0.534
+anchor_right = 0.609
+anchor_bottom = 0.928
+offset_left = 0.80000305
+offset_top = -1.7153931
+offset_right = 0.8000488
+offset_bottom = -1.7153931
+theme_override_styles/panel = SubResource("StyleBoxFlat_13sgg")
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/Control2/PanelContainer" unique_id=1130433108]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="PlaceholderPanel" parent="AspectRatioContainer/Control2/PanelContainer/MarginContainer" unique_id=1402428104 instance=ExtResource("6_v86rl")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="OptionsPanel" parent="AspectRatioContainer/Control2/PanelContainer/MarginContainer" unique_id=1055365694 instance=ExtResource("2_vjb58")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
+layout_mode = 2

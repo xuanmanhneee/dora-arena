@@ -12,6 +12,7 @@ extends Control
 ]
 
 @onready var start_button: Button = %StartButton
+@onready var back_button: Button = %BackButton
 
 var player_teams: Dictionary[int, Enums.Team] = {}
 var player_names: Dictionary[int, String] = {}
@@ -20,6 +21,7 @@ func _ready() -> void:
 	ip_address_lineedit.text = get_lan_ip()
 	NetworkManager.player_registered.connect(_on_player_registered)
 	start_button.pressed.connect(_on_start_button_pressed)
+	back_button.pressed.connect(_on_back_button_pressed)
 
 func assign_team() -> Enums.Team:
 	var count1 = player_teams.values().count(Enums.Team.TEAM_A)
@@ -59,6 +61,9 @@ func _on_start_button_pressed():
 	GameData.player_names = player_names
 	NetworkManager.start_game.rpc()
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func get_lan_ip() -> String:
 	# Lấy danh sách tất cả các địa chỉ IP của máy
