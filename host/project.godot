@@ -23,6 +23,7 @@ AudioManager="*uid://dv3ne0yvxdqge"
 GameEvents="*uid://b2wo8aepwqgk4"
 SettingsManager="*uid://dihmfljkuiy7q"
 
+
 [debug]
 
 gdscript/warnings/unused_signal=0

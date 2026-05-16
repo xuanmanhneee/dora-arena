@@ -210,4 +210,6 @@ func _on_action_input_received(id: int, action: int) -> void:
 	match action:
 		Enums.Action.JUMP:  player_inputs[id].jump = true
 		Enums.Action.SHOOT: player_inputs[id].shoot = true
+		
+
 #endregion

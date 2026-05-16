@@ -1,23 +1,23 @@
-[gd_scene format=3 uid="uid://cwj2ow6hpocey"]
+[gd_scene format=3 uid="uid://btkbrcx2y0sop"]
 
-[ext_resource type="Script" uid="uid://duk8uo0dnol83" path="res://scripts/map.gd" id="1_paxxb"]
-[ext_resource type="Texture2D" uid="uid://d1c1ykfbl3lhn" path="res://assets/bg_dora22.jpg" id="2_paxxb"]
+[ext_resource type="Script" uid="uid://duk8uo0dnol83" path="res://scripts/map.gd" id="1_jji5p"]
+[ext_resource type="Texture2D" uid="uid://bf1ws60rsotn1" path="res://assets/bg_dora20.jpg" id="2_jji5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
-size = Vector2(1000, 20)
+size = Vector2(500, 20)
 
 [node name="Map" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
-script = ExtResource("1_paxxb")
+script = ExtResource("1_jji5p")
 spawn_points = [NodePath("PlayerSpawnPoints/Marker2D_1"), NodePath("PlayerSpawnPoints/Marker2D_2"), NodePath("PlayerSpawnPoints/Marker2D_3"), NodePath("PlayerSpawnPoints/Marker2D_4")]
 
 [node name="Background" type="TextureRect" parent="." unique_id=1471629453]
-offset_left = -257.0
-offset_top = -228.0
-offset_right = 1509.0
-offset_bottom = 971.0
+offset_left = -281.0
+offset_top = -155.0
+offset_right = 1511.0
+offset_bottom = 985.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_paxxb")
+texture = ExtResource("2_jji5p")
 
 [node name="PlayerSpawnPoints" type="Control" parent="." unique_id=14083712]
 layout_mode = 3
@@ -44,34 +44,85 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Marker2D" type="Marker2D" parent="ItemSpawnPoints" unique_id=524763354 groups=["item_spawn_point"]]
-position = Vector2(300, 550)
+position = Vector2(403, 535)
 
 [node name="Marker2D2" type="Marker2D" parent="ItemSpawnPoints" unique_id=1515602070 groups=["item_spawn_point"]]
-position = Vector2(450, 550)
+position = Vector2(491, 346)
 
 [node name="Marker2D3" type="Marker2D" parent="ItemSpawnPoints" unique_id=1365275287 groups=["item_spawn_point"]]
-position = Vector2(600, 550)
+position = Vector2(1165, 411)
 
 [node name="Marker2D4" type="Marker2D" parent="ItemSpawnPoints" unique_id=290919035 groups=["item_spawn_point"]]
-position = Vector2(750, 550)
+position = Vector2(691, 650)
 
 [node name="Marker2D5" type="Marker2D" parent="ItemSpawnPoints" unique_id=1193321913 groups=["item_spawn_point"]]
-position = Vector2(900, 550)
+position = Vector2(320, 343)
 
 [node name="Marker2D6" type="Marker2D" parent="ItemSpawnPoints" unique_id=1738146648 groups=["item_spawn_point"]]
-position = Vector2(1050, 550)
+position = Vector2(998, 401)
+
+[node name="Marker2D7" type="Marker2D" parent="ItemSpawnPoints" unique_id=1318852485 groups=["item_spawn_point"]]
+position = Vector2(998, 401)
+
+[node name="Marker2D8" type="Marker2D" parent="ItemSpawnPoints" unique_id=231838555 groups=["item_spawn_point"]]
+position = Vector2(998, 401)
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1009606551]
-position = Vector2(682, 613)
+position = Vector2(819, 616)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1717556844]
+position = Vector2(301, -155)
 shape = SubResource("RectangleShape2D_lnu2h")
 
 [node name="ColorRect" type="ColorRect" parent="Ground" unique_id=309317886]
-offset_left = -487.0
-offset_top = -10.0
-offset_right = 513.0
-offset_bottom = 11.0
+offset_left = 44.0
+offset_top = -167.0
+offset_right = 544.0
+offset_bottom = -146.0
+color = Color(0.9668836, 0.9754757, 0.99651057, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Ground3" type="StaticBody2D" parent="." unique_id=957454524]
+position = Vector2(696, 724)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3" unique_id=754668548]
+position = Vector2(-300, -27)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground3" unique_id=268544175]
+position = Vector2(217, -30)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="ColorRect" type="ColorRect" parent="Ground3" unique_id=271383422]
+offset_left = -589.0
+offset_top = -38.0
+offset_right = 461.0
+offset_bottom = -17.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Ground2" type="StaticBody2D" parent="." unique_id=428422778]
+position = Vector2(742, 660)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=624326574]
+position = Vector2(-351, -268)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground2" unique_id=500186162]
+position = Vector2(-409, -83)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="ColorRect" type="ColorRect" parent="Ground2" unique_id=1757990237]
+offset_left = -599.0
+offset_top = -279.0
+offset_right = -99.0
+offset_bottom = -258.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Ground2" unique_id=1923467392]
+offset_left = -657.0
+offset_top = -94.0
+offset_right = -157.0
+offset_bottom = -73.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]
