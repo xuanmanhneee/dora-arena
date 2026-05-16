@@ -20,7 +20,7 @@ var stun_timer: float = 0.0
 
 var is_reflecting: bool = false
 
-@export var stun_time: float = 0.2
+@export var stun_time: float = 0.5
 @export var knockback_decay: float = 8.0
 
 var input: PlayerInput
@@ -77,8 +77,15 @@ func _physics_process(delta: float) -> void:
 
 	# animation
 	if not is_shooting:
-		if anim.animation != "run":
-			anim.play("run")
+		if is_stunned:
+			if anim.animation != "receiveDamage":
+				anim.play("receiveDamage")
+		elif not is_on_floor():
+			if anim.animation != "fall":
+				anim.play("fall")
+		else:
+			if anim.animation != "run":
+				anim.play("run")
 
 func _handle_shoot():
 	if not is_shooting:
@@ -139,6 +146,8 @@ func apply_knockback(force: Vector2):
 	velocity.y = force.y
 	is_stunned = true
 	stun_timer = stun_time
+	is_shooting = false
+	anim.play("receiveDamage")
 
 func freeze() -> void:
 	set_physics_process(false)

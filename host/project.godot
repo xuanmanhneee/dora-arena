@@ -17,10 +17,10 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-NetworkManager="*uid://by38kb8clse5y"
-GameData="*uid://64v32hvejmvf"
-GameEvents="*uid://buyrdcv8cev8g"
-AudioManager="*uid://cby1njwotgq2g"
+NetworkManager="*uid://cord4sw8s37bu"
+GameData="*uid://cgkh6m6vk6rkm"
+GameEvents="*uid://b2wo8aepwqgk4"
+AudioManager="*uid://dv3ne0yvxdqge"
 
 [debug]
 
@@ -34,6 +34,10 @@ window/size/mode=2
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Host"
 
 [global_group]
 
