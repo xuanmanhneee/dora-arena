@@ -41,3 +41,4 @@ shape = SubResource("CapsuleShape2D_qlg0r")
 [node name="EffectManager" type="Node" parent="." unique_id=734462188]
 script = ExtResource("3_qhqgy")
 effects = Array[ExtResource("4_qlg0r")]([ExtResource("5_tuyoq"), ExtResource("6_tuyoq")])
+metadata/_custom_type_script = "uid://7qwaxbvbhw7r"
