@@ -17,12 +17,11 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-SettingsManager="*uid://c77tidxq38088"
-NetworkManager="*uid://by38kb8clse5y"
-GameData="*uid://64v32hvejmvf"
-GameEvents="*uid://buyrdcv8cev8g"
-AudioManager="*uid://cby1njwotgq2g"
-EventBus="*uid://py60i274fsj0"
+NetworkManager="*uid://cord4sw8s37bu"
+GameData="*uid://cgkh6m6vk6rkm"
+AudioManager="*uid://dv3ne0yvxdqge"
+GameEvents="*uid://b2wo8aepwqgk4"
+SettingsManager="*uid://dihmfljkuiy7q"
 
 [debug]
 
@@ -32,9 +31,14 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=2
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Host"
 
 [editor_plugins]
 
