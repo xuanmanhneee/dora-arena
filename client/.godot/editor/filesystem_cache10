@@ -1,5 +1,5 @@
 72322a848ab928aa5c89f0cb78209805
-::res://::1778923980
+::res://::1778928920
 export_presets.cfg::TextFile::-1::1774963696::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::6653566025041660077::1774856098::1774856327::1::::<><><>0<>0<>c5a09e27e8547c03728ca383f62d79f8<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://asset/::1774966599
@@ -15,12 +15,11 @@ ic_Skill.png::CompressedTexture2D::9126445069774381400::1774925258::1774925374::
 ::res://Font/::1774856327
 Kenney Future Narrow.ttf::FontFile::4253724526705379730::1774856098::1774856327::1::::<><><>0<>0<>aae7796021efaba514bdfdb6b35e0d29<>res://.godot/imported/Kenney Future Narrow.ttf-63c43c4bf359e078c665f62de4957a9c.fontdata::
 Kenney Future.ttf::FontFile::8675986939074511581::1774856098::1774856327::1::::<><><>0<>0<>2cddbe076e2ad7fa026ff7976972f09d<>res://.godot/imported/Kenney Future.ttf-650a700b7597083268acd5025330d170.fontdata::
-::res://scenes/::1778074579
-connection_scene.tscn::PackedScene::1428920494181524482::1778074579::0::1::::<><><>0<>0<><>::uid://dpf7kyolxmvos::::res://scenes/ui_theme.tres<>uid://bolhwbekc7ynl::::res://scripts/connection_scene.gd<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png
-lobby.tscn::PackedScene::6606143653017136837::1775296679::0::1::::<><><>0<>0<><>::uid://drlc0dhp66pwq::::res://scripts/lobby.gd<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf
-main.tscn::PackedScene::8209655708089996688::1775296660::0::1::::<><><>0<>0<><>::uid://bm1herfpvw3v1::::res://scripts/main.gd<>uid://b6mcs4pwwlqev::::res://asset/move/dpad_element_up.png<>uid://cftgs47opionn::::res://asset/move/dpad_element_left.png<>uid://ye5sg3w4u3pq::::res://asset/move/dpad_element_right.png<>uid://dnub6ht2c6fcl::::res://asset/move/dpad_element_down.png<>uid://bnvn1glmcosgm::::res://asset/move/ic_Shoot.png<>uid://d3a6hm0netko3::::res://asset/move/ic_Skill.png
-scroll.gdshader::Shader::2374294894463700677::1778074579::0::1::::<><><>0<>0<><>::
-ui_theme.tres::Theme::8224378678846350706::1775316727::0::1::::<><><>0<>0<><>::
+::res://scenes/::1778928215
+connection_scene.tscn::PackedScene::1428920494181524482::1778928215::0::1::::<><><>0<>0<><>::uid://bolhwbekc7ynl::::res://scripts/connection_scene.gd<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png
+lobby.tscn::PackedScene::6606143653017136837::1778928167::0::1::::<><><>0<>0<><>::uid://drlc0dhp66pwq::::res://scripts/lobby.gd<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf
+main.tscn::PackedScene::8209655708089996688::1778926696::0::1::::<><><>0<>0<><>::uid://bm1herfpvw3v1::::res://scripts/main.gd<>uid://b6mcs4pwwlqev::::res://asset/move/dpad_element_up.png<>uid://cftgs47opionn::::res://asset/move/dpad_element_left.png<>uid://ye5sg3w4u3pq::::res://asset/move/dpad_element_right.png<>uid://dnub6ht2c6fcl::::res://asset/move/dpad_element_down.png<>uid://bnvn1glmcosgm::::res://asset/move/ic_Shoot.png<>uid://d3a6hm0netko3::::res://asset/move/ic_Skill.png
+scroll.gdshader::Shader::2374294894463700677::1778924384::0::1::::<><><>0<>0<><>::
 virtual_dpad.tscn::PackedScene::1581153646622529508::1774856098::0::1::::<><><>0<>0<><>::
 ::res://scripts/::1778071198
 connection_scene.gd::GDScript::3392237015496365573::1774856098::0::1::::<>Control<><>0<>0<><>::
