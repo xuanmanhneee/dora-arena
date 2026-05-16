@@ -128,7 +128,11 @@ func _on_player_handle_death(player: Player) -> void:
 	if _current_phase == Enums.GamePhase.SUDDEN_DEATH:
 		_end_game()
 		return
-
+	
+	if player.has_node("EffectManager"):
+		var effect_manager: EffectManager = player.get_node("EffectManager")
+		effect_manager.clear_all_effects()
+	
 	# Vô hiệu hóa player
 	player.remove_from_group("players")
 	player.visible = false

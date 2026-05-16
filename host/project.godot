@@ -35,9 +35,9 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
-[dotnet]
+[global_group]
 
-project/assembly_name="Host"
+item_spawn_point=""
 
 [input]
 

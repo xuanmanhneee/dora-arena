@@ -1,5 +1,8 @@
 class_name EffectManager extends Node
 
+# 1. Thêm biến preload scene Label bạn đã tạo ở bước trước
+const FLOATING_LABEL_SCENE = preload("res://scenes/floating_label.tscn")
+
 @export var effects: Array[Effect]
 
 @onready var player: Player = get_parent()
@@ -9,30 +12,45 @@ func _ready() -> void:
 	GameEvents.player_pickup_item.connect(_on_item_picked)
 
 func add_effect(effect: Effect, value: float = 0.0) -> void:
-	# Nếu đã có buff này rồi, cộng dồn thời gian
+	# --- HIỂN THỊ TÊN EFFECT ---
+	var display_text = effect.effect_name if effect.effect_name != "" else "New Effect!"
+	spawn_effect_label(display_text)
+	# ---------------------------
+
 	if active_timers.has(effect):
 		var existing_timer = active_timers[effect]
-		# Lấy thời gian còn lại hiện tại + thời gian của buff mới
 		var new_time = existing_timer.time_left + effect.duration
-		
-		# Khởi động lại timer với tổng thời gian mới
 		existing_timer.start(new_time)
 		return
 
-	# Thực thi logic của buff
 	effect.apply_effect(player, value)
 
-	# Tạo Timer
 	var timer = Timer.new()
 	add_child(timer)
 	timer.one_shot = true
 	timer.wait_time = effect.duration
-	
-	# Dùng callable.bind để truyền tham số vào hàm callback
 	timer.timeout.connect(_on_timeout.bind(effect, timer))
 	
 	active_timers[effect] = timer
 	timer.start()
+
+# --- HÀM HELPER ĐỂ SPAWN LABEL ---
+func spawn_effect_label(text: String) -> void:
+	var label = FLOATING_LABEL_SCENE.instantiate()
+	
+	# Thêm vào root scene để Label không bị phụ thuộc vào vị trí/di chuyển của Player sau khi spawn
+	get_tree().current_scene.add_child(label)
+	
+	# Vị trí spawn: Trên đầu player một chút (offset lên trên khoảng 50-80 pixel)
+	var spawn_pos = player.global_position + Vector2(0, -60)
+	
+	# Gọi hàm setup từ script Label đã viết trước đó
+	if label.has_method("setup"):
+		label.setup(spawn_pos, text)
+	else:
+		# Fallback nếu bạn chưa kịp gắn script cho Label
+		label.global_position = spawn_pos
+		label.text = text
 
 func _on_timeout(effect: Effect, timer: Timer):
 	effect.remove_effect(player)

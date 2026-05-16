@@ -12,7 +12,6 @@ func _on_death_zone_body_entered(body: Node) -> void:
 	if body is Player:
 		# GameEvents là file Autoload Signal mà chúng ta đã nói
 		GameEvents.player_died.emit(body)
-		pass
 
 # Hàm hỗ trợ GameManager lấy vị trí để spawn
 func get_spawn_position(index: int = -1) -> Vector2:
