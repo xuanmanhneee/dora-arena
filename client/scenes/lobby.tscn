@@ -9,6 +9,38 @@
 shader = ExtResource("2_pc087")
 shader_parameter/speed = 0.02
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqcc7"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 8.0
+bg_color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35686275, 0.60784316, 0.8352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbr6s"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1764706, 0.2901961, 0.43137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35686275, 0.60784316, 0.8352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Lobby" type="Control" unique_id=703144223]
 layout_mode = 3
 anchors_preset = 15
@@ -51,6 +83,7 @@ custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_q60fs")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqcc7")
 placeholder_text = "Player Name"
 alignment = 1
 max_length = 20
@@ -59,6 +92,8 @@ max_length = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_q60fs")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_qbr6s")
 text = "Ready"

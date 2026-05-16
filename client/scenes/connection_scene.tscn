@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://umgd2hb8f1d3"]
 
-[ext_resource type="Theme" uid="uid://dpf7kyolxmvos" path="res://scenes/ui_theme.tres" id="1_cewur"]
 [ext_resource type="Script" uid="uid://bolhwbekc7ynl" path="res://scripts/connection_scene.gd" id="1_xoi0t"]
 [ext_resource type="FontFile" uid="uid://b1ushsa75t7p3" path="res://Font/Kenney Future Narrow.ttf" id="1_yqawo"]
 [ext_resource type="Shader" uid="uid://83ej4jcfunxt" path="res://scenes/scroll.gdshader" id="3_iix7e"]
 [ext_resource type="Texture2D" uid="uid://q4uuetjav3nj" path="res://asset/background/backgroundLobby.png" id="4_qv0y7"]
+
+[sub_resource type="Theme" id="Theme_qbr6s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vti5m"]
 shader = ExtResource("3_iix7e")
@@ -68,7 +69,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_cewur")
+theme = SubResource("Theme_qbr6s")
 script = ExtResource("1_xoi0t")
 
 [node name="BgContainer" type="Node2D" parent="." unique_id=5561334]
@@ -103,7 +104,7 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1727066178]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.35686275, 0.60784316, 0.8352941, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 text = "Enter  IP...
 "

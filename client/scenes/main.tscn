@@ -8,6 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://bnvn1glmcosgm" path="res://asset/move/ic_Shoot.png" id="6_shoot"]
 [ext_resource type="Texture2D" uid="uid://d3a6hm0netko3" path="res://asset/move/ic_Skill.png" id="7_skill"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
+border_width_bottom = 2
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
+border_width_bottom = 2
+shadow_size = 4
+
 [node name="Control" type="Control" unique_id=413332235]
 layout_mode = 3
 anchors_preset = 15
@@ -19,6 +27,15 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 script = ExtResource("1_o5qli")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=950151472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3019608, 0.5254902, 0.827451, 1)
 
 [node name="Dpad_Container" type="Control" parent="." unique_id=1131520316]
 layout_mode = 1
@@ -43,6 +60,7 @@ offset_top = 313.0
 offset_right = 263.0
 offset_bottom = 433.0
 grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_o6xl0")
 icon = ExtResource("2_up")
 flat = true
 expand_icon = true
@@ -73,6 +91,10 @@ offset_top = 381.0
 offset_right = 358.0
 offset_bottom = 501.0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
 icon = ExtResource("4_right")
 flat = true
 expand_icon = true
