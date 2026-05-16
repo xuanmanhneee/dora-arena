@@ -17,12 +17,11 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-SettingsManager="*uid://c77tidxq38088"
-NetworkManager="*uid://by38kb8clse5y"
-GameData="*uid://64v32hvejmvf"
-GameEvents="*uid://buyrdcv8cev8g"
-AudioManager="*uid://cby1njwotgq2g"
-EventBus="*uid://py60i274fsj0"
+SettingsManager="*uid://dihmfljkuiy7q"
+NetworkManager="*uid://cord4sw8s37bu"
+GameData="*uid://cgkh6m6vk6rkm"
+GameEvents="*uid://b2wo8aepwqgk4"
+AudioManager="*uid://dv3ne0yvxdqge"
 
 [debug]
 
