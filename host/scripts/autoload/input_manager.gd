@@ -1,18 +1,13 @@
 extends Node
 
-const DEFAULT_KEYS := {
-	"p1_left": KEY_A,
-	"p1_right": KEY_D,
-	"p1_jump": KEY_W,
-	"p1_shoot": KEY_F,
-}
-
 func _ready() -> void:
 	load_keybinds()
 
 func load_keybinds() -> void:
-	for action in DEFAULT_KEYS.keys():
-		var keycode = SettingsManager.get_setting("input", action, DEFAULT_KEYS[action])
+	var input_defaults: Dictionary = SettingsManager.DEFAULTS["input"]
+
+	for action in input_defaults:
+		var keycode: int = SettingsManager.get_setting("input", action, input_defaults[action])
 		apply_key(action, keycode)
 
 func set_key(action: String, keycode: int) -> void:
@@ -20,9 +15,13 @@ func set_key(action: String, keycode: int) -> void:
 	SettingsManager.set_setting("input", action, keycode)
 
 func apply_key(action: String, keycode: int) -> void:
+	if not InputMap.has_action(action):
+		push_warning("Missing input action: " + action)
+		return
+
 	InputMap.action_erase_events(action)
 
 	var event := InputEventKey.new()
-	event.physical_keycode = keycode
+	event.physical_keycode = keycode as Key
 
 	InputMap.action_add_event(action, event)

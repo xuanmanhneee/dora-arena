@@ -1,0 +1,244 @@
+[gd_scene format=3 uid="uid://67uuxa82gser"]
+
+[ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="1_he75q"]
+[ext_resource type="Texture2D" uid="uid://ck41rhao1pcv3" path="res://assets/chevron_backward.svg" id="1_i8dqb"]
+[ext_resource type="Texture2D" uid="uid://6et8e4nlebbn" path="res://assets/chevron_forward.svg" id="2_lp5uk"]
+[ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="2_sssew"]
+
+[node name="MatchSetupPanel" type="Control" unique_id=152442760]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="RootMarginContainer" type="MarginContainer" parent="." unique_id=1103395518]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RootHBoxContainer" type="HBoxContainer" parent="RootMarginContainer" unique_id=766501532]
+layout_mode = 2
+
+[node name="LeftMarginContainer" type="MarginContainer" parent="RootMarginContainer/RootHBoxContainer" unique_id=152163929]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer" unique_id=16756412]
+layout_mode = 2
+
+[node name="PlayerSetting" type="Control" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer" unique_id=1389528307]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="MarginContainer" type="MarginContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting" unique_id=2091058924]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LocalMode" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting" unique_id=2082290688]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=1060449201]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Local player settings"
+horizontal_alignment = 1
+
+[node name="SettingHeader" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=339111159]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/SettingHeader" unique_id=127463705]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Player 1"
+
+[node name="Label2" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/SettingHeader" unique_id=1382019811]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/SettingHeader" unique_id=2035351912]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Color"
+horizontal_alignment = 1
+
+[node name="Player1Setting2" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=1342119621]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting2" unique_id=1717893274]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Player 1"
+
+[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting2" unique_id=482593805]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "P1"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting2" unique_id=1899169877]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Player2Setting" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=125129355]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player2Setting" unique_id=481840889]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Player 2"
+
+[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player2Setting" unique_id=1889190072]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "P2"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player2Setting" unique_id=522677429]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="LanMode" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting" unique_id=2134799863]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer" unique_id=745829751]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="OtherSetting" type="Control" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer" unique_id=2048861035]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/OtherSetting" unique_id=1012913053]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -14.0
+offset_right = 54.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("1_he75q")
+theme_override_styles/pressed = ExtResource("1_he75q")
+theme_override_styles/hover = ExtResource("2_sssew")
+text = "Start Game"
+
+[node name="ColorRect" type="ColorRect" parent="RootMarginContainer/RootHBoxContainer" unique_id=1524224192]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer" unique_id=1937810637]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2" unique_id=16158190]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Select map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2" unique_id=1132027518]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer" unique_id=1898440979]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=147136293]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("1_i8dqb")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MapPreviewTextureRect" type="TextureRect" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=1989668423]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="ForwardButton" type="Button" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=1092799633]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_lp5uk")
+icon_alignment = 1
+expand_icon = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2" unique_id=122631197]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=449934124]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Time Limit"
+
+[node name="SpinBox" type="SpinBox" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1896793362]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/buttons_vertical_separation = 5
+theme_override_constants/buttons_width = 40
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+alignment = 1

@@ -23,6 +23,7 @@ GameData="*uid://64v32hvejmvf"
 GameEvents="*uid://buyrdcv8cev8g"
 AudioManager="*uid://cby1njwotgq2g"
 EventBus="*uid://py60i274fsj0"
+InputManager="*uid://cf3ioh3m46uh"
 
 [debug]
 
@@ -32,6 +33,7 @@ gdscript/warnings/unused_signal=0
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"

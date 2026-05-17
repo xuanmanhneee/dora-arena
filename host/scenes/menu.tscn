@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="4_v86rl"]
 [ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="5_13sgg"]
 [ext_resource type="PackedScene" uid="uid://dukopxp62xaj3" path="res://scenes/test/placeholder_panel.tscn" id="6_v86rl"]
+[ext_resource type="PackedScene" uid="uid://67uuxa82gser" path="res://match_setup_panel.tscn" id="7_13sgg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
 bg_color = Color(1, 1, 1, 0)
@@ -125,6 +126,11 @@ theme_override_constants/margin_bottom = 2
 
 [node name="PlaceholderPanel" parent="AspectRatioContainer/Control2/PanelContainer/MarginContainer" unique_id=1402428104 instance=ExtResource("6_v86rl")]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MatchSetupPanel" parent="AspectRatioContainer/Control2/PanelContainer/MarginContainer" unique_id=152442760 instance=ExtResource("7_13sgg")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="OptionsPanel" parent="AspectRatioContainer/Control2/PanelContainer/MarginContainer" unique_id=1055365694 instance=ExtResource("2_vjb58")]
