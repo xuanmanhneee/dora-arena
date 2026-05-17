@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var game: Game = get_parent() as Game
+
 @onready var winner_label: Label = %WinnerLabel
 @onready var play_again_button = %PlayAgainButton
 @onready var return_main_menu_button = %ReturnMainMenuButton
@@ -26,7 +28,7 @@ func _on_game_over(winner: Enums.Team) -> void:
 
 func _get_winner_text(winner: Enums.Team) -> String:
 	
-	if GameData.mode == Enums.GameMode.LOCAL_2P:
+	if game.mode == Enums.GameMode.LOCAL_2P:
 		return "P%d Win!" % (1 if winner == Enums.Team.TEAM_A else 2)
 	else:
 		return "Team %s Win!" % ("A" if winner == Enums.Team.TEAM_A else "B")

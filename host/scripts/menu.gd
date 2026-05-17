@@ -9,26 +9,23 @@ extends Control
 @onready var match_setup_panel: Control = %MatchSetupPanel
 @onready var options_panel: Control = %OptionsPanel
 
-func _enter_tree() -> void:
-	%PlaceholderPanel.visible = true
-	%OptionsPanel.visible = false
-
 func _ready() -> void:
 	
 	two_players_button.pressed.connect(_on_two_players_button_pressed)
 	four_players_button.pressed.connect(_on_four_players_button_presssed)
 	options_button.pressed.connect(_on_options_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
+	
+	_show_panel(placeholder_panel)
 
 func _on_two_players_button_pressed():
-	#GameData.mode = Enums.GameMode.LOCAL_2P
-	#get_tree().change_scene_to_file("res://scenes/game.tscn")
-	_show_panel(%MatchSetupPanel)
+	_show_panel(match_setup_panel, Enums.GameMode.LOCAL_2P)
+
 
 
 func _on_four_players_button_presssed():
-	GameData.mode = Enums.GameMode.LAN_4P
-	get_tree().change_scene_to_file("res://scenes/lobby.tscn")
+	_show_panel(match_setup_panel, Enums.GameMode.LAN_4P)
+
 
 func _on_options_button_pressed() -> void:
 	_show_panel(options_panel)
@@ -36,9 +33,12 @@ func _on_options_button_pressed() -> void:
 func _on_quit_button_pressed():
 	get_tree().quit()
 
-func _show_panel(panel: Control) -> void:
-	placeholder_panel.visible = false
-	match_setup_panel.visible = false
-	options_panel.visible = false
+func _show_panel(panel: Control, data: Variant = null) -> void:
+	placeholder_panel.hide()
+	match_setup_panel.hide()
+	options_panel.hide()
 	
-	panel.visible = true
+	panel.show()
+	
+	if panel.has_method("on_open"):
+		panel.on_open(data)

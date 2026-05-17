@@ -1,11 +1,11 @@
 extends Control
 
-@onready var up_button: Button = $UpButton
-@onready var down_button: Button = $DownButton
-@onready var left_button: Button = $LeftButton
-@onready var right_button: Button = $RightButton
-@onready var shoot_button: Button = $ShootButton
-@onready var skill_button: Button = $SkillButton
+@onready var up_button: Button = %UpButton
+@onready var down_button: Button = %DownButton
+@onready var left_button: Button = %LeftButton
+@onready var right_button: Button = %RightButton
+@onready var shoot_button: Button = %ShootButton
+@onready var skill_button: Button = %SkillButton
 
 func _ready() -> void:
 	left_button.button_down.connect(func(): _send_move(InputType.Movement.LEFT))

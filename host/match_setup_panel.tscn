@@ -3,8 +3,28 @@
 [ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="1_he75q"]
 [ext_resource type="Texture2D" uid="uid://ck41rhao1pcv3" path="res://assets/chevron_backward.svg" id="1_i8dqb"]
 [ext_resource type="Script" uid="uid://dvlyyc4uhiae0" path="res://scripts/ui/match_setup_panel.gd" id="1_sssew"]
+[ext_resource type="Script" uid="uid://iexsr0iqd1dj" path="res://data/map/map_info.gd" id="2_64gif"]
 [ext_resource type="Texture2D" uid="uid://6et8e4nlebbn" path="res://assets/chevron_forward.svg" id="2_lp5uk"]
 [ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="2_sssew"]
+[ext_resource type="Resource" uid="uid://cx6yhad38dl63" path="res://data/map/map_1.tres" id="3_kwokf"]
+[ext_resource type="Resource" uid="uid://cdl6ngr7wb2tp" path="res://data/map/map_2.tres" id="4_t2bgj"]
+[ext_resource type="Resource" uid="uid://vv2navg6kwte" path="res://data/map/map_3.tres" id="5_f5uo2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64gif"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwokf"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [node name="MatchSetupPanel" type="Control" unique_id=152442760]
 layout_mode = 3
@@ -12,6 +32,7 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("1_sssew")
+maps = Array[ExtResource("2_64gif")]([ExtResource("3_kwokf"), ExtResource("4_t2bgj"), ExtResource("5_f5uo2")])
 
 [node name="RootMarginContainer" type="MarginContainer" parent="." unique_id=1103395518]
 layout_mode = 1
@@ -52,7 +73,9 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LocalMode" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting" unique_id=2082290688]
+[node name="LocalModePanel" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting" unique_id=2082290688]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,7 +85,7 @@ grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=1060449201]
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel" unique_id=1060449201]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -70,16 +93,16 @@ theme_override_font_sizes/font_size = 40
 text = "Local player settings"
 horizontal_alignment = 1
 
-[node name="SettingHeader" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=339111159]
+[node name="SettingHeader" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel" unique_id=339111159]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/SettingHeader" unique_id=127463705]
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/SettingHeader" unique_id=127463705]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player 1"
 
-[node name="Label2" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/SettingHeader" unique_id=1382019811]
+[node name="Label2" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/SettingHeader" unique_id=1382019811]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -87,7 +110,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Name"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/SettingHeader" unique_id=2035351912]
+[node name="Label3" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/SettingHeader" unique_id=2035351912]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -95,53 +118,143 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Color"
 horizontal_alignment = 1
 
-[node name="Player1Setting" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=1342119621]
+[node name="Player1Setting" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel" unique_id=1342119621]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting" unique_id=1717893274]
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player1Setting" unique_id=1717893274]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player 1"
 
-[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting" unique_id=482593805]
+[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player1Setting" unique_id=482593805]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 text = "P1"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting" unique_id=1899169877]
+[node name="Player1ColorPicker" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player1Setting" unique_id=1899169877]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Player2Setting" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=125129355]
+[node name="Player2Setting" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel" unique_id=125129355]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player2Setting" unique_id=481840889]
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player2Setting" unique_id=481840889]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player 2"
 
-[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player2Setting" unique_id=1889190072]
+[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player2Setting" unique_id=1889190072]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 text = "P2"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player2Setting" unique_id=522677429]
+[node name="Player2ColorPicker" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player2Setting" unique_id=522677429]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="LanMode" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting" unique_id=2134799863]
-visible = false
-layout_mode = 0
+[node name="LanModePanel" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting" unique_id=2134799863]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel" unique_id=1637903069]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Lan Player Setting"
+horizontal_alignment = 1
+
+[node name="PlayersContainer" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel" unique_id=1263088245]
+layout_mode = 2
+
+[node name="TeamAContainer" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer" unique_id=304393899]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TeamALabel" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamAContainer" unique_id=2080892751]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Team A"
+horizontal_alignment = 1
+
+[node name="P1Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamAContainer" unique_id=967852733]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_64gif")
+text = "Waiting ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamAContainer" unique_id=2144751378]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_64gif")
+text = "Waiting ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TeamBContainer" type="VBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer" unique_id=1349909275]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TeamBLabel" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamBContainer" unique_id=2023340341]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Team B"
+horizontal_alignment = 1
+
+[node name="P1Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamBContainer" unique_id=754966269]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_64gif")
+text = "Waiting ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamBContainer" unique_id=170297856]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_64gif")
+text = "Waiting ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel" unique_id=779712398]
+layout_mode = 2
+
+[node name="IpAddress" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/HBoxContainer" unique_id=1705916084]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Ip Address: "
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/HBoxContainer" unique_id=2103361141]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/read_only = SubResource("StyleBoxFlat_kwokf")
+placeholder_text = "255.255.255.255"
+alignment = 1
+max_length = 19
+editable = false
 
 [node name="ColorRect" type="ColorRect" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer" unique_id=745829751]
 custom_minimum_size = Vector2(0, 2)
@@ -152,7 +265,8 @@ color = Color(0, 0, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="StartButton" type="Button" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/OtherSetting" unique_id=1012913053]
+[node name="StartGameButton" type="Button" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/OtherSetting" unique_id=1012913053]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -206,6 +320,7 @@ custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
 [node name="BackwardButton" type="Button" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=147136293]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("1_i8dqb")
@@ -213,11 +328,33 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="MapPreviewTextureRect" type="TextureRect" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=1989668423]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MapNameLabel" type="Label" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer/MapPreviewTextureRect" unique_id=197333755]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -20.0
+offset_right = 0.5
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Map Name Label"
 
 [node name="ForwardButton" type="Button" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=1092799633]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 icon = ExtResource("2_lp5uk")
@@ -235,12 +372,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Time Limit (Second) "
 
-[node name="SpinBox" type="SpinBox" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1896793362]
+[node name="GameTimeSpinBox" type="SpinBox" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1896793362]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/buttons_vertical_separation = 5
 theme_override_constants/buttons_width = 40
 min_value = 1.0
 max_value = 600.0
-value = 1.0
+value = 5.0
 alignment = 1

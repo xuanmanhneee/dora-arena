@@ -15,12 +15,14 @@ const EXPLOSIVE_BULLET: PackedScene = preload("res://scenes/bullet/explosive_bul
 var current_bullet: PackedScene
 @export var team: Enums.Team = Enums.Team.NONE
 
+var is_camera_target: bool = true
 var is_stunned: bool = false
 var stun_timer: float = 0.0
 
 var is_reflecting: bool = false
 
-@export var stun_time: float = 0.2
+
+@export var stun_time: float = 0.5
 @export var knockback_decay: float = 8.0
 
 var input: PlayerInput
@@ -28,11 +30,35 @@ var input: PlayerInput
 var facing_dir: Vector2 = Vector2.RIGHT
 var is_shooting: bool = false
 
+var id: int
+var display_name: String
+var color: Color = Color.WHITE
+
+func setup(
+	player_id: int,
+	player_name: String,
+	player_team: Enums.Team,
+	player_input: PlayerInput,
+	player_color: Color
+) -> void:
+	id = player_id
+	display_name = player_name
+	team = player_team
+	input = player_input
+	color = player_color
+	
+	if is_node_ready():
+		_apply_color()
+
 func _ready() -> void:
 	current_bullet = NORMAL_BULLET
+
 	anim.play("run")
 	anim.animation_finished.connect(_on_anim_finished)
 	hurt_box.area_entered.connect(_on_hurtbox_area_entered)
+	
+	_apply_color()
+
 
 func _physics_process(delta: float) -> void:
 	if input == null:
@@ -77,8 +103,15 @@ func _physics_process(delta: float) -> void:
 
 	# animation
 	if not is_shooting:
-		if anim.animation != "run":
-			anim.play("run")
+		if is_stunned:
+			if anim.animation != "receiveDamage":
+				anim.play("receiveDamage")
+		elif not is_on_floor():
+			if anim.animation != "fall":
+				anim.play("fall")
+		else:
+			if anim.animation != "run":
+				anim.play("run")
 
 func _handle_shoot():
 	if not is_shooting:
@@ -134,11 +167,18 @@ func _handle_bullet_impact(bullet: BaseBullet):
 	apply_knockback(bullet.fly_dir * bullet.knockback_force)
 	bullet.handle_impact()
 	
+func _apply_color() -> void:
+	visual.modulate = color
+
+	
 func apply_knockback(force: Vector2):
 	velocity.x = force.x
 	velocity.y = force.y
 	is_stunned = true
 	stun_timer = stun_time
+
+	is_shooting = false
+	anim.play("receiveDamage")
 
 func freeze() -> void:
 	set_physics_process(false)

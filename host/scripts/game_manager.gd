@@ -1,77 +1,96 @@
+class_name GameManager
 extends Node
 
 @export var player_scene: PackedScene
-@export var current_map: Node2D
+
+var game: Game
+var world: Node2D
+var current_map: Node2D
 
 var _game_time: float = -1
-
 var _remaining_time: float = -1
 var is_game_over: bool = false
+
 var player_inputs: Dictionary[int, PlayerInput] = {}
 
 var _current_phase: Enums.GamePhase = Enums.GamePhase.NORMAL
+
 var scores: Dictionary[Enums.Team, int] = {
 	Enums.Team.TEAM_A: 0,
 	Enums.Team.TEAM_B: 0
 }
 
-func setup(game_time: float):
-	_game_time = game_time
-
 func _ready() -> void:
 	GameEvents.player_died.connect(_on_player_handle_death)
 	GameEvents.play_again_requested.connect(_on_restart)
 	GameEvents.return_main_menu_requested.connect(_on_return_to_main_menu)
-	await get_tree().process_frame
-	
+
+	set_process(false)
+
+func setup(game_ref: Game) -> void:
+	game = game_ref
+	world = game.world
+	current_map = game.current_map
+
+	if current_map == null:
+		push_error("GameManager setup failed: current_map is null")
+		return
+
+	_start_game()
+
+func _start_game() -> void:
+	is_game_over = false
 	_current_phase = Enums.GamePhase.NORMAL
-	
-	_game_time = GameData.current_game_time
+
+	_game_time = game.game_time
 	_remaining_time = _game_time
-	
+
 	_register_players()
 	_spawn_all_players()
+
+	set_process(true)
 
 # --- TÁCH BIỆT: Đăng ký input vs Spawn vật lý ---
 
 func _register_players() -> void:
-	match GameData.mode:
-		Enums.GameMode.LOCAL_2P:
-			GameData.player_teams[1] = Enums.Team.TEAM_A
-			GameData.player_teams[2] = Enums.Team.TEAM_B
-			player_inputs[1] = PlayerInput.new()
-			player_inputs[2] = PlayerInput.new()
+	player_inputs.clear()
 
-		Enums.GameMode.LAN_4P:
+	if game.mode == Enums.GameMode.LAN_4P:
+		if not NetworkManager.movement_input_received.is_connected(_on_movement_input_received):
 			NetworkManager.movement_input_received.connect(_on_movement_input_received)
+
+		if not NetworkManager.action_input_received.is_connected(_on_action_input_received):
 			NetworkManager.action_input_received.connect(_on_action_input_received)
-			for id in GameData.player_teams:
-				player_inputs[id] = PlayerInput.new()
+
+	for id in game.player_configs:
+		player_inputs[id] = PlayerInput.new()
 
 func _spawn_all_players() -> void:
-	# Cả 2 chế độ đều dùng GameData.player_teams — không phân biệt
-	var index = 0
-	for id in GameData.player_teams:
+	var players_config := game.player_configs
+
+	var index := 0
+	for id in players_config:
+		var input := player_inputs[id]
 		var pos = current_map.get_spawn_position(index)
-		_create_player(id, GameData.player_teams[id], player_inputs[id], pos)
+		_create_player(id, players_config[id], input, pos)
 		index += 1
-		
 
 func _on_restart() -> void:
-	# Reset trạng thái
 	is_game_over = false
 	_remaining_time = _game_time
 	_current_phase = Enums.GamePhase.NORMAL
+
 	scores[Enums.Team.TEAM_A] = 0
 	scores[Enums.Team.TEAM_B] = 0
 
-	# Xóa player cũ
-	for p in get_tree().get_nodes_in_group("players"):
-		p.queue_free()
+	for player in game.players.values():
+		if player != null and is_instance_valid(player):
+			player.queue_free()
+
+	game.players.clear()
 
 	await get_tree().process_frame
-	
-	# Tạo lại player — dùng lại data đã có sẵn
+
 	_spawn_all_players()
 
 	GameEvents.game_restarted.emit()
@@ -80,7 +99,7 @@ func _on_restart() -> void:
 
 func _process(delta: float) -> void:
 	_tick_timer(delta)
-	if GameData.mode == Enums.GameMode.LOCAL_2P:
+	if game.mode == Enums.GameMode.LOCAL_2P:
 		_read_local_movement()
 
 func _tick_timer(delta: float) -> void:
@@ -102,19 +121,26 @@ func _read_local_movement() -> void:
 
 # --- TẠO / HỒI SINH ---
 
-func _create_player(id: int, team: Enums.Team, input: PlayerInput, pos: Vector2) -> void:
+func _create_player(id: int, data: Dictionary, input: PlayerInput, pos: Vector2) -> void:
 	if not player_scene:
 		push_error("Chưa gán Player Scene vào GameManager!")
 		return
 
 	var p := player_scene.instantiate() as Player
+
 	p.name = "Player_%d" % id
-	p.team = team
-	p.input = input
 	p.global_position = pos
-	p.modulate = Color(randf(), randf(), randf())
-	p.add_to_group("players")
-	get_parent().add_child(p)
+
+	p.setup(
+		id,
+		data.get("name", "P%d" % id),
+		data.get("team", Enums.Team.NONE),
+		input,
+		data.get("color", Color.WHITE)
+	)
+
+	game.players[id] = p
+	world.add_child(p)
 
 func _on_player_handle_death(player: Player) -> void:
 	if is_game_over: return  # Không xử lý nếu game đã kết thúc
@@ -134,7 +160,7 @@ func _on_player_handle_death(player: Player) -> void:
 		effect_manager.clear_all_effects()
 	
 	# Vô hiệu hóa player
-	player.remove_from_group("players")
+	player.is_camera_target = false
 	player.visible = false
 	player.set_physics_process(false)
 
@@ -149,7 +175,7 @@ func _respawn_player(player: Player) -> void:
 	player.global_position = current_map.get_spawn_position(-1)
 	player.visible = true
 	player.set_physics_process(true)
-	player.add_to_group("players")
+	player.is_camera_target = true
 	if player.has_method("reset_physics"):
 		player.reset_physics()
 
@@ -167,18 +193,18 @@ func _on_time_up() -> void:
 func _end_game() -> void:
 	is_game_over = true
 
-	for p: Player in get_tree().get_nodes_in_group("players"):
+	for p: Player in game.players.values():
 		p.freeze()
 
 	var score_a := scores[Enums.Team.TEAM_A]
 	var score_b := scores[Enums.Team.TEAM_B]
 	var winner = Enums.Team.TEAM_A if score_a > score_b else Enums.Team.TEAM_B
 	
-	for p in get_tree().get_nodes_in_group("players"):
+	for p: Player in game.players.values():
 		p.freeze()
 		if winner != Enums.Team.NONE and p.team != winner:
 			p.visible = false
-			p.remove_from_group("players")  # Camera bỏ qua luôn
+			p.is_camera_target = false
 
 	GameEvents.game_over.emit(winner)
 	
@@ -195,7 +221,7 @@ func _on_return_to_main_menu() -> void:
 #region INPUT EVENT
 
 func _input(event: InputEvent) -> void:
-	if GameData.mode != Enums.GameMode.LOCAL_2P: return
+	if game.mode != Enums.GameMode.LOCAL_2P: return
 	if event.is_action_pressed("p1_jump"):  player_inputs[1].jump = true
 	if event.is_action_pressed("p1_shoot"): player_inputs[1].shoot = true
 	if event.is_action_pressed("p2_jump"):  player_inputs[2].jump = true
@@ -210,4 +236,6 @@ func _on_action_input_received(id: int, action: int) -> void:
 	match action:
 		Enums.Action.JUMP:  player_inputs[id].jump = true
 		Enums.Action.SHOOT: player_inputs[id].shoot = true
+		
+
 #endregion

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://biugfvkibrqbg"]
 
-[ext_resource type="PackedScene" uid="uid://cwj2ow6hpocey" path="res://scenes/map.tscn" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://bofyspmd6b58m" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dtxclro44o7sp" path="res://scenes/overlay_layer.tscn" id="3_iywne"]
 [ext_resource type="Script" uid="uid://crykvjep6ff53" path="res://scripts/multiplayer_camera_2d.gd" id="3_lbhrr"]
@@ -12,12 +11,13 @@
 [node name="Game" type="Node" unique_id=468330071]
 script = ExtResource("1_p57ef")
 
-[node name="Map" parent="." unique_id=1767039355 instance=ExtResource("1_lnu2h")]
+[node name="World" type="Node2D" parent="." unique_id=810238788]
+unique_name_in_owner = true
 
-[node name="GameManager" type="Node" parent="." unique_id=2052883498 node_paths=PackedStringArray("current_map")]
+[node name="GameManager" type="Node" parent="." unique_id=2052883498]
+unique_name_in_owner = true
 script = ExtResource("3_u5sy4")
 player_scene = ExtResource("4_u5sy4")
-current_map = NodePath("../Map")
 
 [node name="ItemManager" type="Node" parent="." unique_id=2061195717]
 script = ExtResource("5_gee14")

@@ -1,72 +1,168 @@
 [gd_scene format=3 uid="uid://do723hs613s4o"]
 
 [ext_resource type="Script" uid="uid://bm1herfpvw3v1" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://b6mcs4pwwlqev" path="res://asset/move/dpad_element_up.png" id="2_up"]
+[ext_resource type="Texture2D" uid="uid://cftgs47opionn" path="res://asset/move/dpad_element_left.png" id="3_left"]
+[ext_resource type="Texture2D" uid="uid://ye5sg3w4u3pq" path="res://asset/move/dpad_element_right.png" id="4_right"]
+[ext_resource type="Texture2D" uid="uid://dnub6ht2c6fcl" path="res://asset/move/dpad_element_down.png" id="5_down"]
+[ext_resource type="Texture2D" uid="uid://bnvn1glmcosgm" path="res://asset/move/ic_Shoot.png" id="6_shoot"]
+[ext_resource type="Texture2D" uid="uid://d3a6hm0netko3" path="res://asset/move/ic_Skill.png" id="7_skill"]
 
-[node name="Control" type="Control" unique_id=1747779477]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
+border_width_bottom = 2
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
+border_width_bottom = 2
+shadow_size = 4
+
+[node name="Control" type="Control" unique_id=413332235]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_o5qli")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=950151472]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_o5qli")
+color = Color(0.3019608, 0.5254902, 0.827451, 1)
 
-[node name="UpButton" type="Button" parent="." unique_id=1336892568]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 448.0
-offset_top = 191.0
-offset_right = 648.0
-offset_bottom = 391.0
-theme_override_font_sizes/font_size = 60
-text = "Up"
+[node name="Dpad_Container" type="Control" parent="." unique_id=1131520316]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -590.0
+offset_right = 20.0
+offset_bottom = -590.0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="DownButton" type="Button" parent="." unique_id=385195621]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 452.0
-offset_top = 697.0
-offset_right = 652.0
-offset_bottom = 897.0
-theme_override_font_sizes/font_size = 60
-text = "Down"
+[node name="UpButton" type="Button" parent="Dpad_Container" unique_id=723680652]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 143.0
+offset_top = 313.0
+offset_right = 263.0
+offset_bottom = 433.0
+grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_o6xl0")
+icon = ExtResource("2_up")
+flat = true
+expand_icon = true
 
-[node name="LeftButton" type="Button" parent="." unique_id=967705301]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 200.0
-offset_top = 440.0
-offset_right = 400.0
-offset_bottom = 640.0
-theme_override_font_sizes/font_size = 60
-text = "Left"
+[node name="LeftButton" type="Button" parent="Dpad_Container" unique_id=630160505]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 388.0
+offset_right = 164.0
+offset_bottom = 508.0
+grow_vertical = 0
+icon = ExtResource("3_left")
+flat = true
+expand_icon = true
 
-[node name="RightButton" type="Button" parent="." unique_id=2095872491]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 713.0
-offset_top = 441.0
-offset_right = 913.0
-offset_bottom = 641.0
-theme_override_font_sizes/font_size = 60
-text = "Right"
+[node name="RightButton" type="Button" parent="Dpad_Container" unique_id=2038287672]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 238.0
+offset_top = 381.0
+offset_right = 358.0
+offset_bottom = 501.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_tipki")
+icon = ExtResource("4_right")
+flat = true
+expand_icon = true
 
-[node name="ShootButton" type="Button" parent="." unique_id=2018091091]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 1228.0
-offset_top = 452.0
-offset_right = 1428.0
-offset_bottom = 652.0
-theme_override_font_sizes/font_size = 60
-text = "Shoot"
+[node name="DownButton" type="Button" parent="Dpad_Container" unique_id=1406775152]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 145.0
+offset_top = 466.0
+offset_right = 265.0
+offset_bottom = 586.0
+grow_vertical = 0
+icon = ExtResource("5_down")
+flat = true
+expand_icon = true
 
-[node name="SkillButton" type="Button" parent="." unique_id=430425843]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 1572.0
-offset_top = 455.0
-offset_right = 1772.0
-offset_bottom = 655.0
-theme_override_font_sizes/font_size = 60
-text = "Skill"
+[node name="Action_Container" type="Control" parent="." unique_id=696477075]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1070.0
+offset_top = -590.0
+offset_right = -1070.0
+offset_bottom = -590.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ShootButton" type="Button" parent="Action_Container" unique_id=1937687428]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 915.0
+offset_top = 423.0
+offset_right = 1065.0
+offset_bottom = 573.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("6_shoot")
+flat = true
+expand_icon = true
+
+[node name="SkillButton" type="Button" parent="Action_Container" unique_id=213117000]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 797.0
+offset_top = 286.0
+offset_right = 927.0
+offset_bottom = 416.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("7_skill")
+flat = true
+expand_icon = true

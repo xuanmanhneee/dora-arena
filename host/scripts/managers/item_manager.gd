@@ -1,7 +1,9 @@
 class_name ItemManager extends Node
 
+@onready var game: Game = get_parent() as Game
+
 var item_scene: PackedScene = preload("res://scenes/item.tscn")
-@onready var map: Node2D = get_parent().get_node("Map")
+@onready var map: Node2D = game.current_map
 
 @export var spawn_interval: float = 15.0
 

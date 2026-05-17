@@ -2,6 +2,65 @@
 
 [ext_resource type="Script" uid="uid://bolhwbekc7ynl" path="res://scripts/connection_scene.gd" id="1_xoi0t"]
 [ext_resource type="FontFile" uid="uid://b1ushsa75t7p3" path="res://Font/Kenney Future Narrow.ttf" id="1_yqawo"]
+[ext_resource type="Shader" uid="uid://83ej4jcfunxt" path="res://scenes/scroll.gdshader" id="3_iix7e"]
+[ext_resource type="Texture2D" uid="uid://q4uuetjav3nj" path="res://asset/background/backgroundLobby.png" id="4_qv0y7"]
+
+[sub_resource type="Theme" id="Theme_qbr6s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vti5m"]
+shader = ExtResource("3_iix7e")
+shader_parameter/speed = 0.02
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cewur"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 8.0
+bg_color = Color(0.101960786, 0.101960786, 0.18039216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35686275, 0.60784316, 0.8352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qbr6s"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.1764706, 0.2901961, 0.43137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35686275, 0.60784316, 0.8352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iix7e"]
+bg_color = Color(0.11372549, 0.16470589, 0.30588236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qv0y7"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.23921569, 0.41568628, 0.61960787, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35686275, 0.60784316, 0.8352941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="ConnectionScene" type="Control" unique_id=1414872600]
 layout_mode = 3
@@ -10,27 +69,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_qbr6s")
 script = ExtResource("1_xoi0t")
+
+[node name="BgContainer" type="Node2D" parent="." unique_id=5561334]
+
+[node name="BG1" type="TextureRect" parent="BgContainer" unique_id=1397569234]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vti5m")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_qv0y7")
+stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1709714765]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=565052943]
 custom_minimum_size = Vector2(1000, 200)
 layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1727066178]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Enter  IP...
+"
+horizontal_alignment = 1
 
 [node name="IpAddressLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=1044832702]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1000, 100)
+custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
+size_flags_horizontal = 4
 tooltip_text = "Địa chỉ IP của máy chủ"
 theme_override_fonts/font = ExtResource("1_yqawo")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_cewur")
 text = "127.0.0.1"
 placeholder_text = "IP Address"
 alignment = 1
@@ -38,9 +126,14 @@ max_length = 15
 
 [node name="ConnectButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=622389907]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(1000, 100)
+custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_yqawo")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_qbr6s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iix7e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qv0y7")
 text = "Connect
 "
