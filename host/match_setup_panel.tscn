@@ -2,6 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="1_he75q"]
 [ext_resource type="Texture2D" uid="uid://ck41rhao1pcv3" path="res://assets/chevron_backward.svg" id="1_i8dqb"]
+[ext_resource type="Script" uid="uid://dvlyyc4uhiae0" path="res://scripts/ui/match_setup_panel.gd" id="1_sssew"]
 [ext_resource type="Texture2D" uid="uid://6et8e4nlebbn" path="res://assets/chevron_forward.svg" id="2_lp5uk"]
 [ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="2_sssew"]
 
@@ -10,6 +11,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+script = ExtResource("1_sssew")
 
 [node name="RootMarginContainer" type="MarginContainer" parent="." unique_id=1103395518]
 layout_mode = 1
@@ -93,22 +95,22 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Color"
 horizontal_alignment = 1
 
-[node name="Player1Setting2" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=1342119621]
+[node name="Player1Setting" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode" unique_id=1342119621]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting2" unique_id=1717893274]
+[node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting" unique_id=1717893274]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Player 1"
 
-[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting2" unique_id=482593805]
+[node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting" unique_id=482593805]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 text = "P1"
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting2" unique_id=1899169877]
+[node name="ColorPickerButton" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalMode/Player1Setting" unique_id=1899169877]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
@@ -231,7 +233,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "Time Limit"
+text = "Time Limit (Second) "
 
 [node name="SpinBox" type="SpinBox" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/HBoxContainer2" unique_id=1896793362]
 layout_mode = 2
@@ -239,6 +241,6 @@ size_flags_horizontal = 3
 theme_override_constants/buttons_vertical_separation = 5
 theme_override_constants/buttons_width = 40
 min_value = 1.0
-max_value = 10.0
+max_value = 600.0
 value = 1.0
 alignment = 1
