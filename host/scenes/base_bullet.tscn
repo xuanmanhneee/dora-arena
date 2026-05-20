@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
 radius = 17.0
 
-[node name="BaseBullet" type="Area2D" unique_id=1271099429]
+[node name="BaseBullet" type="Area2D" unique_id=1271099429 groups=["bullets"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_qynt6")

@@ -26,16 +26,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Marker2D_1" type="Marker2D" parent="PlayerSpawnPoints" unique_id=1402631702]
-position = Vector2(416, -261)
+position = Vector2(1066, -246)
 
 [node name="Marker2D_2" type="Marker2D" parent="PlayerSpawnPoints" unique_id=2032657671]
-position = Vector2(281, -259)
+position = Vector2(205, -253)
 
 [node name="Marker2D_3" type="Marker2D" parent="PlayerSpawnPoints" unique_id=775982842]
-position = Vector2(889, -273)
+position = Vector2(380, -254)
 
 [node name="Marker2D_4" type="Marker2D" parent="PlayerSpawnPoints" unique_id=678127531]
-position = Vector2(1010, -278)
+position = Vector2(948, -245)
 
 [node name="ItemSpawnPoints" type="Control" parent="." unique_id=132246755]
 layout_mode = 3

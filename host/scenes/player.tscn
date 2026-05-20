@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://kw4bjkuayhlf"]
 
-[ext_resource type="Script" uid="uid://0v4ud65xsndi" path="res://scripts/player.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://lmqry4te2c87" path="res://scripts/player.gd" id="1_0e48y"]
 [ext_resource type="SpriteFrames" uid="uid://betyio46q7rpj" path="res://assets/player.tres" id="1_wtcfe"]
-[ext_resource type="Script" uid="uid://dgjr0aernltk6" path="res://scripts/effect_manager.gd" id="3_qhqgy"]
-[ext_resource type="Script" uid="uid://uj2udwhcksuy" path="res://scripts/effects/effect.gd" id="4_qlg0r"]
+[ext_resource type="Script" uid="uid://7qwaxbvbhw7r" path="res://scripts/effect_manager.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://dij5efg2ae0m6" path="res://scripts/effects/effect.gd" id="4_qlg0r"]
 [ext_resource type="Resource" uid="uid://bvxsnit77xjye" path="res://scripts/effects/explosive_bullet/explosive_bullet_effect.tres" id="5_tuyoq"]
 [ext_resource type="Resource" uid="uid://bsq8dc4c1woei" path="res://scripts/effects/reflect/reflect_effect.tres" id="6_tuyoq"]
 

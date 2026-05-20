@@ -7,4 +7,3 @@
 script = ExtResource("2_iwt3q")
 bullet_scene = ExtResource("1_j1vih")
 effect_name = "Explosive Bullet"
-duration = 5.0

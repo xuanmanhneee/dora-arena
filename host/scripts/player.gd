@@ -15,12 +15,15 @@ const EXPLOSIVE_BULLET: PackedScene = preload("res://scenes/bullet/explosive_bul
 var current_bullet: PackedScene
 @export var team: Enums.Team = Enums.Team.NONE
 
+var _shoot_cooldown: float = 0.0
+@export var shoot_interval: float = 1
+
+var is_controllable: bool = false
 var is_camera_target: bool = true
 var is_stunned: bool = false
 var stun_timer: float = 0.0
 
 var is_reflecting: bool = false
-
 
 @export var stun_time: float = 0.5
 @export var knockback_decay: float = 8.0
@@ -29,6 +32,10 @@ var input: PlayerInput
 
 var facing_dir: Vector2 = Vector2.RIGHT
 var is_shooting: bool = false
+
+# Khi true, Player không tự flip visual theo hướng di chuyển
+# Bot set cái này để tự quản lý facing độc lập với movement
+var override_facing: bool = false
 
 var id: int
 var display_name: String
@@ -59,43 +66,49 @@ func _ready() -> void:
 	
 	_apply_color()
 
-
 func _physics_process(delta: float) -> void:
 	if input == null:
 		return
-	
+
 	# gravity
 	velocity.y += 1000 * delta
 
+	# chạm đất lần đầu mới được điều khiển
+	if is_on_floor() and not is_controllable:
+		is_controllable = true
+	
 	if is_stunned:
 		stun_timer -= delta
 		if stun_timer <= 0:
 			is_stunned = false
-	else:
+	elif is_controllable:
 		# movement
 		var direction: int = input.move_direction
 
 		if direction != 0:
 			velocity.x = direction * SPEED
-			
-			facing_dir = Vector2(direction, 0)
-			visual.scale.x = sign(direction)
+			# Chỉ flip theo hướng đi khi không có ai override (bot tự quản lý facing)
+			if not override_facing:
+				facing_dir = Vector2(direction, 0)
+				visual.scale.x = sign(direction)
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 		# jump
 		if input.jump and is_on_floor():
 			_jump()
-
+	
 		# shoot
 		if input.shoot:
 			_handle_shoot()
-
-	# 👉 decay knockback (LUÔN chạy)
+	
+	_shoot_cooldown -= delta
+	
+	# decay knockback luôn chạy
 	velocity.x = lerp(velocity.x, 0.0, knockback_decay * delta)
 
 	move_and_slide()
-	
+
 	# reset input
 	input.jump = false
 	input.shoot = false
@@ -114,8 +127,9 @@ func _physics_process(delta: float) -> void:
 				anim.play("run")
 
 func _handle_shoot():
-	if not is_shooting:
+	if not is_shooting and _shoot_cooldown <= 0.0:
 		is_shooting = true
+		_shoot_cooldown = shoot_interval
 		anim.play("shoot")
 		_shoot()
 
@@ -140,7 +154,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		if is_reflecting:
 			_handle_reflection(area)
 		else:
-			# Đổi tên từ damage thành impact cho đúng tính chất
 			_handle_bullet_impact(area)
 		return
 
@@ -152,25 +165,21 @@ func _handle_reflection(bullet: BaseBullet):
 	bullet.reflect()
 
 func _handle_explosion_impact(explosion: ExplosionArea):
-	# Tự tính hướng và lực dựa trên vị trí tâm nổ
 	var push_dir = (global_position - explosion.global_position).normalized()
 	if push_dir == Vector2.ZERO: push_dir = Vector2.UP
 	
 	var dist = global_position.distance_to(explosion.global_position)
 	var force_multiplier = clamp(1.0 - (dist / explosion.explosion_radius), 0.0, 1.0)
 	
-	# Hất văng Player
 	apply_knockback(push_dir * explosion.explosion_force * force_multiplier)
 
 func _handle_bullet_impact(bullet: BaseBullet):
-	# Chỉ quan tâm đến việc bị hất văng
 	apply_knockback(bullet.fly_dir * bullet.knockback_force)
 	bullet.handle_impact()
 	
 func _apply_color() -> void:
 	visual.modulate = color
 
-	
 func apply_knockback(force: Vector2):
 	velocity.x = force.x
 	velocity.y = force.y
@@ -182,5 +191,4 @@ func apply_knockback(force: Vector2):
 
 func freeze() -> void:
 	set_physics_process(false)
-	#set_process_input(false)
 	_collider.set_deferred("disabled", true)

@@ -5,5 +5,4 @@
 [resource]
 script = ExtResource("1_bcfx3")
 effect_name = "Reflect"
-duration = 10.0
 metadata/_custom_type_script = "uid://dij5efg2ae0m6"
