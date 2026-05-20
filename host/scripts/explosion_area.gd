@@ -1,6 +1,6 @@
 class_name ExplosionArea extends Area2D
 
-var explosion_radius: float = 200.0
+var explosion_radius: float = 100.0
 var explosion_force: float = 2000.0
 var explosion_alpha: float = 0.5 # Độ mờ của vụ nổ
 

@@ -2,9 +2,9 @@ class_name BaseBullet extends Area2D
 
 var fly_dir: Vector2 = Vector2.ZERO
 var team: Enums.Team = Enums.Team.NONE
-var speed: float = 500
-var max_distance: float = 500.0
-var knockback_force: float = 1000.0
+var speed: float = 300
+var max_distance: float = 300.0
+var knockback_force: float = 2000.0
 
 var _start_pos: Vector2 = Vector2.ZERO
 var _traveled_distance: float = 0.0

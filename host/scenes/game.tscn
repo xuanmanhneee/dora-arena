@@ -20,6 +20,7 @@ script = ExtResource("3_u5sy4")
 player_scene = ExtResource("4_u5sy4")
 
 [node name="ItemManager" type="Node" parent="." unique_id=2061195717]
+unique_name_in_owner = true
 script = ExtResource("5_gee14")
 spawn_interval = 3.0
 

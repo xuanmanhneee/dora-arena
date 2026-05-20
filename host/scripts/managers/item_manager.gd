@@ -1,77 +1,63 @@
-class_name ItemManager extends Node
-
-@onready var game: Game = get_parent() as Game
-
-var item_scene: PackedScene = preload("res://scenes/item.tscn")
-var map: Node2D
+class_name ItemManager
+extends Node
 
 @export var spawn_interval: float = 15.0
+@export var item_scene: PackedScene = preload("res://scenes/item.tscn")
 
+var game: Game
+var map: Node2D
 var spawn_points: Array[Marker2D] = []
+var timer: Timer
 
-func _ready() -> void:
-	call_deferred("_late_init")
-
-func _late_init() -> void:
+func setup(_game: Game) -> void:
+	game = _game
 	map = game.current_map
-	# Ép kiểu mảng (đã sửa lại cho an toàn hơn)
-	spawn_points = Array(
-		get_tree().get_nodes_in_group("item_spawn_point"),
-		TYPE_OBJECT,
-		"Marker2D",
-		null
-	)
 
 	if map == null:
-		push_warning("ItemManager: Map chưa sẵn sàng, bỏ qua spawn item.")
+		push_error("ItemManager: current_map null")
 		return
+
+	_collect_spawn_points()
+
 	if spawn_points.is_empty():
 		push_warning("ItemManager: Không tìm thấy điểm spawn nào!")
 		return
 
-	print("ItemManager sẵn sàng. Số điểm spawn: ", spawn_points.size())
-	
-	# Tạo Timer
-	var timer = Timer.new()
-	timer.name = "ItemSpawnTimer" # Đặt tên để dễ tìm trong tab Remote
-	add_child(timer) 
-	
-	timer.wait_time = spawn_interval
-	timer.one_shot = false 
-	timer.timeout.connect(_on_spawn_timer_timeout)
-	
-	# QUAN TRỌNG: Gọi start() thay vì chỉ dùng autostart khi tạo bằng code
-	timer.start() 
-	
-	# Spawn cái đầu tiên ngay lập tức
+	_start_timer()
 	spawn_item()
+
+func _collect_spawn_points() -> void:
+	spawn_points.clear()
+
+	var root := map.get_node_or_null("ItemSpawnPoints")
+	if root == null:
+		push_warning("ItemManager: Map không có ItemSpawnPoints")
+		return
+
+	for child in root.get_children():
+		if child is Marker2D:
+			spawn_points.append(child)
+
+func _start_timer() -> void:
+	if timer == null:
+		timer = Timer.new()
+		timer.name = "ItemSpawnTimer"
+		timer.timeout.connect(_on_spawn_timer_timeout)
+		add_child(timer)
+
+	timer.wait_time = spawn_interval
+	timer.one_shot = false
+	timer.start()
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_item()
 
 func spawn_item() -> void:
-	
-	if not map:
+	if map == null or item_scene == null or spawn_points.is_empty():
 		return
-		
-	if not item_scene:
-		push_error("ItemManager: Chưa gán item_scene!")
-		return
-		
-	if spawn_points.is_empty(): return
 
-	# 1. Chọn điểm ngẫu nhiên bằng hàm pick_random() cực gọn
-	var random_marker = spawn_points.pick_random()
-	
-	# 2. Tạo instance item
-	var item_instance = item_scene.instantiate()
-	
-	# 3. Đặt vị trí (Dùng global_position để khớp tọa độ map)
-	item_instance.global_position = random_marker.global_position
-	
-	# 4. Thêm vào scene tree
-	# Tốt nhất là add vào Map hoặc một Node chuyên chứa Item để dễ quản lý
-	if map:
-		map.add_child.call_deferred(item_instance) # An toàn hơn add_child
-	else:
-		get_parent().add_child.call_deferred(item_instance)
+	var marker := spawn_points.pick_random() as Marker2D
+	var item := item_scene.instantiate() as Node2D
+
+	map.add_child(item)
+	item.global_position = marker.global_position

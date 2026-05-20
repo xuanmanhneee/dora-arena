@@ -1,19 +1,52 @@
 extends Control
 
+# Setup Local
 @onready var local_mode_panel: VBoxContainer = %LocalModePanel
+
+@onready var player1_type_option: OptionButton = %Player1TypeOption
+@onready var player2_type_option: OptionButton = %Player2TypeOption
+
+@onready var player1_name_line_edit: LineEdit = %Player1NameLineEdit
+@onready var player2_name_line_edit: LineEdit = %Player2NameLineEdit
+
+@onready var player1_color_picker: ColorPickerButton = %Player1ColorPicker
+@onready var player2_color_picker: ColorPickerButton = %Player2ColorPicker
+
+
+# Setup LAN
 @onready var lan_mode_panel: VBoxContainer = %LanModePanel
 
+@onready var player1_team_a_label: Label = $RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamAContainer/P1Label
+@onready var player2_team_a_label: Label = $RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamAContainer/P2Label
+
+@onready var player1_team_b_label: Label = $RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamBContainer/P1Label
+@onready var player2_team_b_label: Label = $RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamBContainer/P2Label
+
+@onready var ip_address_lineedit: LineEdit = $RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/HBoxContainer/LineEdit
+
+var lan_player_teams: Dictionary[int, Enums.Team] = {}
+var lan_player_names: Dictionary[int, String] = {}
+var lan_player_colors: Dictionary[int, Color] = {}
+
+# Setup game
 @onready var backward_button: Button = %BackwardButton
 @onready var forward_button: Button = %ForwardButton
 @onready var start_game_button: Button = %StartGameButton
 @onready var game_time_spin_box: SpinBox = %GameTimeSpinBox
 
-@onready var player1_color_picker: ColorPickerButton = %Player1ColorPicker
-@onready var player2_color_picker: ColorPickerButton = %Player2ColorPicker
+
 
 @export var maps: Array[MapInfo]
 @onready var map_preview_texture_rect: TextureRect = %MapPreviewTextureRect
 @onready var map_name_label: Label = %MapNameLabel
+
+const PLAYER_OPTION_DATA := {
+	0: { "control_type": Enums.PlayerControlType.HUMAN, "bot_difficulty": Enums.BotDifficulty.NONE  },
+	1: { "control_type": Enums.PlayerControlType.BOT,   "bot_difficulty": Enums.BotDifficulty.EASY   },
+	2: { "control_type": Enums.PlayerControlType.BOT,   "bot_difficulty": Enums.BotDifficulty.NORMAL },
+	3: { "control_type": Enums.PlayerControlType.BOT,   "bot_difficulty": Enums.BotDifficulty.HARD   },
+	4: { "control_type": Enums.PlayerControlType.BOT,   "bot_difficulty": Enums.BotDifficulty.ASIAN  },
+}
 
 var current_game_mode: Enums.GameMode = Enums.GameMode.LOCAL_2P
 var current_index: int = 0
@@ -34,14 +67,35 @@ func _ready() -> void:
 	forward_button.pressed.connect(_on_forward_button_pressed)
 	start_game_button.pressed.connect(_on_start_game_button_pressed)
 	
+	if not NetworkManager.player_registered.is_connected(_on_player_registered):
+		NetworkManager.player_registered.connect(_on_player_registered)
+	
+	EventBus.subscribe("player_register", _on_player_registered)
+	EventBus.subscribe("lan_player_disconnected", _on_lan_player_disconnected)
+	
+	player1_type_option.item_selected.connect(_on_player1_type_selected)
+	player2_type_option.item_selected.connect(_on_player2_type_selected)
+
+	_update_default_name(1, player1_type_option, player1_name_line_edit)
+	_update_default_name(2, player2_type_option, player2_name_line_edit)
+	
 	randomize()
 	
 	player1_color_picker.color = _random_color()
 	player2_color_picker.color = _random_color()
 	
+	# LAN
+	ip_address_lineedit.text = Utils.get_lan_ip()
+
 	_show_map(current_index)
 	_refresh_mode_panel()
 
+func _exit_tree() -> void:
+	EventBus.unsubscribe("player_register", _on_player_registered)
+	EventBus.unsubscribe("lan_player_disconnected", _on_lan_player_disconnected)
+
+
+# SETTINGS CHUNG ----------------------------------------------------------------------------------
 func _show_map(index: int):
 	if maps.is_empty():
 		push_error("Chưa gán maps cho MatchSetupPanel")
@@ -65,7 +119,149 @@ func _on_start_game_button_pressed():
 		return
 
 	GameData.match_config = _build_match_config()
+	
+	if current_game_mode == Enums.GameMode.LAN_4P:
+		NetworkManager.start_game.rpc()
+	
+	#if current_game_mode == Enums.GameMode.LAN_4P and lan_player_teams.size() < 4:
+		#push_error("LAN cần đủ 4 client để bắt đầu")
+		#return
+		
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+
+# LOCAL--------------------------------------------------------------------------------------------
+func _on_player1_type_selected(_index: int) -> void:
+	_update_default_name(1, player1_type_option, player1_name_line_edit)
+
+func _on_player2_type_selected(_index: int) -> void:
+	_update_default_name(2, player2_type_option, player2_name_line_edit)
+
+func _update_default_name(id: int, option: OptionButton, line_edit: LineEdit) -> void:
+	var option_id := option.get_selected_id()
+	var data: Dictionary = PLAYER_OPTION_DATA[option_id]
+
+	if data["control_type"] == Enums.PlayerControlType.BOT:
+		var difficulty_name := _get_difficulty_name(data["bot_difficulty"])
+		line_edit.text = "AI_%s_%d" % [difficulty_name, id]
+	else:
+		line_edit.text = "P%d" % id
+
+func _build_local_players_config() -> Dictionary[int, Dictionary]:
+	var p1_data: Dictionary = PLAYER_OPTION_DATA[player1_type_option.get_selected_id()]
+	var p2_data: Dictionary = PLAYER_OPTION_DATA[player2_type_option.get_selected_id()]
+
+	return {
+		1: {
+			"name": _get_player_name(1, player1_name_line_edit, p1_data),
+			"team": Enums.Team.TEAM_A,
+			"color": player1_color_picker.color,
+			"is_local": true,
+			"control_type": p1_data["control_type"],
+			"bot_difficulty": p1_data["bot_difficulty"]
+		},
+		2: {
+			"name": _get_player_name(2, player2_name_line_edit, p2_data),
+			"team": Enums.Team.TEAM_B,
+			"color": player2_color_picker.color,
+			"is_local": true,
+			"control_type": p2_data["control_type"],
+			"bot_difficulty": p2_data["bot_difficulty"]
+		}
+	}
+
+# LAN ---------------------------------------------------------------------------------------------
+func _assign_lan_team() -> Enums.Team:
+	var team_a_count := lan_player_teams.values().count(Enums.Team.TEAM_A)
+	var team_b_count := lan_player_teams.values().count(Enums.Team.TEAM_B)
+
+	return Enums.Team.TEAM_A if team_a_count <= team_b_count else Enums.Team.TEAM_B
+
+
+func _add_lan_player(id: int, player_name: String, player_color: Color) -> void:
+	if lan_player_teams.has(id):
+		lan_player_names[id] = player_name
+	else:
+		lan_player_teams[id] = _assign_lan_team()
+		lan_player_names[id] = player_name
+		lan_player_colors[id] = player_color
+
+
+	_refresh_lan_ui()
+
+func _on_lan_player_disconnected(id: int) -> void:
+	if current_game_mode != Enums.GameMode.LAN_4P:
+		return
+
+	_remove_lan_player(id)
+
+func _remove_lan_player(id: int) -> void:
+	if not lan_player_teams.has(id):
+		return
+
+	lan_player_teams.erase(id)
+	lan_player_names.erase(id)
+	lan_player_colors.erase(id)
+
+	_refresh_lan_ui()
+
+	print("[LAN] Removed player: %d" % id)
+
+func _refresh_lan_ui() -> void:
+	var team_a_labels := [
+		player1_team_a_label,
+		player2_team_a_label
+	]
+
+	var team_b_labels := [
+		player1_team_b_label,
+		player2_team_b_label
+	]
+
+	for label in team_a_labels:
+		label.text = "Waiting ..."
+
+	for label in team_b_labels:
+		label.text = "Waiting ..."
+
+	var a_index := 0
+	var b_index := 0
+
+	for id in lan_player_teams:
+		var team := lan_player_teams[id]
+		var player_name: String = lan_player_names.get(id, "Player %d" % id)
+
+		if team == Enums.Team.TEAM_A:
+			if a_index < team_a_labels.size():
+				team_a_labels[a_index].text = player_name
+				a_index += 1
+		else:
+			if b_index < team_b_labels.size():
+				team_b_labels[b_index].text = player_name
+				b_index += 1
+	
+	_update_start_button_state()
+
+func _on_player_registered(id: int, player_name: String, player_color: Color) -> void:
+	if current_game_mode != Enums.GameMode.LAN_4P:
+		return
+
+	_add_lan_player(id, player_name, player_color)
+
+func _build_lan_players_config() -> Dictionary[int, Dictionary]:
+	var result: Dictionary[int, Dictionary] = {}
+
+	for id in lan_player_teams:
+		result[id] = {
+			"name": lan_player_names.get(id, "Player %d" % id),
+			"team": lan_player_teams[id],
+			"color": lan_player_colors.get(id, Color.WHITE),
+			"is_local": false,
+			"control_type": Enums.PlayerControlType.HUMAN,
+			"bot_difficulty": Enums.BotDifficulty.NONE
+		}
+
+	return result
 
 func _build_match_config() -> MatchConfig:
 	var config := MatchConfig.new()
@@ -87,39 +283,18 @@ func _build_players_config() -> Dictionary[int, Dictionary]:
 
 	return {}
 
-func _build_local_players_config() -> Dictionary[int, Dictionary]:
-	return {
-		1: {
-			"name": "Player 1",
-			"team": Enums.Team.TEAM_A,
-			"color": player1_color_picker.color,
-			"is_local": true
-		},
-		2: {
-			"name": "Player 2",
-			"team": Enums.Team.TEAM_B,
-			"color": player2_color_picker.color,
-			"is_local": true
-		}
-	}
-
-#test
-func _build_lan_players_config() -> Dictionary[int, Dictionary]:
-	return {
-		1: {"name": "Player 1", "team": Enums.Team.TEAM_A, "color": Color.BLUE, "is_local": false},
-		2: {"name": "Player 2", "team": Enums.Team.TEAM_B, "color": Color.RED, "is_local": false},
-		3: {"name": "Player 3", "team": Enums.Team.TEAM_A, "color": Color.GREEN, "is_local": false},
-		4: {"name": "Player 4", "team": Enums.Team.TEAM_B, "color": Color.YELLOW, "is_local": false},
-	}
-
 func _refresh_mode_panel() -> void:
 	if current_game_mode == Enums.GameMode.LOCAL_2P:
 		lan_mode_panel.visible = false
 		local_mode_panel.visible = true
+		_clear_lan_data()
+		NetworkManager.stop_server()
+
 	elif current_game_mode == Enums.GameMode.LAN_4P:
 		local_mode_panel.visible = false
 		lan_mode_panel.visible = true
-
+		NetworkManager.start_server()
+		
 func _random_color() -> Color:
 	return Color(
 		randf(),
@@ -127,16 +302,43 @@ func _random_color() -> Color:
 		randf(),
 		1.0
 	)
-	
 
-func get_lan_ip() -> String:
-	# Lấy danh sách tất cả các địa chỉ IP của máy
-	var addresses = IP.get_local_addresses()
-	
-	for ip in addresses:
-		# 1. Kiểm tra xem có phải IPv4 không (có dấu chấm)
-		# 2. Kiểm tra xem có phải địa chỉ nội bộ (localhost) không
-		if "." in ip and not ip.begins_with("127.") and not ip.begins_with("169.254."):
-			return ip
-			
-	return "127.0.0.1" # Trả về localhost nếu không thấy mạng LAN
+func _get_player_name(id: int, line_edit: LineEdit, data: Dictionary) -> String:
+	var text := line_edit.text.strip_edges()
+
+	if not text.is_empty():
+		return text
+
+	if data["control_type"] == Enums.PlayerControlType.BOT:
+		return "AI%d" % id
+
+	return "P%d" % id
+
+func _get_difficulty_name(difficulty: Enums.BotDifficulty) -> String:
+	match difficulty:
+		Enums.BotDifficulty.EASY:   return "Easy"
+		Enums.BotDifficulty.NORMAL: return "Normal"
+		Enums.BotDifficulty.HARD:   return "Hard"
+		Enums.BotDifficulty.ASIAN:  return "Asian"
+		_:                          return "Bot"
+
+func _clear_lan_data() -> void:
+	lan_player_teams.clear()
+	lan_player_names.clear()
+	_refresh_lan_ui()
+
+func _update_start_button_state() -> void:
+	if current_game_mode != Enums.GameMode.LAN_4P:
+		start_game_button.disabled = false
+		return
+
+	var has_team_a := false
+	var has_team_b := false
+
+	for team in lan_player_teams.values():
+		if team == Enums.Team.TEAM_A:
+			has_team_a = true
+		elif team == Enums.Team.TEAM_B:
+			has_team_b = true
+
+	start_game_button.disabled = not (has_team_a and has_team_b)

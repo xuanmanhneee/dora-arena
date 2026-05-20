@@ -3,6 +3,7 @@ extends Node
 
 @onready var world: Node2D = %World
 @onready var game_manager: GameManager = %GameManager
+@onready var item_manager: ItemManager = %ItemManager
 @onready var game_camera: GameCamera = $Camera2D
 var players: Dictionary[int, Player] = {}
 
@@ -20,6 +21,7 @@ func _ready() -> void:
 
 	game_manager.setup(self)
 	game_camera.setup(self)
+	item_manager.setup(self)
 
 func _setup(config: MatchConfig) -> void:
 	match_config = config

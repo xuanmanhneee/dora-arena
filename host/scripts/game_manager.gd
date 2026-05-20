@@ -114,10 +114,12 @@ func _tick_timer(delta: float) -> void:
 		_on_time_up()
 
 func _read_local_movement() -> void:
-	if player_inputs.has(1):
-		player_inputs[1].move_direction = int(Input.get_axis("p1_left", "p1_right"))
-	if player_inputs.has(2):
-		player_inputs[2].move_direction = int(Input.get_axis("p2_left", "p2_right"))
+	for id in [1, 2]:
+		if not player_inputs.has(id): continue
+		# Bỏ qua nếu là bot
+		if game.player_configs.get(id, {}).get("control_type") == Enums.PlayerControlType.BOT:
+			continue
+		player_inputs[id].move_direction = int(Input.get_axis("p%d_left" % id, "p%d_right" % id))
 
 # --- TẠO / HỒI SINH ---
 
@@ -141,6 +143,16 @@ func _create_player(id: int, data: Dictionary, input: PlayerInput, pos: Vector2)
 
 	game.players[id] = p
 	world.add_child(p)
+
+	# --- Gắn bot nếu là BOT ---
+	if data.get("control_type") == Enums.PlayerControlType.BOT:
+		var bot := BotController.new()
+		bot.config = _get_bot_config(data.get("bot_difficulty", Enums.BotDifficulty.EASY))
+		bot.player_input = input
+		bot.game_ref = game
+		bot.player_id = id
+		#bot._owner_player = p
+		p.add_child(bot)
 
 func _on_player_handle_death(player: Player) -> void:
 	if is_game_over: return  # Không xử lý nếu game đã kết thúc
@@ -220,15 +232,29 @@ func _on_return_to_main_menu() -> void:
 		GameData.reset()
 		
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
-	
+
+const BOT_CONFIGS := {
+	Enums.BotDifficulty.EASY:   preload("res://data/bot/bot_config_easy.tres"),
+	Enums.BotDifficulty.NORMAL: preload("res://data/bot/bot_config_easy.tres"),
+	Enums.BotDifficulty.HARD:   preload("res://data/bot/bot_config_easy.tres"),
+	Enums.BotDifficulty.ASIAN:  preload("res://data/bot/bot_config_easy.tres"),
+}
+
+func _get_bot_config(difficulty: Enums.BotDifficulty) -> BotConfig:
+	return BOT_CONFIGS.get(difficulty, BOT_CONFIGS[Enums.BotDifficulty.EASY])
+
 #region INPUT EVENT
 
 func _input(event: InputEvent) -> void:
 	if game.mode != Enums.GameMode.LOCAL_2P: return
-	if event.is_action_pressed("p1_jump"):  player_inputs[1].jump = true
-	if event.is_action_pressed("p1_shoot"): player_inputs[1].shoot = true
-	if event.is_action_pressed("p2_jump"):  player_inputs[2].jump = true
-	if event.is_action_pressed("p2_shoot"): player_inputs[2].shoot = true
+	
+	var configs := game.player_configs
+	if configs.get(1, {}).get("control_type") != Enums.PlayerControlType.BOT:
+		if event.is_action_pressed("p1_jump"):  player_inputs[1].jump = true
+		if event.is_action_pressed("p1_shoot"): player_inputs[1].shoot = true
+	if configs.get(2, {}).get("control_type") != Enums.PlayerControlType.BOT:
+		if event.is_action_pressed("p2_jump"):  player_inputs[2].jump = true
+		if event.is_action_pressed("p2_shoot"): player_inputs[2].shoot = true
 
 func _on_movement_input_received(id: int, move: int) -> void:
 	if player_inputs.has(id):

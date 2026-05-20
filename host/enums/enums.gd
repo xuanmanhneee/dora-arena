@@ -15,6 +15,19 @@ enum Movement {
 	RIGHT = 1
 }
 
+enum PlayerControlType {
+	HUMAN,
+	BOT
+}
+
+enum BotDifficulty {
+	NONE,
+	EASY,
+	NORMAL,
+	HARD,
+	ASIAN
+}
+
 enum GamePhase { NORMAL, SUDDEN_DEATH }
 
 static func is_valid_action(action: int) -> bool:
