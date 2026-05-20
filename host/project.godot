@@ -17,13 +17,13 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-SettingsManager="*uid://c77tidxq38088"
-NetworkManager="*uid://by38kb8clse5y"
-GameData="*uid://64v32hvejmvf"
-GameEvents="*uid://buyrdcv8cev8g"
-AudioManager="*uid://cby1njwotgq2g"
-EventBus="*uid://py60i274fsj0"
-InputManager="*uid://cf3ioh3m46uh"
+SettingsManager="*uid://dihmfljkuiy7q"
+NetworkManager="*uid://cord4sw8s37bu"
+GameData="*uid://cgkh6m6vk6rkm"
+GameEvents="*uid://b2wo8aepwqgk4"
+AudioManager="*uid://dv3ne0yvxdqge"
+InputManager="*uid://bd1y4s4734d0x"
+EventBus="*uid://cfsh32df1hogr"
 
 [debug]
 
@@ -56,6 +56,11 @@ theme/custom_font="uid://cqai0bevbeetk"
 
 [input]
 
+ui_cancel={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 ui_left={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194319,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)

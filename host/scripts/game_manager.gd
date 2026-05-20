@@ -149,6 +149,9 @@ func _on_player_handle_death(player: Player) -> void:
 	var scorer := Enums.Team.TEAM_B if player.team == Enums.Team.TEAM_A else Enums.Team.TEAM_A
 	scores[scorer] += 1
 	GameEvents.score_changed.emit(scorer, scores[scorer])
+	var scorer_name := "Team A" if scorer == Enums.Team.TEAM_A else "Team B"
+	var player_name := player.display_name if player.display_name != "" else "Player %d" % player.id
+	GameEvents.feed_message.emit("%s fell - %s +1" % [player_name, scorer_name])
 	
 	# Nếu đang trong giai đoạn bù giờ thì kết thúc luôn
 	if _current_phase == Enums.GamePhase.SUDDEN_DEATH:

@@ -8,6 +8,8 @@ signal time_changed(remaining_time: int)
 signal game_over(winner_team: int)
 signal phase_changed
 
+signal feed_message(text: String)
+
 signal player_pickup_item(player: Player)
 
 signal play_again_requested

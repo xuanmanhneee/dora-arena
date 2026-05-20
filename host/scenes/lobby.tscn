@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://bj5y1cn6y27de"]
 
 [ext_resource type="Script" uid="uid://ek78lxpx74en" path="res://scripts/lobby.gd" id="1_o1atq"]
+[ext_resource type="Texture2D" uid="uid://dqyemgtrrc1a0" path="res://assets/background.png" id="2_bg"]
+[ext_resource type="FontFile" uid="uid://cqai0bevbeetk" path="res://assets/font/HL-Comic1_normal.ttf" id="3_font"]
+[ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="4_btn_normal"]
+[ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="5_btn_hover"]
 
 [node name="Lobby" type="Control" unique_id=571870490]
 layout_mode = 3
@@ -10,6 +14,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o1atq")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1663069328]
 layout_mode = 1
@@ -21,6 +36,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1523862729]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="PlayerListContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1444420194]
 layout_mode = 2
@@ -33,12 +49,16 @@ layout_mode = 2
 
 [node name="TeamALabel" type="Label" parent="CenterContainer/VBoxContainer/PlayerListContainer/PlayersContainer/TeamAContainer" unique_id=226589037]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
 text = "Team A"
 horizontal_alignment = 1
 
 [node name="Player1" type="LineEdit" parent="CenterContainer/VBoxContainer/PlayerListContainer/PlayersContainer/TeamAContainer" unique_id=1582042161]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
 placeholder_text = "Waitting ..."
 alignment = 1
 editable = false
@@ -46,6 +66,8 @@ editable = false
 [node name="Player2" type="LineEdit" parent="CenterContainer/VBoxContainer/PlayerListContainer/PlayersContainer/TeamAContainer" unique_id=1475370983]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
 placeholder_text = "Waitting ..."
 alignment = 1
 editable = false
@@ -55,12 +77,16 @@ layout_mode = 2
 
 [node name="TeamBLabel" type="Label" parent="CenterContainer/VBoxContainer/PlayerListContainer/PlayersContainer/TeamBContainer" unique_id=670192436]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
 text = "Team B"
 horizontal_alignment = 1
 
 [node name="Player1" type="LineEdit" parent="CenterContainer/VBoxContainer/PlayerListContainer/PlayersContainer/TeamBContainer" unique_id=203898098]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
 placeholder_text = "Waitting ..."
 alignment = 1
 editable = false
@@ -68,6 +94,8 @@ editable = false
 [node name="Player2" type="LineEdit" parent="CenterContainer/VBoxContainer/PlayerListContainer/PlayersContainer/TeamBContainer" unique_id=1704994864]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
 placeholder_text = "Waitting ..."
 alignment = 1
 editable = false
@@ -76,6 +104,12 @@ editable = false
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("4_btn_normal")
+theme_override_styles/hover = ExtResource("5_btn_hover")
 text = "Start"
 
 [node name="IpAddress" type="MarginContainer" parent="." unique_id=1196778041]
@@ -92,13 +126,15 @@ theme_override_constants/separation = 11
 
 [node name="Label" type="Label" parent="IpAddress/HBoxContainer" unique_id=109119875]
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 32
 text = "Ip Address"
 
 [node name="LineEdit" type="LineEdit" parent="IpAddress/HBoxContainer" unique_id=638354875]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 28
 text = "255.255.255.255"
 placeholder_text = "IP ADDRESS"
 alignment = 1
@@ -113,4 +149,10 @@ anchor_right = 1.0
 offset_left = -200.0
 offset_bottom = 100.0
 grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_btn_normal")
+theme_override_styles/hover = ExtResource("5_btn_hover")
 text = "Back"

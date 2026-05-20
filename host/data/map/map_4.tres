@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapInfo" format=3 uid="uid://d1map4resx"]
+
+[ext_resource type="Texture2D" uid="uid://d1c1ykfbl3lhn" path="res://assets/bg_dora22.jpg" id="1_bg"]
+[ext_resource type="Script" uid="uid://iexsr0iqd1dj" path="res://data/map/map_info.gd" id="2_mapinfo"]
+
+[resource]
+script = ExtResource("2_mapinfo")
+map_name = "Map 4"
+scene_path = "res://scenes/map4.tscn"
+preview = ExtResource("1_bg")

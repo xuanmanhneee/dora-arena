@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://7rotqlvewja5"]
 
 [ext_resource type="Script" uid="uid://ckv120bvdvkax" path="res://scripts/result_layer.gd" id="1_cuqsx"]
+[ext_resource type="FontFile" uid="uid://cqai0bevbeetk" path="res://assets/font/HL-Comic1_normal.ttf" id="2_font"]
+[ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="3_btn_normal"]
+[ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="4_btn_hover"]
 
 [node name="ResultLayer" type="CanvasLayer" unique_id=301648816]
 script = ExtResource("1_cuqsx")
@@ -12,6 +15,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Dimmer" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.35)
 
 [node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1243140376]
 layout_mode = 1
@@ -28,6 +40,7 @@ theme_override_constants/separation = 300
 [node name="WinnerLabel" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=444951507]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 100
 text = "Winner"
 horizontal_alignment = 1
@@ -40,10 +53,22 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = ExtResource("3_btn_normal")
+theme_override_styles/hover = ExtResource("4_btn_hover")
 text = "Play Again"
 
 [node name="ReturnMainMenuButton" type="Button" parent="Control/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1573163272]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = ExtResource("3_btn_normal")
+theme_override_styles/hover = ExtResource("4_btn_hover")
 text = "Main Menu"

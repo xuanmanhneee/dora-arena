@@ -3,23 +3,32 @@ class_name ItemManager extends Node
 @onready var game: Game = get_parent() as Game
 
 var item_scene: PackedScene = preload("res://scenes/item.tscn")
-@onready var map: Node2D = game.current_map
+var map: Node2D
 
 @export var spawn_interval: float = 15.0
 
-# Ép kiểu mảng (đã sửa lại cho an toàn hơn)
-@onready var spawn_points: Array[Marker2D] = Array(
-	get_tree().get_nodes_in_group("item_spawn_point"), 
-	TYPE_OBJECT, 
-	"Marker2D", 
-	null
-)
+var spawn_points: Array[Marker2D] = []
 
 func _ready() -> void:
+	call_deferred("_late_init")
+
+func _late_init() -> void:
+	map = game.current_map
+	# Ép kiểu mảng (đã sửa lại cho an toàn hơn)
+	spawn_points = Array(
+		get_tree().get_nodes_in_group("item_spawn_point"),
+		TYPE_OBJECT,
+		"Marker2D",
+		null
+	)
+
+	if map == null:
+		push_warning("ItemManager: Map chưa sẵn sàng, bỏ qua spawn item.")
+		return
 	if spawn_points.is_empty():
 		push_warning("ItemManager: Không tìm thấy điểm spawn nào!")
 		return
-		
+
 	print("ItemManager sẵn sàng. Số điểm spawn: ", spawn_points.size())
 	
 	# Tạo Timer

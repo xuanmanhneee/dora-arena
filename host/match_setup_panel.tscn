@@ -3,12 +3,15 @@
 [ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="1_he75q"]
 [ext_resource type="Texture2D" uid="uid://ck41rhao1pcv3" path="res://assets/chevron_backward.svg" id="1_i8dqb"]
 [ext_resource type="Script" uid="uid://dvlyyc4uhiae0" path="res://scripts/ui/match_setup_panel.gd" id="1_sssew"]
+[ext_resource type="FontFile" uid="uid://cqai0bevbeetk" path="res://assets/font/HL-Comic1_normal.ttf" id="1_font"]
 [ext_resource type="Script" uid="uid://iexsr0iqd1dj" path="res://data/map/map_info.gd" id="2_64gif"]
 [ext_resource type="Texture2D" uid="uid://6et8e4nlebbn" path="res://assets/chevron_forward.svg" id="2_lp5uk"]
 [ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="2_sssew"]
 [ext_resource type="Resource" uid="uid://cx6yhad38dl63" path="res://data/map/map_1.tres" id="3_kwokf"]
 [ext_resource type="Resource" uid="uid://cdl6ngr7wb2tp" path="res://data/map/map_2.tres" id="4_t2bgj"]
 [ext_resource type="Resource" uid="uid://vv2navg6kwte" path="res://data/map/map_3.tres" id="5_f5uo2"]
+[ext_resource type="Resource" uid="uid://d1map4resx" path="res://data/map/map_4.tres" id="6_map4"]
+[ext_resource type="Resource" uid="uid://d1map5resy" path="res://data/map/map_5.tres" id="7_map5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64gif"]
 bg_color = Color(1, 1, 1, 0)
@@ -32,7 +35,7 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("1_sssew")
-maps = Array[ExtResource("2_64gif")]([ExtResource("3_kwokf"), ExtResource("4_t2bgj"), ExtResource("5_f5uo2")])
+maps = Array[ExtResource("2_64gif")]([ExtResource("3_kwokf"), ExtResource("4_t2bgj"), ExtResource("5_f5uo2"), ExtResource("6_map4"), ExtResource("7_map5")])
 
 [node name="RootMarginContainer" type="MarginContainer" parent="." unique_id=1103395518]
 layout_mode = 1
@@ -89,6 +92,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 40
 text = "Local player settings"
 horizontal_alignment = 1
@@ -100,6 +104,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 text = "Player 1"
 
 [node name="Label2" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/SettingHeader" unique_id=1382019811]
@@ -107,6 +112,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 text = "Name"
 horizontal_alignment = 1
 
@@ -115,6 +121,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 text = "Color"
 horizontal_alignment = 1
 
@@ -125,12 +132,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 text = "Player 1"
 
 [node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player1Setting" unique_id=482593805]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 24
 text = "P1"
 
 [node name="Player1ColorPicker" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player1Setting" unique_id=1899169877]
@@ -146,12 +156,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 text = "Player 2"
 
 [node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player2Setting" unique_id=1889190072]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+theme_override_fonts/font = ExtResource("1_font")
+theme_override_font_sizes/font_size = 24
 text = "P2"
 
 [node name="Player2ColorPicker" type="ColorPickerButton" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Player2Setting" unique_id=522677429]
@@ -173,6 +186,7 @@ alignment = 1
 [node name="Label" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel" unique_id=1637903069]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 40
 text = "Lan Player Setting"
 horizontal_alignment = 1
@@ -187,6 +201,7 @@ size_flags_horizontal = 3
 [node name="TeamALabel" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamAContainer" unique_id=2080892751]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 text = "Team A"
 horizontal_alignment = 1
 
@@ -194,6 +209,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_styles/normal = SubResource("StyleBoxFlat_64gif")
 text = "Waiting ..."
 horizontal_alignment = 1
@@ -203,6 +219,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_styles/normal = SubResource("StyleBoxFlat_64gif")
 text = "Waiting ..."
 horizontal_alignment = 1
@@ -215,6 +232,7 @@ size_flags_horizontal = 3
 [node name="TeamBLabel" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/PlayersContainer/TeamBContainer" unique_id=2023340341]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 text = "Team B"
 horizontal_alignment = 1
 
@@ -222,6 +240,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_styles/normal = SubResource("StyleBoxFlat_64gif")
 text = "Waiting ..."
 horizontal_alignment = 1
@@ -231,6 +250,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_styles/normal = SubResource("StyleBoxFlat_64gif")
 text = "Waiting ..."
 horizontal_alignment = 1
@@ -242,6 +262,7 @@ layout_mode = 2
 [node name="IpAddress" type="Label" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/HBoxContainer" unique_id=1705916084]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 30
 text = "Ip Address: "
 vertical_alignment = 1
@@ -249,6 +270,7 @@ vertical_alignment = 1
 [node name="LineEdit" type="LineEdit" parent="RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/HBoxContainer" unique_id=2103361141]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/read_only = SubResource("StyleBoxFlat_kwokf")
 placeholder_text = "255.255.255.255"
@@ -284,6 +306,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = ExtResource("1_he75q")
 theme_override_styles/pressed = ExtResource("1_he75q")
@@ -305,6 +328,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 40
 text = "Select map"
 horizontal_alignment = 1
@@ -326,6 +350,8 @@ size_flags_horizontal = 3
 icon = ExtResource("1_i8dqb")
 icon_alignment = 1
 expand_icon = true
+theme_override_styles/normal = ExtResource("1_he75q")
+theme_override_styles/hover = ExtResource("2_sssew")
 
 [node name="MapPreviewTextureRect" type="TextureRect" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" unique_id=1989668423]
 unique_name_in_owner = true
@@ -350,6 +376,7 @@ offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 25
 text = "Map Name Label"
 
@@ -360,6 +387,8 @@ size_flags_horizontal = 3
 icon = ExtResource("2_lp5uk")
 icon_alignment = 1
 expand_icon = true
+theme_override_styles/normal = ExtResource("1_he75q")
+theme_override_styles/hover = ExtResource("2_sssew")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="RootMarginContainer/RootHBoxContainer/VBoxContainer2" unique_id=122631197]
 layout_mode = 2
@@ -369,6 +398,7 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_font")
 theme_override_font_sizes/font_size = 30
 text = "Time Limit (Second) "
 
@@ -378,6 +408,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/buttons_vertical_separation = 5
 theme_override_constants/buttons_width = 40
+theme_override_fonts/font = ExtResource("1_font")
 min_value = 1.0
 max_value = 600.0
 value = 5.0

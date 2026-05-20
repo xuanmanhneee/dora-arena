@@ -21,6 +21,26 @@ border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 corner_detail = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nav_normal"]
+content_margin_left = 30.0
+bg_color = Color(1, 0.99607843, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nav_hover"]
+content_margin_left = 30.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.5988895, 0.77458656, 1)
+corner_detail = 10
+
 [node name="OptionsPanel" type="Control" unique_id=1055365694]
 layout_mode = 3
 anchors_preset = 15
@@ -68,11 +88,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
 theme_override_fonts/font = ExtResource("2_8h044")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_6f1wn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6f1wn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6f1wn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nav_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nav_hover")
 text = "Settings"
 alignment = 0
 
@@ -81,11 +102,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
 theme_override_fonts/font = ExtResource("2_8h044")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_6f1wn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6f1wn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6f1wn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nav_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nav_hover")
 text = "Control
 "
 alignment = 0
@@ -95,11 +117,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
 theme_override_fonts/font = ExtResource("2_8h044")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_6f1wn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6f1wn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6f1wn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nav_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nav_hover")
 text = "Credit"
 alignment = 0
 
@@ -108,11 +131,12 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
 theme_override_fonts/font = ExtResource("2_8h044")
 theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_6f1wn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6f1wn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6f1wn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nav_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nav_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nav_hover")
 text = "About"
 alignment = 0
 

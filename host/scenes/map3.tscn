@@ -6,6 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(700, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_medium"]
+size = Vector2(360, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_small"]
+size = Vector2(240, 20)
+
 [node name="Map" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_axsa5")
 spawn_points = [NodePath("PlayerSpawnPoints/Marker2D_1"), NodePath("PlayerSpawnPoints/Marker2D_2"), NodePath("PlayerSpawnPoints/Marker2D_3"), NodePath("PlayerSpawnPoints/Marker2D_4")]
@@ -18,6 +24,7 @@ offset_bottom = 971.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_axsa5")
+z_index = -10
 
 [node name="PlayerSpawnPoints" type="Control" parent="." unique_id=14083712]
 layout_mode = 3
@@ -44,31 +51,31 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Marker2D" type="Marker2D" parent="ItemSpawnPoints" unique_id=524763354 groups=["item_spawn_point"]]
-position = Vector2(875, 481)
+position = Vector2(900, 490)
 
 [node name="Marker2D2" type="Marker2D" parent="ItemSpawnPoints" unique_id=1515602070 groups=["item_spawn_point"]]
-position = Vector2(1168, 480)
+position = Vector2(550, 350)
 
 [node name="Marker2D3" type="Marker2D" parent="ItemSpawnPoints" unique_id=1365275287 groups=["item_spawn_point"]]
-position = Vector2(475, 628)
+position = Vector2(330, 590)
 
 [node name="Marker2D4" type="Marker2D" parent="ItemSpawnPoints" unique_id=290919035 groups=["item_spawn_point"]]
-position = Vector2(1101, 629)
+position = Vector2(1500, 590)
 
 [node name="Marker2D9" type="Marker2D" parent="ItemSpawnPoints" unique_id=1696870414 groups=["item_spawn_point"]]
-position = Vector2(1101, 629)
+position = Vector2(930, 740)
 
 [node name="Marker2D5" type="Marker2D" parent="ItemSpawnPoints" unique_id=1193321913 groups=["item_spawn_point"]]
-position = Vector2(219, 636)
+position = Vector2(1850, 730)
 
 [node name="Marker2D6" type="Marker2D" parent="ItemSpawnPoints" unique_id=1738146648 groups=["item_spawn_point"]]
-position = Vector2(199, 483)
+position = Vector2(260, 520)
 
 [node name="Marker2D7" type="Marker2D" parent="ItemSpawnPoints" unique_id=1762014667 groups=["item_spawn_point"]]
-position = Vector2(274, 486)
+position = Vector2(600, 590)
 
 [node name="Marker2D8" type="Marker2D" parent="ItemSpawnPoints" unique_id=500204604 groups=["item_spawn_point"]]
-position = Vector2(1378, 626)
+position = Vector2(1200, 520)
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1009606551]
 position = Vector2(672, 623)
@@ -82,6 +89,7 @@ offset_left = -885.0
 offset_top = -116.0
 offset_right = -185.0
 offset_bottom = -95.0
+z_index = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Ground2" type="StaticBody2D" parent="." unique_id=255318520]
@@ -96,6 +104,7 @@ offset_left = -885.0
 offset_top = -116.0
 offset_right = -185.0
 offset_bottom = -95.0
+z_index = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Ground3" type="StaticBody2D" parent="." unique_id=101159574]
@@ -110,6 +119,7 @@ offset_left = -885.0
 offset_top = -116.0
 offset_right = -185.0
 offset_bottom = -95.0
+z_index = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Ground4" type="StaticBody2D" parent="." unique_id=1141402578]
@@ -124,6 +134,37 @@ offset_left = -885.0
 offset_top = -116.0
 offset_right = -185.0
 offset_bottom = -95.0
+z_index = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="MidPlatform" type="StaticBody2D" parent="."]
+position = Vector2(900, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidPlatform"]
+shape = SubResource("RectangleShape2D_medium")
+
+[node name="ColorRect" type="ColorRect" parent="MidPlatform"]
+offset_left = -180.0
+offset_top = -10.0
+offset_right = 180.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+z_index = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="HighPlatform" type="StaticBody2D" parent="."]
+position = Vector2(550, 380)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HighPlatform"]
+shape = SubResource("RectangleShape2D_small")
+
+[node name="ColorRect" type="ColorRect" parent="HighPlatform"]
+offset_left = -120.0
+offset_top = -10.0
+offset_right = 120.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+z_index = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]

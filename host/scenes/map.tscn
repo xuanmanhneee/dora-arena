@@ -1,20 +1,27 @@
 [gd_scene format=3 uid="uid://cwj2ow6hpocey"]
 
-[ext_resource type="Script" uid="uid://bfvotc8ugx54q" path="res://scripts/map.gd" id="1_paxxb"]
+[ext_resource type="Script" uid="uid://duk8uo0dnol83" path="res://scripts/map.gd" id="1_paxxb"]
 [ext_resource type="Texture2D" uid="uid://d1c1ykfbl3lhn" path="res://assets/bg_dora22.jpg" id="2_paxxb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(1000, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_medium"]
+size = Vector2(420, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_small"]
+size = Vector2(260, 20)
 
 [node name="Map" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_paxxb")
 spawn_points = [NodePath("PlayerSpawnPoints/Marker2D_1"), NodePath("PlayerSpawnPoints/Marker2D_2"), NodePath("PlayerSpawnPoints/Marker2D_3"), NodePath("PlayerSpawnPoints/Marker2D_4")]
 
 [node name="Background" type="TextureRect" parent="." unique_id=1471629453]
-offset_left = -257.0
-offset_top = -228.0
-offset_right = 1509.0
-offset_bottom = 971.0
+z_index = -10
+offset_left = -221.0
+offset_top = -155.0
+offset_right = 1545.0
+offset_bottom = 1044.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_paxxb")
@@ -44,22 +51,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Marker2D" type="Marker2D" parent="ItemSpawnPoints" unique_id=524763354 groups=["item_spawn_point"]]
-position = Vector2(300, 550)
+position = Vector2(320, 450)
 
 [node name="Marker2D2" type="Marker2D" parent="ItemSpawnPoints" unique_id=1515602070 groups=["item_spawn_point"]]
-position = Vector2(450, 550)
+position = Vector2(1020, 450)
 
 [node name="Marker2D3" type="Marker2D" parent="ItemSpawnPoints" unique_id=1365275287 groups=["item_spawn_point"]]
-position = Vector2(600, 550)
+position = Vector2(560, 330)
 
 [node name="Marker2D4" type="Marker2D" parent="ItemSpawnPoints" unique_id=290919035 groups=["item_spawn_point"]]
-position = Vector2(750, 550)
+position = Vector2(800, 330)
 
 [node name="Marker2D5" type="Marker2D" parent="ItemSpawnPoints" unique_id=1193321913 groups=["item_spawn_point"]]
-position = Vector2(900, 550)
+position = Vector2(520, 575)
 
 [node name="Marker2D6" type="Marker2D" parent="ItemSpawnPoints" unique_id=1738146648 groups=["item_spawn_point"]]
-position = Vector2(1050, 550)
+position = Vector2(820, 575)
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1009606551]
 position = Vector2(682, 613)
@@ -68,9 +75,55 @@ position = Vector2(682, 613)
 shape = SubResource("RectangleShape2D_lnu2h")
 
 [node name="ColorRect" type="ColorRect" parent="Ground" unique_id=309317886]
+z_index = 5
 offset_left = -487.0
 offset_top = -10.0
 offset_right = 513.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MidPlatform" type="StaticBody2D" parent="." unique_id=1185804279]
+position = Vector2(682, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidPlatform" unique_id=982103267]
+shape = SubResource("RectangleShape2D_medium")
+
+[node name="ColorRect" type="ColorRect" parent="MidPlatform" unique_id=1216528540]
+z_index = 5
+offset_left = -210.0
+offset_top = -10.0
+offset_right = 210.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftPlatform" type="StaticBody2D" parent="." unique_id=1334583340]
+position = Vector2(340, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPlatform" unique_id=1180204844]
+shape = SubResource("RectangleShape2D_small")
+
+[node name="ColorRect" type="ColorRect" parent="LeftPlatform" unique_id=1639293477]
+z_index = 5
+offset_left = -130.0
+offset_top = -10.0
+offset_right = 130.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="RightPlatform" type="StaticBody2D" parent="." unique_id=1079307681]
+position = Vector2(1020, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPlatform" unique_id=1146210991]
+shape = SubResource("RectangleShape2D_small")
+
+[node name="ColorRect" type="ColorRect" parent="RightPlatform" unique_id=814221097]
+z_index = 5
+offset_left = -130.0
+offset_top = -10.0
+offset_right = 130.0
 offset_bottom = 11.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true

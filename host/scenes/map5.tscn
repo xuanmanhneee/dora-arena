@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://d5map5x7y81a"]
+
+[ext_resource type="Script" uid="uid://bfvotc8ugx54q" path="res://scripts/map.gd" id="1_map"]
+[ext_resource type="Texture2D" uid="uid://bf1ws60rsotn1" path="res://assets/bg_dora20.jpg" id="2_bg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_large"]
+size = Vector2(500, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_medium"]
+size = Vector2(300, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_small"]
+size = Vector2(200, 20)
+
+[node name="Map" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("1_map")
+spawn_points = [NodePath("PlayerSpawnPoints/Marker2D_1"), NodePath("PlayerSpawnPoints/Marker2D_2"), NodePath("PlayerSpawnPoints/Marker2D_3"), NodePath("PlayerSpawnPoints/Marker2D_4")]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -281.0
+offset_top = -155.0
+offset_right = 1511.0
+offset_bottom = 985.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_bg")
+z_index = -10
+
+[node name="PlayerSpawnPoints" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Marker2D_1" type="Marker2D" parent="PlayerSpawnPoints"]
+position = Vector2(340, -260)
+
+[node name="Marker2D_2" type="Marker2D" parent="PlayerSpawnPoints"]
+position = Vector2(540, -260)
+
+[node name="Marker2D_3" type="Marker2D" parent="PlayerSpawnPoints"]
+position = Vector2(900, -260)
+
+[node name="Marker2D_4" type="Marker2D" parent="PlayerSpawnPoints"]
+position = Vector2(1100, -260)
+
+[node name="ItemSpawnPoints" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Marker2D" type="Marker2D" parent="ItemSpawnPoints" groups=["item_spawn_point"]]
+position = Vector2(420, 640)
+
+[node name="Marker2D2" type="Marker2D" parent="ItemSpawnPoints" groups=["item_spawn_point"]]
+position = Vector2(1020, 640)
+
+[node name="Marker2D3" type="Marker2D" parent="ItemSpawnPoints" groups=["item_spawn_point"]]
+position = Vector2(720, 520)
+
+[node name="Marker2D4" type="Marker2D" parent="ItemSpawnPoints" groups=["item_spawn_point"]]
+position = Vector2(520, 360)
+
+[node name="Marker2D5" type="Marker2D" parent="ItemSpawnPoints" groups=["item_spawn_point"]]
+position = Vector2(920, 360)
+
+[node name="Marker2D6" type="Marker2D" parent="ItemSpawnPoints" groups=["item_spawn_point"]]
+position = Vector2(720, 260)
+
+[node name="GroundLeft" type="StaticBody2D" parent="."]
+position = Vector2(420, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundLeft"]
+shape = SubResource("RectangleShape2D_large")
+
+[node name="ColorRect" type="ColorRect" parent="GroundLeft"]
+offset_left = -250.0
+offset_top = -10.0
+offset_right = 250.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+z_index = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="GroundRight" type="StaticBody2D" parent="."]
+position = Vector2(1020, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundRight"]
+shape = SubResource("RectangleShape2D_large")
+
+[node name="ColorRect" type="ColorRect" parent="GroundRight"]
+offset_left = -250.0
+offset_top = -10.0
+offset_right = 250.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+z_index = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterPlatform" type="StaticBody2D" parent="."]
+position = Vector2(720, 520)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CenterPlatform"]
+shape = SubResource("RectangleShape2D_medium")
+
+[node name="ColorRect" type="ColorRect" parent="CenterPlatform"]
+offset_left = -150.0
+offset_top = -10.0
+offset_right = 150.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+z_index = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="UpperLeft" type="StaticBody2D" parent="."]
+position = Vector2(520, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperLeft"]
+shape = SubResource("RectangleShape2D_small")
+
+[node name="ColorRect" type="ColorRect" parent="UpperLeft"]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+z_index = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="UpperRight" type="StaticBody2D" parent="."]
+position = Vector2(920, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperRight"]
+shape = SubResource("RectangleShape2D_small")
+
+[node name="ColorRect" type="ColorRect" parent="UpperRight"]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+z_index = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TopCenter" type="StaticBody2D" parent="."]
+position = Vector2(720, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopCenter"]
+shape = SubResource("RectangleShape2D_small")
+
+[node name="ColorRect" type="ColorRect" parent="TopCenter"]
+offset_left = -100.0
+offset_top = -10.0
+offset_right = 100.0
+offset_bottom = 11.0
+color = Color(0, 0, 0, 1)
+z_index = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="DeathZone" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone"]
+polygon = PackedVector2Array(-60, 56, -58, 1017, 1351, 1019, 1352, 54, 1410, 54, 1412, 1072, -138, 1072, -139, 56)
