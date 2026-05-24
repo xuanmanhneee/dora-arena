@@ -232,9 +232,9 @@ func _on_return_to_main_menu() -> void:
 
 const BOT_CONFIGS := {
 	Enums.BotDifficulty.EASY:   preload("res://data/bot/bot_config_easy.tres"),
-	Enums.BotDifficulty.NORMAL: preload("res://data/bot/bot_config_easy.tres"),
-	Enums.BotDifficulty.HARD:   preload("res://data/bot/bot_config_easy.tres"),
-	Enums.BotDifficulty.ASIAN:  preload("res://data/bot/bot_config_easy.tres"),
+	Enums.BotDifficulty.NORMAL: preload("res://data/bot/bot_config_normal.tres"),
+	Enums.BotDifficulty.HARD:   preload("res://data/bot/bot_config_hard.tres"),
+	Enums.BotDifficulty.ASIAN:  preload("res://data/bot/bot_config_asian.tres"),
 }
 
 func _get_bot_config(difficulty: Enums.BotDifficulty) -> BotConfig:

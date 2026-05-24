@@ -288,7 +288,9 @@ func _refresh_mode_panel() -> void:
 		lan_mode_panel.visible = false
 		local_mode_panel.visible = true
 		_clear_lan_data()
-		NetworkManager.stop_server()
+		
+		if NetworkManager.is_hosting:
+			NetworkManager.stop_server()
 
 	elif current_game_mode == Enums.GameMode.LAN_4P:
 		local_mode_panel.visible = false

@@ -4,3 +4,11 @@
 
 [resource]
 script = ExtResource("1_rg8y6")
+reaction_delay = 0.8
+preferred_dist_min = 150.0
+preferred_dist_max = 280.0
+shoot_hesitate_chance = 0.7
+wander_chance = 0.35
+wander_duration = 0.8
+check_enemy_buffs = true
+item_priority = 0.3

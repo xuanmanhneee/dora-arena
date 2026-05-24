@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BotConfig" format=3 uid="uid://bwmcc27dnqqhj"]
+
+[ext_resource type="Script" uid="uid://cbbej62kj5kcm" path="res://data/bot/bot_config.gd" id="1_157gi"]
+
+[resource]
+script = ExtResource("1_157gi")
+detect_radius = 500.0
+reaction_delay = 0.15
+shoot_hesitate_chance = 0.15
+wander_chance = 0.15
+wander_duration = 0.5
+scan_bullets = true
+consider_explosion = true
+item_seek_range = 350.0
+item_priority = 0.7
+use_platform_navigation = true
+platform_seek_range = 250.0

@@ -1,20 +1,25 @@
 [gd_scene format=3 uid="uid://btkbrcx2y0sop"]
 
 [ext_resource type="Script" uid="uid://bfvotc8ugx54q" path="res://scripts/map.gd" id="1_jji5p"]
-[ext_resource type="Texture2D" uid="uid://bf1ws60rsotn1" path="res://assets/bg_dora20.jpg" id="2_jji5p"]
+[ext_resource type="Texture2D" uid="uid://br6ln7vgvgi1i" path="res://assets/map_tan_tich_atlantis.png" id="2_jji5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
-size = Vector2(500, 20)
+size = Vector2(1630, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk7cf"]
+size = Vector2(466, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kldx"]
+size = Vector2(423, 20)
 
 [node name="Map" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_jji5p")
 spawn_points = [NodePath("PlayerSpawnPoints/Marker2D_1"), NodePath("PlayerSpawnPoints/Marker2D_2"), NodePath("PlayerSpawnPoints/Marker2D_3"), NodePath("PlayerSpawnPoints/Marker2D_4")]
 
 [node name="Background" type="TextureRect" parent="." unique_id=1471629453]
-offset_left = -281.0
-offset_top = -155.0
-offset_right = 1511.0
-offset_bottom = 985.0
+offset_right = 1738.1818
+offset_bottom = 979.99994
+scale = Vector2(1.1, 1.1)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_jji5p")
@@ -71,65 +76,21 @@ position = Vector2(998, 401)
 position = Vector2(819, 616)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1717556844]
-position = Vector2(301, -155)
+position = Vector2(151, 198)
 shape = SubResource("RectangleShape2D_lnu2h")
 
-[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=309317886]
-offset_left = 44.0
-offset_top = -167.0
-offset_right = 544.0
-offset_bottom = -146.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=943426729]
+position = Vector2(-352, -163)
+shape = SubResource("RectangleShape2D_lk7cf")
 
-[node name="Ground3" type="StaticBody2D" parent="." unique_id=957454524]
-position = Vector2(696, 724)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3" unique_id=754668548]
-position = Vector2(-300, -27)
-shape = SubResource("RectangleShape2D_lnu2h")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground3" unique_id=268544175]
-position = Vector2(217, -30)
-shape = SubResource("RectangleShape2D_lnu2h")
-
-[node name="ColorRect" type="ColorRect" parent="Ground3" unique_id=271383422]
-offset_left = -589.0
-offset_top = -38.0
-offset_right = 461.0
-offset_bottom = -17.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Ground2" type="StaticBody2D" parent="." unique_id=428422778]
-position = Vector2(742, 660)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=624326574]
-position = Vector2(-351, -268)
-shape = SubResource("RectangleShape2D_lnu2h")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground2" unique_id=500186162]
-position = Vector2(-409, -83)
-shape = SubResource("RectangleShape2D_lnu2h")
-
-[node name="ColorRect" type="ColorRect" parent="Ground2" unique_id=1757990237]
-offset_left = -599.0
-offset_top = -279.0
-offset_right = -99.0
-offset_bottom = -258.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect2" type="ColorRect" parent="Ground2" unique_id=1923467392]
-offset_left = -657.0
-offset_top = -94.0
-offset_right = -157.0
-offset_bottom = -73.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground" unique_id=2028066396]
+position = Vector2(677.5, -163)
+shape = SubResource("RectangleShape2D_5kldx")
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]
 unique_name_in_owner = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone" unique_id=1939328494]
-polygon = PackedVector2Array(-60, 56, -58, 1017, 1351, 1019, 1352, 54, 1410, 54, 1412, 1072, -138, 1072, -139, 56)
+position = Vector2(51.60434, -30.442017)
+scale = Vector2(1.391038, 0.9075834)
+polygon = PackedVector2Array(-50.037697, -3.9999998, -49.31881, 1011.99994, 1343.1665, 1008.65875, 1348.9176, -0.99999994, 1411.4608, 2.9999998, 1412, 1072, -138, 1072, -138.46088, -5.9999995)

@@ -34,7 +34,34 @@ extends Resource
 @export var wander_duration: float = 0.6
 ## Bao lâu bot di chuyển theo hướng wander trước khi re-evaluate (giây)
 
+# ── NÉ ĐẠN ─────────────────────────────────────────────────────────────────
+@export var scan_bullets: bool = false
+## Bật để bot phân tích trajectory đạn và né
+## Easy/Normal: tắt. Hard/Asian: bật
+
+@export var dodge_rate: float = 0.0
+## Xác suất bot thực sự né khi phát hiện đạn nguy hiểm (0.0 = không bao giờ, 1.0 = luôn luôn)
+
 # ── ĐỘ KHÓ CAO ─────────────────────────────────────────────────────────────
 @export var consider_explosion: bool = false
 ## Bật ở độ khó HARD trở lên
 ## Bot sẽ tính đến vùng nổ của đạn nổ khi quyết định dodge/retreat
+
+@export var check_enemy_buffs: bool = false
+## Bật ở độ khó ASIAN
+## Bot kiểm tra reflect / explosive_bullet của địch trước khi bắn
+
+# ── NHẶT ITEM ──────────────────────────────────────────────────────────────
+@export var item_seek_range: float = 100.0
+## Bán kính tìm item (px). Asian = toàn màn hình
+
+@export var item_priority: float = 0.5
+## 0.0 = bỏ qua item, 1.0 = ưu tiên cao nhất
+## Asian: tính thêm giá trị item theo HP hiện tại
+
+# ── PLATFORM NAVIGATION ────────────────────────────────────────────────────
+@export var use_platform_navigation: bool = false
+## Bật để bot cố nhảy lên platform cao hơn để theo địch
+
+@export var platform_seek_range: float = 0.0
+## Bán kính tìm platform có thể nhảy tới (0 = tắt)

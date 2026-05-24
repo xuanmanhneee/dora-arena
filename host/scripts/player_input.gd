@@ -5,5 +5,7 @@ var move_direction: int = 0:
 		move_direction = clamp(value, -1, 1)
 
 var jump: bool = false
+var drop_down: bool = false
+
 var shoot: bool = false
 var skill: bool = false
