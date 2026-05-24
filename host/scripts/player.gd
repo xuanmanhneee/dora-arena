@@ -2,12 +2,14 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
+const MAX_ENERGY: float = 100.0
 
 @onready var _collider: CollisionShape2D = $CollisionShape2D
 @onready var visual = $Visual
 @onready var anim: AnimatedSprite2D = $Visual/AnimatedSprite2D
 @onready var shoot_pos: Marker2D = $Visual/Marker2D
 @onready var hurt_box: Area2D = $HurtBox
+@onready var shoot_audio: AudioStreamPlayer = $ShootAudio
 
 const NORMAL_BULLET: PackedScene = preload("res://scenes/normal_bullet.tscn")
 const EXPLOSIVE_BULLET: PackedScene = preload("res://scenes/bullet/explosive_bullet.tscn")
@@ -20,12 +22,13 @@ var stun_timer: float = 0.0
 
 var is_reflecting: bool = false
 
+var energy: float = 0.0
+var score: int = 0
+
 var _ultimate_damage_loop: bool = false
 var _hit_sounds = [
 	preload("res://assets/audio/459.mp3"),
 	preload("res://assets/audio/400.mp3"),
-	
-	
 ]
 var _hit_sound_index = 0
 
@@ -114,8 +117,9 @@ func _jump():
 func _shoot():
 	var b = current_bullet.instantiate() as BaseBullet
 	var pos = shoot_pos.global_position
-	b.setup(pos, facing_dir, team)
+	b.setup(pos, facing_dir, team, self) 
 	get_tree().current_scene.add_child(b)
+	shoot_audio.play()
 
 func _on_anim_finished():
 	if anim.animation == "shoot":
@@ -164,16 +168,21 @@ func apply_knockback(force: Vector2):
 	velocity.y = force.y
 	is_stunned = true
 	stun_timer = stun_time
-
 	is_shooting = false
 	anim.play("receiveDamage")
-
+	add_energy(-5.0)
+	add_score(-3)
+	
 func freeze() -> void:
 	set_physics_process(false)
 	#set_process_input(false)
 	_collider.set_deferred("disabled", true)
 	
 func _handle_ultimate_skill():
+	if not can_use_ultimate(): return  # ← chặn nếu chưa đủ energy
+	energy = 0.0                        # ← reset về 0
+	GameEvents.energy_changed.emit(self, energy, MAX_ENERGY)  # ← cập nhật UI
+	
 	Engine.time_scale = 0.2
 	
 	# Giảm BGM
@@ -249,3 +258,15 @@ func _run_ultimate_damage_loop():
 		_hit_sound_index += 1
 		
 		await get_tree().create_timer(0.05, true, false, true).timeout
+
+func add_score(amount: int) -> void:
+	score += amount
+	GameEvents.player_score_changed.emit(self, score)
+
+func add_energy(amount: float):
+	energy = minf(energy + amount, MAX_ENERGY)
+	GameEvents.energy_changed.emit(self, energy, MAX_ENERGY)
+	
+func can_use_ultimate() -> bool:
+	return energy >= MAX_ENERGY
+	

@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b76ngywugtc1j" path="res://assets/audio/close_door.mp3" id="38_cs1tg"]
 [ext_resource type="AudioStream" uid="uid://bpglp0u66xqgr" path="res://assets/audio/459.mp3" id="38_t4otl"]
 [ext_resource type="AudioStream" uid="uid://bxdlgqf7r7agh" path="res://assets/audio/400.mp3" id="39_j2b1d"]
+[ext_resource type="AudioStream" uid="uid://b6afhuruxyi21" path="res://assets/audio/sound_gun.wav" id="40_cs1tg"]
 [ext_resource type="Texture2D" uid="uid://bdm2winvt6iqd" path="res://assets/animation_doraemon/cinematic/381.png" id="67_qywrh"]
 [ext_resource type="Texture2D" uid="uid://coa0qbrsf5xlm" path="res://assets/animation_doraemon/cinematic/383.png" id="68_jopkk"]
 [ext_resource type="Texture2D" uid="uid://dvtkxcl8vb3i3" path="res://assets/animation_doraemon/cinematic/386.png" id="69_5l1xu"]
@@ -164,7 +165,7 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_xxg78"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 2.5,
 "texture": ExtResource("70_inwxp")
 }, {
 "duration": 1.0,
@@ -361,7 +362,7 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("38_cs1tg")
 }, {
-"end_offset": 0.0,
+"end_offset": 2.1999996,
 "start_offset": 0.09,
 "stream": ExtResource("38_t4otl")
 }, {
@@ -369,7 +370,7 @@ tracks/3/keys = {
 "start_offset": 0.63570064,
 "stream": ExtResource("39_j2b1d")
 }],
-"times": PackedFloat32Array(2.1, 2.6333334, 3.0333333, 7.4333334)
+"times": PackedFloat32Array(2.1, 2.6333334, 3.5666666, 4.633333)
 }
 tracks/3/use_blend = true
 
@@ -394,10 +395,9 @@ position = Vector2(69, 13)
 
 [node name="CinematicAnim" type="AnimatedSprite2D" parent="Visual" unique_id=1848738109]
 visible = false
-position = Vector2(0, 5)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xxg78")
-animation = &"nobita_part"
+animation = &"doraemon_part"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=824260810]
 shape = SubResource("CapsuleShape2D_epypp")
@@ -435,3 +435,8 @@ grow_vertical = 0
 color = Color(0, 0, 0, 1)
 
 [node name="SkillAudio" type="AudioStreamPlayer" parent="." unique_id=114810886]
+
+[node name="ShootAudio" type="AudioStreamPlayer" parent="." unique_id=769165348]
+stream = ExtResource("40_cs1tg")
+volume_db = -8.0
+max_polyphony = 3

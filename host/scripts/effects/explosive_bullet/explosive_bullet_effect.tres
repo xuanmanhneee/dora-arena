@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="ExplosiveBulletEffect" format=3 uid="uid://bvxsnit77xjye"]
 
 [ext_resource type="PackedScene" uid="uid://b707cb5qg4f3g" path="res://scenes/bullet/explosive_bullet.tscn" id="1_j1vih"]
-[ext_resource type="Script" uid="uid://helrkbm4almc" path="res://scripts/effects/explosive_bullet/explosive_bullet_effect.gd" id="2_iwt3q"]
+[ext_resource type="Texture2D" uid="uid://cke4dv3mhwt44" path="res://assets/iconbuff_explosion.png" id="2_f8xtp"]
+[ext_resource type="Script" uid="uid://b8xnoywatlyqq" path="res://scripts/effects/explosive_bullet/explosive_bullet_effect.gd" id="2_iwt3q"]
 
 [resource]
 script = ExtResource("2_iwt3q")
 bullet_scene = ExtResource("1_j1vih")
 effect_name = "Explosive Bullet"
 duration = 5.0
+icon = ExtResource("2_f8xtp")

@@ -14,3 +14,6 @@ signal play_again_requested
 signal return_main_menu_requested
 
 signal game_restarted
+
+signal energy_changed(player: Player, current: float, maximum: float)
+signal player_score_changed(player: Player, score: int)

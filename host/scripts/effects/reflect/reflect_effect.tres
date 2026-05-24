@@ -1,9 +1,10 @@
 [gd_resource type="Resource" format=3 uid="uid://bsq8dc4c1woei"]
 
-[ext_resource type="Script" uid="uid://c76tjm4650imv" path="res://scripts/effects/reflect/reflect_effect.gd" id="1_bcfx3"]
+[ext_resource type="Script" uid="uid://d3osrmsr0tk1w" path="res://scripts/effects/reflect/reflect_effect.gd" id="1_bcfx3"]
+[ext_resource type="Texture2D" uid="uid://bj8ofhod1wfo6" path="res://assets/iconbufff_reflect.png" id="1_rej3g"]
 
 [resource]
 script = ExtResource("1_bcfx3")
 effect_name = "Reflect"
 duration = 10.0
-metadata/_custom_type_script = "uid://dij5efg2ae0m6"
+icon = ExtResource("1_rej3g")

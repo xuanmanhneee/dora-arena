@@ -115,6 +115,8 @@ func _create_player(id: int, team: Enums.Team, input: PlayerInput, pos: Vector2)
 	p.modulate = Color(randf(), randf(), randf())
 	p.add_to_group("players")
 	get_parent().add_child(p)
+	
+	
 
 func _on_player_handle_death(player: Player) -> void:
 	if is_game_over: return  # Không xử lý nếu game đã kết thúc
@@ -212,6 +214,6 @@ func _on_action_input_received(id: int, action: int) -> void:
 	match action:
 		Enums.Action.JUMP:  player_inputs[id].jump = true
 		Enums.Action.SHOOT: player_inputs[id].shoot = true
-		
+		Enums.Action.SKILL: player_inputs[id].skill = true
 
 #endregion

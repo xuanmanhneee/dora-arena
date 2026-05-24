@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtxclro44o7sp"]
 
-[ext_resource type="Script" uid="uid://cwaigeguqhref" path="res://scripts/overlay_layer.gd" id="1_2wghe"]
+[ext_resource type="Script" uid="uid://cj6xx5nqo14g6" path="res://scripts/overlay_layer.gd" id="1_2wghe"]
 
 [node name="OverlayLayer" type="CanvasLayer" unique_id=869507950]
 script = ExtResource("1_2wghe")
@@ -57,3 +57,43 @@ theme_override_constants/margin_top = 23
 layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "0"
+
+[node name="EnergyBarP1" type="ProgressBar" parent="." unique_id=269715343]
+custom_minimum_size = Vector2(150, 8)
+offset_left = 1408.0
+offset_top = 161.0
+offset_right = 1901.0
+offset_bottom = 216.0
+
+[node name="EnergyBarP2" type="ProgressBar" parent="." unique_id=442481260]
+custom_minimum_size = Vector2(150, 8)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1900.0
+offset_top = 150.0
+offset_right = -1396.0
+offset_bottom = 201.0
+grow_horizontal = 0
+
+[node name="ScoreP1" type="Label" parent="." unique_id=41380596]
+custom_minimum_size = Vector2(150, 30)
+offset_left = 20.0
+offset_top = 260.0
+offset_right = 521.0
+offset_bottom = 331.0
+theme_override_font_sizes/font_size = 32
+text = "                          
+                      0
+"
+
+[node name="ScoreP2" type="Label" parent="." unique_id=1306569745]
+custom_minimum_size = Vector2(-100, 75)
+offset_left = 1423.0
+offset_top = 258.0
+offset_right = 1893.0
+offset_bottom = 333.0
+theme_override_font_sizes/font_size = 32
+text = "
+                    0
+"
