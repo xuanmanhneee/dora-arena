@@ -200,6 +200,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_shoot"): player_inputs[1].shoot = true
 	if event.is_action_pressed("p2_jump"):  player_inputs[2].jump = true
 	if event.is_action_pressed("p2_shoot"): player_inputs[2].shoot = true
+	if event.is_action_pressed("p1_skill"): player_inputs[1].skill = true
+	if event.is_action_pressed("p2_skill"): player_inputs[2].skill = true
 
 func _on_movement_input_received(id: int, move: int) -> void:
 	if player_inputs.has(id):

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bj5y1cn6y27de"]
 
-[ext_resource type="Script" uid="uid://ek78lxpx74en" path="res://scripts/lobby.gd" id="1_o1atq"]
+[ext_resource type="Script" uid="uid://37esxdnrtt2m" path="res://scripts/lobby.gd" id="1_o1atq"]
+[ext_resource type="Texture2D" uid="uid://bpuj8e1nalmxi" path="res://assets/bg_lobby.jpg" id="2_q60fs"]
+[ext_resource type="Texture2D" uid="uid://cgec1o8k0ood7" path="res://assets/btn_back_lobby.png" id="3_nqcc7"]
 
 [node name="Lobby" type="Control" unique_id=571870490]
 layout_mode = 3
@@ -10,6 +12,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o1atq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=341828510]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_left = -91.0
+offset_top = -76.0
+offset_right = 1990.0
+offset_bottom = 1084.0
+texture = ExtResource("2_q60fs")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1663069328]
 layout_mode = 1
@@ -110,7 +121,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_bottom = 100.0
+offset_left = -453.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 265.0
 grow_horizontal = 0
-text = "Back"
+icon = ExtResource("3_nqcc7")
+expand_icon = true

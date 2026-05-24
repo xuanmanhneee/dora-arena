@@ -20,6 +20,14 @@ var stun_timer: float = 0.0
 
 var is_reflecting: bool = false
 
+var _ultimate_damage_loop: bool = false
+var _hit_sounds = [
+	preload("res://assets/audio/459.mp3"),
+	preload("res://assets/audio/400.mp3"),
+	
+	
+]
+var _hit_sound_index = 0
 
 @export var stun_time: float = 0.5
 @export var knockback_decay: float = 8.0
@@ -67,11 +75,15 @@ func _physics_process(delta: float) -> void:
 		# shoot
 		if input.shoot:
 			_handle_shoot()
+			
+		if input.skill:
+			_handle_ultimate_skill()
 
 	# 👉 decay knockback (LUÔN chạy)
 	velocity.x = lerp(velocity.x, 0.0, knockback_decay * delta)
 
 	move_and_slide()
+	
 	
 	# reset input
 	input.jump = false
@@ -160,3 +172,80 @@ func freeze() -> void:
 	set_physics_process(false)
 	#set_process_input(false)
 	_collider.set_deferred("disabled", true)
+	
+func _handle_ultimate_skill():
+	Engine.time_scale = 0.2
+	
+	# Giảm BGM
+	AudioManager.player.volume_db = linear_to_db(0.1)
+	
+	$CinematicPlayer.speed_scale = 5.0
+	$CinematicPlayer.play("ultimate_cinematic")
+	
+	await get_tree().create_timer(2.0, true, false, true).timeout
+	
+	$Visual/AnimatedSprite2D.visible = false
+	$Visual/CinematicAnim.visible = true
+	
+	# === NOBITA PART ===
+	$Visual/CinematicAnim.play("nobita_part")
+	await $Visual/CinematicAnim.animation_finished  # ← chờ 6 frame chạy hết
+
+	# === DORAEMON PART ===
+	$Visual/CinematicAnim.position = Vector2(0, -20)
+	$Visual/CinematicAnim.play("doraemon_part")
+
+	$SkillAudio.stream = preload("res://assets/audio/400.mp3")
+	$SkillAudio.play()
+
+	await $Visual/CinematicAnim.animation_finished  # ← chờ 20 frame chạy hết
+
+	_ultimate_damage_loop = true
+	_run_ultimate_damage_loop()
+		
+	await get_tree().create_timer(3.0, true, false, true).timeout
+		
+	_ultimate_damage_loop = false
+	$Visual/AnimatedSprite2D.visible = true
+	$Visual/CinematicAnim.visible = false
+	$Visual/CinematicAnim.stop()
+	$SkillAudio.stop()
+		
+	await get_tree().create_timer(2.0, true, false, true).timeout
+		
+	$CinematicPlayer.stop()
+	$CinematicPlayer.speed_scale = 1.0
+	Engine.time_scale = 1.0
+		
+		# Khôi phục BGM
+	AudioManager.apply_volume()
+
+func _run_ultimate_damage_loop():
+	var targets = []
+	for p in get_tree().get_nodes_in_group("players"):
+		if p == self: continue
+		if p.team == self.team: continue
+		targets.append({"node": p, "pos": p.global_position})
+	
+	_hit_sound_index = 0
+	var shake_dir = 1
+	while _ultimate_damage_loop:
+		for t in targets:
+			var p = t["node"]
+			if not is_instance_valid(p): continue
+			
+			var shake_offset = Vector2(shake_dir * 5, 0)
+			p.global_position = t["pos"] + shake_offset
+			shake_dir *= -1
+			
+			p.velocity = Vector2.ZERO
+			p.is_stunned = true
+			p.stun_timer = 0.2
+			if p.anim.animation != "receiveDamage":
+				p.anim.play("receiveDamage")
+		
+		$SkillAudio.stream = _hit_sounds[_hit_sound_index % _hit_sounds.size()]
+		$SkillAudio.play()
+		_hit_sound_index += 1
+		
+		await get_tree().create_timer(0.05, true, false, true).timeout

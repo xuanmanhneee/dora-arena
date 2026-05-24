@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1j6arsufgg0q"
-path="res://.godot/imported/drm.png-d746f0aca90c4b2c975563ff190f5ca1.ctex"
+uid="uid://dm0apsu1kpbqe"
+path="res://.godot/imported/25.png-fab789fe0e57472434927c85af511ab6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/drm.png"
-dest_files=["res://.godot/imported/drm.png-d746f0aca90c4b2c975563ff190f5ca1.ctex"]
+source_file="res://assets/animation_doraemon/cinematic/25.png"
+dest_files=["res://.godot/imported/25.png-fab789fe0e57472434927c85af511ab6.ctex"]
 
 [params]
 

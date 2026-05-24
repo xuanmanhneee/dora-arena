@@ -1,9 +1,9 @@
+Control
 ColorRect
 Label
 TextureRect
 Sprite2D
 Node2D
-Control
 Button
 HBoxContainer
 VBoxContainer

@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://biugfvkibrqbg"]
 
 [ext_resource type="PackedScene" uid="uid://cwj2ow6hpocey" path="res://scenes/map.tscn" id="1_lnu2h"]
-[ext_resource type="Script" uid="uid://bofyspmd6b58m" path="res://scripts/game.gd" id="1_p57ef"]
+[ext_resource type="Script" uid="uid://6ukyjqkn7idq" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dtxclro44o7sp" path="res://scenes/overlay_layer.tscn" id="3_iywne"]
-[ext_resource type="Script" uid="uid://crykvjep6ff53" path="res://scripts/multiplayer_camera_2d.gd" id="3_lbhrr"]
-[ext_resource type="Script" uid="uid://b663tondur1k" path="res://scripts/game_manager.gd" id="3_u5sy4"]
+[ext_resource type="Script" uid="uid://bnd4dvor83bc7" path="res://scripts/multiplayer_camera_2d.gd" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://od2cht1qj015" path="res://scripts/game_manager.gd" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://kw4bjkuayhlf" path="res://scenes/player.tscn" id="4_u5sy4"]
-[ext_resource type="Script" uid="uid://befv0nktf5woq" path="res://scripts/managers/item_manager.gd" id="5_gee14"]
+[ext_resource type="Script" uid="uid://b2d84etfxh4bf" path="res://scripts/managers/item_manager.gd" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://7rotqlvewja5" path="res://scenes/result_layer.tscn" id="6_p57ef"]
 
 [node name="Game" type="Node" unique_id=468330071]
@@ -22,7 +22,6 @@ current_map = NodePath("../Map")
 [node name="ItemManager" type="Node" parent="." unique_id=2061195717]
 script = ExtResource("5_gee14")
 spawn_interval = 3.0
-metadata/_custom_type_script = "uid://befv0nktf5woq"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=691998796]
 script = ExtResource("3_lbhrr")

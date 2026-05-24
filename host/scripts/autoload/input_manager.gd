@@ -5,6 +5,7 @@ const DEFAULT_KEYS := {
 	"p1_right": KEY_D,
 	"p1_jump": KEY_W,
 	"p1_shoot": KEY_F,
+	"p1_skill": KEY_G,
 }
 
 func _ready() -> void:
