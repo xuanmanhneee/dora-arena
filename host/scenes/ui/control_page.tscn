@@ -42,7 +42,7 @@ vertical_alignment = 1
 [node name="Header" type="HBoxContainer" parent="TwoPlayer/MarginContainer/TwoPlayers" unique_id=1131831718]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/Header" unique_id=1211884463]
+[node name="KeyLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/Header" unique_id=1211884463]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
@@ -117,7 +117,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/MoveRightRow" unique_id=62931043]
+[node name="RightLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/MoveRightRow" unique_id=62931043]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
@@ -155,7 +155,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/JumpRow" unique_id=1453381544]
+[node name="JumpLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/JumpRow" unique_id=1453381544]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
@@ -193,7 +193,7 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/ShootRow" unique_id=127873245]
+[node name="ShootLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/ShootRow" unique_id=127873245]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
@@ -249,7 +249,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="TwoPlayer/FourPlayers" unique_id=1332745929]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4xtmf")
@@ -274,14 +273,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="DownloadTitleLabel" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1343448376]
+[node name="Step1Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1343448376]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "1. DOWNLOAD MOBILE CLIENT:"
 
-[node name="QrCode" type="TextureRect" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=749553322]
+[node name="QrCodeTextureRect" type="TextureRect" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=749553322]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -289,7 +288,7 @@ texture = ExtResource("5_o2s0f")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2033861969]
+[node name="Step2Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2033861969]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -297,7 +296,7 @@ theme_override_font_sizes/font_size = 20
 text = "2. Connect all devices to the same Wi-Fi."
 autowrap_mode = 3
 
-[node name="Label2" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=223868376]
+[node name="Step3Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=223868376]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -305,7 +304,7 @@ theme_override_font_sizes/font_size = 20
 text = "3. Open the mobile client."
 autowrap_mode = 3
 
-[node name="Label3" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=182332650]
+[node name="Step4Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=182332650]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -313,7 +312,7 @@ theme_override_font_sizes/font_size = 20
 text = "4. Enter the host IP and join the room."
 autowrap_mode = 3
 
-[node name="Label4" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=115374737]
+[node name="HostIpLabel" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=115374737]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -321,7 +320,7 @@ theme_override_font_sizes/font_size = 20
 text = "This host Ip Address: "
 autowrap_mode = 3
 
-[node name="IpAddressLabel" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=433997961]
+[node name="HostIpValueLabel" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=433997961]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 2

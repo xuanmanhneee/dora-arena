@@ -1,0 +1,43 @@
+[font_size=36][color=black]NHÓM THỰC HIỆN[/color][/font_size]
+
+[font_size=28][color=black]Thành viên nhóm[/color][/font_size]
+[font_size=20][color=black]
+• 2312686 - Phan Lê Xuân Mạnh (Nhóm trưởng)
+• 2312682 - Liêng Hót Ha Luyến
+• 2312716 - Mai Quý Phước
+• 2312778 - Phan Thị Bảo Trâm
+[/color][/font_size]
+
+[font_size=28][color=black]Thông tin dự án[/color][/font_size]
+[font_size=20][color=black]
+• Trường Đại học Đà Lạt
+• Học phần: Phát triển ứng dụng trò chơi
+• Dora Arena là dự án game đại học được phát triển phục vụ mục đích học tập và nghiên cứu.
+• Dự án mang tính phi thương mại và không nhằm mục đích phân phối để thu lợi nhuận.
+• Lấy cảm hứng từ vũ trụ Doraemon và các trò chơi đối kháng nhiều người chơi cổ điển.
+[/color][/font_size]
+
+[font_size=28][color=black]Mã nguồn[/color][/font_size]
+[font_size=20]
+[url=https://github.com/xuanmanhneee/dora-arena][color=black]• GitHub Repository[/color][/url]
+[/font_size]
+
+[font_size=28][color=black]Lời cảm ơn[/color][/font_size]
+[font_size=20][color=black]
+• Xin cảm ơn cộng đồng Godot Engine vì tài liệu, hướng dẫn và các nguồn tài nguyên mã nguồn mở hữu ích.
+• Đặc biệt cảm ơn Fujiko F. Fujio cùng thương hiệu Doraemon vì nguồn cảm hứng sáng tạo.
+[/color][/font_size]
+
+[font_size=28][color=black]Công nghệ sử dụng[/color][/font_size]
+[font_size=20][color=black]
+• Godot Engine 4
+• GDScript
+[/color][/font_size]
+
+[font_size=28][color=black]Phiên bản[/color][/font_size]
+[font_size=20][color=black]
+• Alpha Build 0.1
+• Đang trong quá trình phát triển
+[/color][/font_size]
+
+[font_size=18][color=black]2026[/color][/font_size]

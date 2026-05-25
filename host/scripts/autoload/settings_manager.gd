@@ -6,6 +6,9 @@ const DEFAULTS := {
 	"audio": {
 		"volume": 0.5
 	},
+	"localization": {
+		"locale": "vi"
+	},
 	"input": {
 		"p1_left": KEY_A,
 		"p1_right": KEY_D,

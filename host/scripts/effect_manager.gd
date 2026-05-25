@@ -9,7 +9,7 @@ const FLOATING_LABEL_SCENE = preload("res://scenes/floating_label.tscn")
 var active_timers: Dictionary[Effect, Timer] = {}
 
 func _ready() -> void:
-	GameEvents.player_pickup_item.connect(_on_item_picked)
+	EventBus.subscribe("player_pickup_item", _on_item_picked)
 
 func add_effect(effect: Effect, value: float = 0.0) -> void:
 	# --- HIỂN THỊ TÊN EFFECT ---

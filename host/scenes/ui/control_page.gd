@@ -1,5 +1,20 @@
 extends MarginContainer
 
+@onready var key_label: Label = $TwoPlayer/MarginContainer/TwoPlayers/Header/KeyLabel
+@onready var two_players_label: Label = $TwoPlayer/MarginContainer/TwoPlayers/Label
+@onready var four_players_label: Label = $TwoPlayer/FourPlayers/Label
+
+@onready var left_label: Label = $TwoPlayer/MarginContainer/TwoPlayers/MoveLeftRow/LeftLabel
+@onready var right_label: Label = $TwoPlayer/MarginContainer/TwoPlayers/MoveRightRow/RightLabel
+@onready var jump_label: Label = $TwoPlayer/MarginContainer/TwoPlayers/JumpRow/JumpLabel
+@onready var shoot_label: Label = $TwoPlayer/MarginContainer/TwoPlayers/ShootRow/ShootLabel
+
+@onready var step_1_label: Label = $TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer/Step1Label
+@onready var step_2_label: Label = $TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer/Step2Label
+@onready var step_3_label: Label = $TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer/Step3Label
+@onready var step_4_label: Label = $TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer/Step4Label
+@onready var host_ip_label: Label = $TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer/HostIpLabel
+
 @onready var p1_left_button: Button = $TwoPlayer/MarginContainer/TwoPlayers/MoveLeftRow/P1Button
 @onready var p1_right_button: Button = $TwoPlayer/MarginContainer/TwoPlayers/MoveRightRow/P1Button
 @onready var p1_jump_button: Button = $TwoPlayer/MarginContainer/TwoPlayers/JumpRow/P1Button
@@ -13,7 +28,7 @@ extends MarginContainer
 @onready var reset_button: Button = %ResetButton
 @onready var key_popup: PopupPanel = $KeyBindPopup
 
-@onready var ip_address_label: Label = %IpAddressLabel
+@onready var host_ip_value_label: Label = %HostIpValueLabel
 
 var button_actions: Dictionary[Button, String]
 
@@ -39,8 +54,10 @@ func _ready() -> void:
 	reset_button.pressed.connect(_on_reset_button_pressed)
 	key_popup.key_selected.connect(_on_key_selected)
 	
-	ip_address_label.text = get_lan_ip()
-	
+	EventBus.subscribe("locale_changed", _update_locale)
+
+	host_ip_value_label.text = Utils.get_lan_ip()
+	_update_locale()
 	update_button_texts()
 
 func update_button_texts() -> void:
@@ -90,14 +107,20 @@ func get_used_keys() -> Dictionary[int, String]:
 
 	return result
 
-func get_lan_ip() -> String:
-	# Lấy danh sách tất cả các địa chỉ IP của máy
-	var addresses = IP.get_local_addresses()
+func _update_locale() -> void:
+	key_label.text = Localization.text("control_key")
+	two_players_label.text = Localization.text("control_2_players")
+	four_players_label.text = Localization.text("control_4_players")
 	
-	for ip in addresses:
-		# 1. Kiểm tra xem có phải IPv4 không (có dấu chấm)
-		# 2. Kiểm tra xem có phải địa chỉ nội bộ (localhost) không
-		if "." in ip and not ip.begins_with("127.") and not ip.begins_with("169.254."):
-			return ip
-			
-	return "127.0.0.1" # Trả về localhost nếu không thấy mạng LAN
+	left_label.text = Localization.text("control_key_left")
+	right_label.text = Localization.text("control_key_right")
+	jump_label.text = Localization.text("control_key_jump")
+	shoot_label.text = Localization.text("control_key_shoot")
+	
+	reset_button.text = Localization.text("control_reset_defaut_control")
+	
+	step_1_label.text = Localization.text("control_step_1")
+	step_2_label.text = Localization.text("control_step_2")
+	step_3_label.text = Localization.text("control_step_3")
+	step_4_label.text = Localization.text("control_step_4")
+	host_ip_label.text = Localization.text("control_host_ip")

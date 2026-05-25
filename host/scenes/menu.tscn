@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="5_13sgg"]
 [ext_resource type="PackedScene" uid="uid://dukopxp62xaj3" path="res://scenes/test/placeholder_panel.tscn" id="6_v86rl"]
 [ext_resource type="PackedScene" uid="uid://67uuxa82gser" path="res://match_setup_panel.tscn" id="7_13sgg"]
+[ext_resource type="Texture2D" uid="uid://c12quwwbpaqv8" path="res://assets/ui/menu_background_en.png" id="9_i6lef"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13sgg"]
 bg_color = Color(1, 1, 1, 0)
@@ -137,3 +138,14 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+
+[node name="TitleImageTextureRect" type="TextureRect" parent="." unique_id=1149783775]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+offset_left = 114.0
+offset_top = 140.0
+offset_right = 1804.0
+offset_bottom = 534.0
+texture = ExtResource("9_i6lef")
+expand_mode = 1

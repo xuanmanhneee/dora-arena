@@ -1,0 +1,26 @@
+Dora Arena is a 2D multiplayer fighting game inspired by the world of Doraemon.
+Players control Mini-Dora characters and engage in fast-paced battles inside energy arenas that require quick reflexes and precise timing.
+
+Each match takes place in a limited space where players must:
+- Move skillfully to dodge attacks
+- Time their attacks carefully
+- Use special abilities effectively
+- Push opponents out of the safe zone
+
+Current game modes:
+- 1v1 (Local)
+- 2v2 (LAN)
+
+Key features:
+- Local multiplayer
+- Mobile controller support
+- Fast-paced arena combat
+- Lightweight networking architecture
+
+Technology used:
+- Godot 4.6.1 Stable
+- GDScript
+
+Development status:
+- Alpha Build
+- Work in Progress

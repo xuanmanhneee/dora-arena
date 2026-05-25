@@ -5,6 +5,8 @@ extends Node
 @onready var game_manager: GameManager = %GameManager
 @onready var item_manager: ItemManager = %ItemManager
 @onready var game_camera: GameCamera = $Camera2D
+@onready var overlay_layer: OverlayLayer = $OverlayLayer
+
 var players: Dictionary[int, Player] = {}
 
 var match_config: MatchConfig
@@ -22,6 +24,7 @@ func _ready() -> void:
 	game_manager.setup(self)
 	game_camera.setup(self)
 	item_manager.setup(self)
+	overlay_layer.setup(self)
 
 func _setup(config: MatchConfig) -> void:
 	match_config = config

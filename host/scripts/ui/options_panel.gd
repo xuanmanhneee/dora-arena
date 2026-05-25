@@ -16,6 +16,9 @@ func _ready() -> void:
 	credit_button.pressed.connect(func(): show_page(credit_page))
 	about_button.pressed.connect(func(): show_page(about_page))
 	
+	EventBus.subscribe("locale_changed", _update_locale)
+
+	_update_locale()
 	show_page(settings_page)
 
 func show_page(page: Control) -> void:
@@ -25,3 +28,9 @@ func show_page(page: Control) -> void:
 	control_page.visible = false
 
 	page.visible = true
+
+func _update_locale() -> void:
+	settings_button.text = Localization.text("options_settings")
+	control_button.text = Localization.text("options_controls")
+	credit_button.text = Localization.text("options_credits")
+	about_button.text = Localization.text("options_about")

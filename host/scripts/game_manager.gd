@@ -21,9 +21,9 @@ var scores: Dictionary[Enums.Team, int] = {
 }
 
 func _ready() -> void:
-	GameEvents.player_died.connect(_on_player_handle_death)
-	GameEvents.play_again_requested.connect(_on_restart)
-	GameEvents.return_main_menu_requested.connect(_on_return_to_main_menu)
+	EventBus.subscribe("player_died", _on_player_handle_death)
+	EventBus.subscribe("play_again_requested", _on_restart)
+	EventBus.subscribe("return_main_menu_requested", _on_return_to_main_menu)
 
 	set_process(false)
 
@@ -93,7 +93,7 @@ func _on_restart() -> void:
 
 	_spawn_all_players()
 
-	GameEvents.game_restarted.emit()
+	EventBus.emit("game_restarted")
 
 # --- PROCESS ---
 
@@ -109,7 +109,7 @@ func _tick_timer(delta: float) -> void:
 		return
 		
 	_remaining_time = maxf(_remaining_time - delta, 0.0)
-	GameEvents.time_changed.emit(_remaining_time)
+	EventBus.emit("time_changed", [_remaining_time])
 	if _remaining_time == 0.0:
 		_on_time_up()
 
@@ -160,7 +160,7 @@ func _on_player_handle_death(player: Player) -> void:
 	# Cộng điểm cho team đối phương
 	var scorer := Enums.Team.TEAM_B if player.team == Enums.Team.TEAM_A else Enums.Team.TEAM_A
 	scores[scorer] += 1
-	GameEvents.score_changed.emit(scorer, scores[scorer])
+	EventBus.emit("score_changed", [scorer, scores[scorer]])
 	
 	# Nếu đang trong giai đoạn bù giờ thì kết thúc luôn
 	if _current_phase == Enums.GamePhase.SUDDEN_DEATH:
@@ -198,7 +198,7 @@ func _on_time_up() -> void:
 		return
 		
 	_current_phase = Enums.GamePhase.SUDDEN_DEATH
-	GameEvents.phase_changed.emit()
+	EventBus.emit("phase_changed")
 	_remaining_time = -1
 
 
@@ -218,7 +218,7 @@ func _end_game() -> void:
 			p.visible = false
 			p.is_camera_target = false
 
-	GameEvents.game_over.emit(winner)
+	EventBus.emit("game_over", [winner])
 	
 
 func _on_return_to_main_menu() -> void:

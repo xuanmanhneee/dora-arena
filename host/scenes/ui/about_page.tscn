@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ctev4vwtmunnq"]
 
+[ext_resource type="Script" uid="uid://c7lsodfawtrso" path="res://scenes/ui/about_page.gd" id="1_eu8ip"]
 [ext_resource type="FontFile" uid="uid://cqai0bevbeetk" path="res://assets/font/HL-Comic1_normal.ttf" id="1_fg1ut"]
 
 [node name="AboutPage" type="MarginContainer" unique_id=630195532]
@@ -12,6 +13,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
+script = ExtResource("1_eu8ip")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1281566812]
 custom_minimum_size = Vector2(0, 400)
@@ -40,37 +42,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_fg1ut")
 text = "Version: 0.1 (Beta)"
 
-[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1860418249]
+[node name="DescriptionLabel" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1860418249]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_fg1ut")
 theme_override_font_sizes/font_size = 24
-text = "Dora Arena là game đối kháng 2D nhiều người chơi lấy cảm hứng từ thế giới Doraemon.
-Người chơi điều khiển các Mini-Dora tham gia vào các trận chiến trên đấu trường năng lượng với nhịp độ nhanh và yêu cầu phản xạ cao.
-
-Mỗi trận đấu diễn ra trong không gian giới hạn, nơi người chơi phải:
-- Di chuyển linh hoạt để né đòn
-- Canh thời điểm tấn công
-- Tận dụng kỹ năng đặc biệt
-- Đẩy đối thủ ra khỏi khu vực an toàn
-
-Các chế độ hiện có:
-- 1v1 (Local)
-- 2v2 (LAN)
-
-Điểm nổi bật:
-- Local multiplayer
-- Mobile controller support
-- Fast-paced arena combat
-- Lightweight networking architecture
-
-Công nghệ sử dụng:
-- Godot 4.6.1 stable
-- Gdscript
-
-Trạng thái phát triển:
-- Alpha Build
-- Work in Progress"
 autowrap_mode = 3

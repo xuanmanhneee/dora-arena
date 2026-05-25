@@ -1,5 +1,14 @@
 extends Control
 
+var lan_player_placeholder: String
+
+@onready var local_mode_label: Label = $RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LocalModePanel/Label
+@onready var lan_mode_label: Label = $RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/Label
+
+@onready var id_address_label: Label = $RootMarginContainer/RootHBoxContainer/LeftMarginContainer/VBoxContainer/PlayerSetting/LanModePanel/HBoxContainer/IpAddress
+
+@onready var select_map_label: Label = $RootMarginContainer/RootHBoxContainer/VBoxContainer2/Label
+@onready var time_limit_label: Label = $RootMarginContainer/RootHBoxContainer/VBoxContainer2/HBoxContainer2/Label
 # Setup Local
 @onready var local_mode_panel: VBoxContainer = %LocalModePanel
 
@@ -62,7 +71,10 @@ func on_open(data: Variant = null) -> void:
 func _ready() -> void:
 	set_process(false)
 	set_physics_process(false)
-		
+	
+	EventBus.subscribe("locale_changed", _update_locale)
+	_update_locale()
+	
 	backward_button.pressed.connect(_on_backward_button_pressed)
 	forward_button.pressed.connect(_on_forward_button_pressed)
 	start_game_button.pressed.connect(_on_start_game_button_pressed)
@@ -219,10 +231,10 @@ func _refresh_lan_ui() -> void:
 	]
 
 	for label in team_a_labels:
-		label.text = "Waiting ..."
+		label.text = lan_player_placeholder
 
 	for label in team_b_labels:
-		label.text = "Waiting ..."
+		label.text = lan_player_placeholder
 
 	var a_index := 0
 	var b_index := 0
@@ -305,6 +317,17 @@ func _random_color() -> Color:
 		1.0
 	)
 
+func _update_locale() -> void:
+	local_mode_label.text = Localization.text("menu_2_players_local")
+	lan_mode_label.text = Localization.text("menu_4_player_lan")
+	lan_player_placeholder = Localization.text("setting_waiting")
+	start_game_button.text = Localization.text("setting_start_game")
+	select_map_label.text = Localization.text("setting_select_map")
+	time_limit_label.text = Localization.text("setting_time_limit")
+	id_address_label.text = Localization.text("setting_ip_address")
+	
+	_refresh_lan_ui()
+
 func _get_player_name(id: int, line_edit: LineEdit, data: Dictionary) -> String:
 	var text := line_edit.text.strip_edges()
 
@@ -327,6 +350,7 @@ func _get_difficulty_name(difficulty: Enums.BotDifficulty) -> String:
 func _clear_lan_data() -> void:
 	lan_player_teams.clear()
 	lan_player_names.clear()
+	lan_player_colors.clear()
 	_refresh_lan_ui()
 
 func _update_start_button_state() -> void:
