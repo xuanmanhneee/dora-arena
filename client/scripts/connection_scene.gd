@@ -5,12 +5,18 @@ extends Control
 @onready var ip_address_lineedit: LineEdit = %IpAddressLineEdit
 @onready var connect_button: Button = %ConnectButton
 
-const port: int = 7000
+const CONFIG_PATH := "user://network.cfg"
+const DEFAULT_IP := "127.0.0.1"
+const DEFAULT_PORT := 7000
+
+var port := DEFAULT_PORT
+
 var _keyboard_height: float = 0.0
 var _initial_vbox_y: float = 0.0
 var _has_saved_position: bool = false
 
 func _ready() -> void:
+	load_config()
 	connect_button.pressed.connect(_on_connect_button_click)
 
 func _process(_delta):
@@ -46,6 +52,39 @@ func _update_container_position():
 		# Trả khoảng cách các nút về mặc định (ví dụ ban đầu trên Editor bạn để là 10)
 		tween.tween_property(vbox_container, "theme_overrides_constants/separation", 10, 0.20)
 
-func _on_connect_button_click():
-	var ip_address: String = ip_address_lineedit.text
+
+func load_config() -> void:
+	var config := ConfigFile.new()
+
+	if config.load(CONFIG_PATH) != OK:
+		ip_address_lineedit.text = DEFAULT_IP
+		return
+
+	ip_address_lineedit.text = config.get_value(
+		"network",
+		"ip",
+		DEFAULT_IP
+	)
+
+	port = config.get_value(
+		"network",
+		"port",
+		DEFAULT_PORT
+	)
+
+
+func save_config(ip: String) -> void:
+	var config := ConfigFile.new()
+
+	config.set_value("network", "ip", ip)
+	config.set_value("network", "port", port)
+
+	config.save(CONFIG_PATH)
+
+
+func _on_connect_button_click() -> void:
+	var ip_address := ip_address_lineedit.text.strip_edges()
+
+	save_config(ip_address)
+
 	NetworkManager.connect_to_server(ip_address, port)

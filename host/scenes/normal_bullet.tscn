@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cmjxbh470jpss"]
-
-[ext_resource type="Script" uid="uid://bgkovio4hrahq" path="res://scripts/normal_bullet.gd" id="1_6reey"]
-[ext_resource type="PackedScene" uid="uid://c1n5xc16b4smn" path="res://scenes/base_bullet.tscn" id="1_cmnci"]
-
-[node name="NormalBullet" unique_id=1271099429 instance=ExtResource("1_cmnci")]
-script = ExtResource("1_6reey")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://bsq8dc4c1woei"]
+
+[ext_resource type="Script" uid="uid://d3osrmsr0tk1w" path="res://src/effects/reflect/reflect_effect.gd" id="1_bcfx3"]
+[ext_resource type="Texture2D" uid="uid://bj8ofhod1wfo6" path="res://assets/iconbufff_reflect.png" id="1_rej3g"]
+
+[resource]
+script = ExtResource("1_bcfx3")
+effect_name = "Reflect"
+icon = ExtResource("1_rej3g")

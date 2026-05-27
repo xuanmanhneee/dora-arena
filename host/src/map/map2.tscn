@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://btkbrcx2y0sop"]
+
+[ext_resource type="Script" uid="uid://bfvotc8ugx54q" path="res://src/map/map.gd" id="1_jji5p"]
+[ext_resource type="Texture2D" uid="uid://br6ln7vgvgi1i" path="res://assets/sprite/map_tan_tich_atlantis.png" id="2_jji5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(1630, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk7cf"]
+size = Vector2(466, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kldx"]
+size = Vector2(423, 20)
+
+[node name="Map" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("1_jji5p")
+spawn_points = [NodePath("PlayerSpawnPoints/Marker2D_1"), NodePath("PlayerSpawnPoints/Marker2D_2"), NodePath("PlayerSpawnPoints/Marker2D_3"), NodePath("PlayerSpawnPoints/Marker2D_4")]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1471629453]
+offset_right = 1738.1818
+offset_bottom = 979.99994
+scale = Vector2(1.1, 1.1)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_jji5p")
+
+[node name="PlayerSpawnPoints" type="Control" parent="." unique_id=14083712]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Marker2D_1" type="Marker2D" parent="PlayerSpawnPoints" unique_id=1402631702]
+position = Vector2(416, -261)
+
+[node name="Marker2D_2" type="Marker2D" parent="PlayerSpawnPoints" unique_id=2032657671]
+position = Vector2(281, -259)
+
+[node name="Marker2D_3" type="Marker2D" parent="PlayerSpawnPoints" unique_id=775982842]
+position = Vector2(889, -273)
+
+[node name="Marker2D_4" type="Marker2D" parent="PlayerSpawnPoints" unique_id=678127531]
+position = Vector2(1010, -278)
+
+[node name="ItemSpawnPoints" type="Control" parent="." unique_id=132246755]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Marker2D" type="Marker2D" parent="ItemSpawnPoints" unique_id=524763354 groups=["item_spawn_point"]]
+position = Vector2(403, 535)
+
+[node name="Marker2D2" type="Marker2D" parent="ItemSpawnPoints" unique_id=1515602070 groups=["item_spawn_point"]]
+position = Vector2(491, 346)
+
+[node name="Marker2D3" type="Marker2D" parent="ItemSpawnPoints" unique_id=1365275287 groups=["item_spawn_point"]]
+position = Vector2(1165, 411)
+
+[node name="Marker2D4" type="Marker2D" parent="ItemSpawnPoints" unique_id=290919035 groups=["item_spawn_point"]]
+position = Vector2(691, 650)
+
+[node name="Marker2D5" type="Marker2D" parent="ItemSpawnPoints" unique_id=1193321913 groups=["item_spawn_point"]]
+position = Vector2(320, 343)
+
+[node name="Marker2D6" type="Marker2D" parent="ItemSpawnPoints" unique_id=1738146648 groups=["item_spawn_point"]]
+position = Vector2(998, 401)
+
+[node name="Marker2D7" type="Marker2D" parent="ItemSpawnPoints" unique_id=1318852485 groups=["item_spawn_point"]]
+position = Vector2(998, 401)
+
+[node name="Marker2D8" type="Marker2D" parent="ItemSpawnPoints" unique_id=231838555 groups=["item_spawn_point"]]
+position = Vector2(998, 401)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1009606551]
+position = Vector2(819, 616)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1717556844]
+position = Vector2(151, 198)
+shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=943426729]
+position = Vector2(-352, -163)
+shape = SubResource("RectangleShape2D_lk7cf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground" unique_id=2028066396]
+position = Vector2(677.5, -163)
+shape = SubResource("RectangleShape2D_5kldx")
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone" unique_id=1939328494]
+position = Vector2(51.60434, -30.442017)
+scale = Vector2(1.391038, 0.9075834)
+polygon = PackedVector2Array(-50.037697, -3.9999998, -49.31881, 1011.99994, 1343.1665, 1008.65875, 1348.9176, -0.99999994, 1411.4608, 2.9999998, 1412, 1072, -138, 1072, -138.46088, -5.9999995)

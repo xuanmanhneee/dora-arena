@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://dmu3lfxvv0cjh"]
+
+[ext_resource type="Script" uid="uid://cioih5uvwsrfk" path="res://src/ui/options/settings_page.gd" id="1_5oejd"]
+[ext_resource type="FontFile" uid="uid://cqai0bevbeetk" path="res://assets/font/HL-Comic1_normal.ttf" id="2_7aiwq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aiwq"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.59390426, 0.62562126, 0.6017254, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 2.0
+expand_margin_top = 5.0
+expand_margin_right = 2.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihx0j"]
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.19607843, 0.19607843, 0.19607843, 0.9882353)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woj7k"]
+bg_color = Color(0.19607843, 0.19607843, 0.19607843, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[node name="SettingsPage" type="MarginContainer" unique_id=2035506601]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+script = ExtResource("1_5oejd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=436954965]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Bgm" type="HBoxContainer" parent="VBoxContainer" unique_id=66645744]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="BgmLabel" type="Label" parent="VBoxContainer/Bgm" unique_id=1994843893]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7aiwq")
+text = "BGM"
+vertical_alignment = 1
+
+[node name="BgmValueLabel" type="Label" parent="VBoxContainer/Bgm" unique_id=664973417]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7aiwq")
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BgmSlider" type="HSlider" parent="VBoxContainer/Bgm" unique_id=1299251786]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/center_grabber = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_7aiwq")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ihx0j")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_woj7k")
+value = 50.0
+
+[node name="Sfx" type="HBoxContainer" parent="VBoxContainer" unique_id=1283414187]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="SfxLabel" type="Label" parent="VBoxContainer/Sfx" unique_id=1177758382]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7aiwq")
+text = "SFX"
+vertical_alignment = 1
+
+[node name="SfxValueLabel" type="Label" parent="VBoxContainer/Sfx" unique_id=772214419]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7aiwq")
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxSlider" type="HSlider" parent="VBoxContainer/Sfx" unique_id=799159641]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/slider = SubResource("StyleBoxFlat_7aiwq")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ihx0j")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_woj7k")
+value = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=973760162]
+layout_mode = 2
+
+[node name="Lang" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=218414324]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="LangLabel" type="Label" parent="VBoxContainer/HBoxContainer/Lang" unique_id=1155858345]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7aiwq")
+text = "Language"
+vertical_alignment = 1
+
+[node name="LangOptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer/Lang" unique_id=82170304]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7aiwq")
+
+[node name="Fps" type="HBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1686496212]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Fps" unique_id=1430456206]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "FPS"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Fps" unique_id=822232479]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Fps/HBoxContainer" unique_id=833110275]
+layout_mode = 2
+text = "30"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer/Fps/HBoxContainer" unique_id=1908220849]
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Fps/HBoxContainer" unique_id=471561318]
+layout_mode = 2
+text = "60"

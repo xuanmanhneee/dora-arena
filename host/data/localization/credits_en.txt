@@ -1,0 +1,43 @@
+[font_size=36][color=black]CREDITS[/color][/font_size]
+
+[font_size=28][color=black]Team Members[/color][/font_size]
+[font_size=20][color=black]
+• 2312686 - Phan Le Xuan Manh (Leader)
+• 2312682 - Lieng Hot Ha Luyen
+• 2312716 - Mai Quy Phuoc
+• 2312778 - Phan Thi Bao Tram
+[/color][/font_size]
+
+[font_size=28][color=black]Project Information[/color][/font_size]
+[font_size=20][color=black]
+• DaLat University
+• Course: Game Application Development
+• Dora Arena is a university game project developed for learning and research purposes.
+• This project is non-commercial and is not intended for profit distribution.
+• Inspired by the Doraemon universe and classic multiplayer arena games.
+[/color][/font_size]
+
+[font_size=28][color=black]Repository[/color][/font_size]
+[font_size=20]
+[url=https://github.com/xuanmanhneee/dora-arena][color=black]• GitHub Repository[/color][/url]
+[/font_size]
+
+[font_size=28][color=black]Special Thanks[/color][/font_size]
+[font_size=20][color=black]
+• Thanks to the Godot Engine community for documentation, tutorials, and open-source resources.
+• Special thanks to Fujiko F. Fujio and the Doraemon franchise for creative inspiration.
+[/color][/font_size]
+
+[font_size=28][color=black]Technology[/color][/font_size]
+[font_size=20][color=black]
+• Godot Engine 4
+• GDScript
+[/color][/font_size]
+
+[font_size=28][color=black]Version[/color][/font_size]
+[font_size=20][color=black]
+• Alpha Build 0.1
+• Work in Progress
+[/color][/font_size]
+
+[font_size=18][color=black]2026[/color][/font_size]

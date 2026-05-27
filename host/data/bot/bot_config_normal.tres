@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BotConfig" format=3 uid="uid://clkcvywy4gvqy"]
+
+[ext_resource type="Script" uid="uid://cbbej62kj5kcm" path="res://data/bot/bot_config.gd" id="1_n88rm"]
+
+[resource]
+script = ExtResource("1_n88rm")
+reaction_delay = 0.4
+shoot_hesitate_chance = 0.4
+dodge_rate = 0.3
+item_seek_range = 200.0

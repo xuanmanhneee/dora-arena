@@ -1,0 +1,39 @@
+keys,vi,en
+menu_2_players_local,2 người chơi,2 players
+menu_4_player_lan,4 người chơi,4 players
+menu_options,Tuỳ chọn,Options
+menu_quit,Thoát game,Quit game
+result_winner,Thắng!,Win!
+result_play_again,Chơi lại,Play Again
+result_main_menu,Màn hình chính,Main menu
+setting_lan,Người chơi LAN,LAN Players
+setting_local,Người chơi Local,Local Players
+setting_waiting,Đang đợi ...,Waiting ...
+setting_ip_address,Địa chỉ IP,Ip Address
+setting_start_game,Bắt đầu,Start Game
+setting_select_map,Chọn bản đồ,Select Map
+setting_time_limit,Thời gian (Giây),Time Limit (Seconds)
+setting_language,Ngôn ngữ,Language
+language_vi,Tiếng Việt,Vietnamese
+language_en,Tiếng Anh,English
+item_explosive,Đạn nổ,Explosice Bullet
+item_reflect,Phản đạn,Reflect Bullet
+about_game_name,Tên Game: Đại chiến Dora,Game Name: Dora Arena
+about_version,Phiên bản: 0.1 (Thử nghiệm),Version: 0.1 (Beta)
+control_key,Phím,Key
+control_key_left,Trái,Left
+control_key_right,Phải,Right
+control_key_jump,Nhảy,Jump
+control_key_shoot,Bắn,Shoot
+control_reset_defaut_control,Khôi phục phím mặc định,Restore Default Keybinds
+control_2_players,2 Người chơi,2 Players
+control_4_players,4 Người chơi,4 Players
+control_step_1,1. Tải ứng dụng trên điện thoại.,1. Download mobile client.
+control_step_2,2. Kết nối tất cả thiết bị cùng mạng Wi-Fi.,2. Connect all devices to the same wi-fi.
+control_step_3,3. Mở ứng dụng trên điện thoại.,3. Open the mobile client.
+control_step_4,4. Nhập Host IP và tham gia phòng.,4. Open the host ip and join room
+control_host_ip,Địa chỉ Host IP:,Host IP Address:
+options_settings,Cài đặt,Settings
+options_controls,Điều khiển,Controls
+options_credits,Nhóm,Credits
+options_about,Giới thiệu,About

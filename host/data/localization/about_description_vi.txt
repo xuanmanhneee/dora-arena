@@ -1,0 +1,26 @@
+Dora Arena là trò chơi đối kháng 2D nhiều người chơi lấy cảm hứng từ thế giới Doraemon.
+Người chơi điều khiển các Mini-Dora tham gia vào những trận chiến tốc độ cao trên các đấu trường năng lượng, đòi hỏi phản xạ nhanh và khả năng xử lý linh hoạt.
+
+Mỗi trận đấu diễn ra trong không gian giới hạn, nơi người chơi phải:
+- Di chuyển linh hoạt để né tránh đòn tấn công
+- Canh thời điểm phản công hợp lý
+- Tận dụng kỹ năng đặc biệt một cách hiệu quả
+- Đẩy đối thủ ra khỏi khu vực an toàn
+
+Các chế độ hiện có:
+- 1 đấu 1 (Cục bộ)
+- 2 đấu 2 (Mạng LAN)
+
+Điểm nổi bật:
+- Hỗ trợ nhiều người chơi trên cùng thiết bị
+- Hỗ trợ điều khiển bằng điện thoại
+- Lối chơi đấu trường tốc độ cao
+- Kiến trúc mạng nhẹ và tối ưu
+
+Công nghệ sử dụng:
+- Godot 4.6.1 Stable
+- GDScript
+
+Trạng thái phát triển:
+- Bản Alpha
+- Đang trong quá trình phát triển

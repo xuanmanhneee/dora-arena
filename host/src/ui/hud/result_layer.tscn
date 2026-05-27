@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://7rotqlvewja5"]
+
+[ext_resource type="Script" uid="uid://ckv120bvdvkax" path="res://src/ui/hud/result_layer.gd" id="1_cuqsx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuqsx"]
+bg_color = Color(1, 1, 1, 0.39215687)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[node name="ResultLayer" type="CanvasLayer" unique_id=301648816]
+script = ExtResource("1_cuqsx")
+
+[node name="Control" type="Control" parent="." unique_id=305963217]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1243140376]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=1390078469]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="WinnerLabel" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=444951507]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_cuqsx")
+text = "Winner"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer" unique_id=1347043128]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PlayAgainButton" type="Button" parent="Control/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1182565130]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Play Again"
+
+[node name="ReturnMainMenuButton" type="Button" parent="Control/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1573163272]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"

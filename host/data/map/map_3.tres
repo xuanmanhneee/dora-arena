@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapInfo" format=3 uid="uid://vv2navg6kwte"]
+
+[ext_resource type="Texture2D" uid="uid://dwal40eu3q7m1" path="res://assets/sprite/map_tau_toc_hanh_ngan_ha.png" id="1_pcswx"]
+[ext_resource type="Script" uid="uid://iexsr0iqd1dj" path="res://data/map/map_info.gd" id="2_g13i4"]
+
+[resource]
+script = ExtResource("2_g13i4")
+map_name = "Tàu tốc hành ngân hà"
+scene_path = "uid://bdcnkmf1ag6fa"
+preview = ExtResource("1_pcswx")

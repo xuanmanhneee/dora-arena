@@ -77,23 +77,37 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 1
 
-[node name="PlayerNameLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer" unique_id=2096218171]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=440569104]
+layout_mode = 2
+
+[node name="PlayerNameLineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2096218171]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 100)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
 theme_override_fonts/font = ExtResource("2_q60fs")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqcc7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nqcc7")
 placeholder_text = "Player Name"
 alignment = 1
 max_length = 20
 
+[node name="PlayerColorPickerButton" type="ColorPickerButton" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=2136183078]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="ReadyButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1419831200]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(700, 100)
+
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+
 theme_override_fonts/font = ExtResource("2_q60fs")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_qbr6s")
+
 text = "Ready"
