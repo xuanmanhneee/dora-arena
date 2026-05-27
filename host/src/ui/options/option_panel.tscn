@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ca636vw5fa2vf"]
+
+[ext_resource type="Texture2D" uid="uid://cheydnm8twqk8" path="res://assets/sprite/unnamed.png" id="1_3csw8"]
+
+[node name="Control" type="Control" unique_id=656528806]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1881212881]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3csw8")
+expand_mode = 1
+stretch_mode = 5

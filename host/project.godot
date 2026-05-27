@@ -13,14 +13,13 @@ config_version=5
 config/name="Host"
 run/main_scene="uid://dbsogqlsc5b8k"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://assets/icon.svg"
+config/icon="res://assets/sprite/icon.svg"
 
 [autoload]
 
 SettingsManager="*uid://c77tidxq38088"
 NetworkManager="*uid://by38kb8clse5y"
 GameData="*uid://64v32hvejmvf"
-GameEvents="*uid://buyrdcv8cev8g"
 AudioManager="*uid://cby1njwotgq2g"
 EventBus="*uid://py60i274fsj0"
 InputManager="*uid://cf3ioh3m46uh"

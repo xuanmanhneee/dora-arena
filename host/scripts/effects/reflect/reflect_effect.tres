@@ -1,8 +1,0 @@
-[gd_resource type="Resource" format=3 uid="uid://bsq8dc4c1woei"]
-
-[ext_resource type="Script" uid="uid://c76tjm4650imv" path="res://scripts/effects/reflect/reflect_effect.gd" id="1_bcfx3"]
-
-[resource]
-script = ExtResource("1_bcfx3")
-effect_name = "Reflect"
-metadata/_custom_type_script = "uid://dij5efg2ae0m6"

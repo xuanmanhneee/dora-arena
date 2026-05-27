@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bh4ur2brrsbec"]
+
+[ext_resource type="Texture2D" uid="uid://r4jpu26ratyu" path="res://assets/sprite/icon.svg" id="1_4gq7n"]
+[ext_resource type="Script" uid="uid://cb2472byqsvbv" path="res://src/map/item.gd" id="1_s8enn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r3ghi"]
+radius = 25.0
+
+[node name="Item" type="Area2D" unique_id=2019088275]
+script = ExtResource("1_s8enn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1541738517]
+shape = SubResource("CircleShape2D_r3ghi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=377013623]
+scale = Vector2(0.47265628, 0.5182135)
+texture = ExtResource("1_4gq7n")

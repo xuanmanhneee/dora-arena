@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MapInfo" format=3 uid="uid://cx6yhad38dl63"]
 
-[ext_resource type="Texture2D" uid="uid://cd66u4jdvcnjs" path="res://assets/map_vuong_quoc_tren_may.png" id="1_8npod"]
+[ext_resource type="Texture2D" uid="uid://cd66u4jdvcnjs" path="res://assets/sprite/map_vuong_quoc_tren_may.png" id="1_8npod"]
 [ext_resource type="Script" uid="uid://iexsr0iqd1dj" path="res://data/map/map_info.gd" id="1_tengm"]
 
 [resource]

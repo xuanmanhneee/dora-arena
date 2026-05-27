@@ -1,0 +1,334 @@
+[gd_scene format=3 uid="uid://cv7jcx55hxp1a"]
+
+[ext_resource type="FontFile" uid="uid://cqai0bevbeetk" path="res://assets/font/HL-Comic1_normal.ttf" id="1_4xtmf"]
+[ext_resource type="Script" uid="uid://xp26rjd3nor5" path="res://src/ui/options/control_page.gd" id="1_pm6m1"]
+[ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="2_ncmns"]
+[ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="3_cuk1a"]
+[ext_resource type="PackedScene" uid="uid://dbgv0eo8louma" path="res://src/ui/options/key_bind_popup.tscn" id="5_e28mp"]
+[ext_resource type="Texture2D" uid="uid://dr7m70j4pg1j4" path="res://assets/sprite/qr_placeholder.svg" id="5_o2s0f"]
+
+[node name="ControlPage" type="MarginContainer" unique_id=1541413476]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pm6m1")
+
+[node name="TwoPlayer" type="HBoxContainer" parent="." unique_id=1227202499]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TwoPlayer" unique_id=1904918596]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="TwoPlayers" type="VBoxContainer" parent="TwoPlayer/MarginContainer" unique_id=1755724224]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers" unique_id=638886502]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 50
+text = "2 Players"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Header" type="HBoxContainer" parent="TwoPlayer/MarginContainer/TwoPlayers" unique_id=1131831718]
+layout_mode = 2
+
+[node name="KeyLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/Header" unique_id=1211884463]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 24
+text = "Key"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/Header" unique_id=1453488899]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 24
+text = "Player 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/Header" unique_id=2038394711]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 24
+text = "Player 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoveLeftRow" type="HBoxContainer" parent="TwoPlayer/MarginContainer/TwoPlayers" unique_id=453735505]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LeftLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/MoveLeftRow" unique_id=1065192619]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+text = "Left"
+
+[node name="P1Button" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers/MoveLeftRow" unique_id=1404476060]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+
+[node name="P2Button" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers/MoveLeftRow" unique_id=870303338]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+
+[node name="MoveRightRow" type="HBoxContainer" parent="TwoPlayer/MarginContainer/TwoPlayers" unique_id=396517907]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RightLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/MoveRightRow" unique_id=62931043]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+text = "Right"
+
+[node name="P1Button" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers/MoveRightRow" unique_id=2080471441]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+
+[node name="P2Button" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers/MoveRightRow" unique_id=1338763240]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+
+[node name="JumpRow" type="HBoxContainer" parent="TwoPlayer/MarginContainer/TwoPlayers" unique_id=1531591054]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="JumpLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/JumpRow" unique_id=1453381544]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+text = "Jump"
+
+[node name="P1Button" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers/JumpRow" unique_id=950808415]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+
+[node name="P2Button" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers/JumpRow" unique_id=1447284070]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+
+[node name="ShootRow" type="HBoxContainer" parent="TwoPlayer/MarginContainer/TwoPlayers" unique_id=1549759566]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ShootLabel" type="Label" parent="TwoPlayer/MarginContainer/TwoPlayers/ShootRow" unique_id=127873245]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+text = "Shoot"
+
+[node name="P1Button" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers/ShootRow" unique_id=1243198123]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+
+[node name="P2Button" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers/ShootRow" unique_id=1459367258]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+
+[node name="ResetButton" type="Button" parent="TwoPlayer/MarginContainer/TwoPlayers" unique_id=1543330950]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("2_ncmns")
+theme_override_styles/pressed = ExtResource("2_ncmns")
+theme_override_styles/hover = ExtResource("3_cuk1a")
+text = "Reset default input key"
+
+[node name="ColorRect" type="ColorRect" parent="TwoPlayer" unique_id=1836992130]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FourPlayers" type="VBoxContainer" parent="TwoPlayer" unique_id=119052451]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="TwoPlayer/FourPlayers" unique_id=1332745929]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4xtmf")
+theme_override_font_sizes/font_size = 50
+text = "4 Players"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TwoPlayer/FourPlayers" unique_id=654985598]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="TwoPlayer/FourPlayers/ScrollContainer" unique_id=115170095]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer" unique_id=1786817662]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Step1Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=1343448376]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "1. DOWNLOAD MOBILE CLIENT:"
+
+[node name="QrCodeTextureRect" type="TextureRect" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=749553322]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_o2s0f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Step2Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=2033861969]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "2. Connect all devices to the same Wi-Fi."
+autowrap_mode = 3
+
+[node name="Step3Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=223868376]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "3. Open the mobile client."
+autowrap_mode = 3
+
+[node name="Step4Label" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=182332650]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "4. Enter the host IP and join the room."
+autowrap_mode = 3
+
+[node name="HostIpLabel" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=115374737]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "This host Ip Address: "
+autowrap_mode = 3
+
+[node name="HostIpValueLabel" type="Label" parent="TwoPlayer/FourPlayers/ScrollContainer/MarginContainer/VBoxContainer" unique_id=433997961]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "This host Ip Address: "
+vertical_alignment = 1
+
+[node name="KeyBindPopup" parent="." unique_id=1992791168 instance=ExtResource("5_e28mp")]
+visible = false

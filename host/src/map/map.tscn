@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cwj2ow6hpocey"]
+
+[ext_resource type="Script" uid="uid://bfvotc8ugx54q" path="res://src/map/map.gd" id="1_paxxb"]
+[ext_resource type="Texture2D" uid="uid://cd66u4jdvcnjs" path="res://assets/sprite/map_vuong_quoc_tren_may.png" id="2_paxxb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
+size = Vector2(686, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paxxb"]
+size = Vector2(1731, 126.5)
+
+[node name="Map" type="Node2D" unique_id=1767039355 node_paths=PackedStringArray("spawn_points")]
+script = ExtResource("1_paxxb")
+spawn_points = [NodePath("PlayerSpawnPoints/Marker2D_1"), NodePath("PlayerSpawnPoints/Marker2D_2"), NodePath("PlayerSpawnPoints/Marker2D_3"), NodePath("PlayerSpawnPoints/Marker2D_4")]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1471629453]
+offset_right = 2730.0
+offset_bottom = 1536.0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_paxxb")
+
+[node name="PlayerSpawnPoints" type="Control" parent="." unique_id=14083712]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Marker2D_1" type="Marker2D" parent="PlayerSpawnPoints" unique_id=1402631702]
+position = Vector2(1649, -64)
+
+[node name="Marker2D_2" type="Marker2D" parent="PlayerSpawnPoints" unique_id=2032657671]
+position = Vector2(239, -124)
+
+[node name="Marker2D_3" type="Marker2D" parent="PlayerSpawnPoints" unique_id=775982842]
+position = Vector2(699, -127)
+
+[node name="Marker2D_4" type="Marker2D" parent="PlayerSpawnPoints" unique_id=678127531]
+position = Vector2(1296, -63)
+
+[node name="ItemSpawnPoints" type="Control" parent="." unique_id=132246755]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Marker2D" type="Marker2D" parent="ItemSpawnPoints" unique_id=524763354 groups=["item_spawn_point"]]
+position = Vector2(477, 217)
+
+[node name="Marker2D2" type="Marker2D" parent="ItemSpawnPoints" unique_id=1515602070 groups=["item_spawn_point"]]
+position = Vector2(1392, 515)
+
+[node name="Marker2D3" type="Marker2D" parent="ItemSpawnPoints" unique_id=1365275287 groups=["item_spawn_point"]]
+position = Vector2(341, 773)
+
+[node name="Marker2D4" type="Marker2D" parent="ItemSpawnPoints" unique_id=290919035 groups=["item_spawn_point"]]
+position = Vector2(804, 773)
+
+[node name="Marker2D5" type="Marker2D" parent="ItemSpawnPoints" unique_id=1193321913 groups=["item_spawn_point"]]
+position = Vector2(1164, 769)
+
+[node name="Marker2D6" type="Marker2D" parent="ItemSpawnPoints" unique_id=1738146648 groups=["item_spawn_point"]]
+position = Vector2(1575, 771)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1009606551]
+position = Vector2(682, 613)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1717556844]
+position = Vector2(-172, -276)
+shape = SubResource("RectangleShape2D_lnu2h")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=595068768]
+position = Vector2(716, 44)
+shape = SubResource("RectangleShape2D_lnu2h")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground" unique_id=1697883128]
+position = Vector2(280.5, 334.75)
+shape = SubResource("RectangleShape2D_paxxb")
+one_way_collision = true
+one_way_collision_margin = 4.0
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone" unique_id=1939328494]
+position = Vector2(75.75012, 10.254772)
+scale = Vector2(1.3664571, 1.0670775)
+polygon = PackedVector2Array(-56.899055, -8.673008, -58, 1017, 1351, 1019, 1351.8535, -8.673008, 1408.2036, -8.673008, 1412, 1072, -138, 1072, -138.86284, -8.673008)

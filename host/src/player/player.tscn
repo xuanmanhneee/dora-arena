@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://kw4bjkuayhlf"]
+
+[ext_resource type="Script" uid="uid://lmqry4te2c87" path="res://src/player/player.gd" id="1_0e48y"]
+[ext_resource type="SpriteFrames" uid="uid://betyio46q7rpj" path="res://src/player/player.tres" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://7qwaxbvbhw7r" path="res://src/effects/effect_manager.gd" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://dij5efg2ae0m6" path="res://src/effects/effect.gd" id="4_o822w"]
+[ext_resource type="Resource" uid="uid://bvxsnit77xjye" path="res://src/effects/explosive_bullet/explosive_bullet_effect.tres" id="5_x42xx"]
+[ext_resource type="Resource" uid="uid://bsq8dc4c1woei" path="res://src/effects/reflect/reflect_effect.tres" id="6_l271a"]
+[ext_resource type="PackedScene" uid="uid://c5wfled18urly" path="res://src/map/name_tag.tscn" id="7_fjrip"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epypp"]
+radius = 34.0
+height = 92.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlg0r"]
+radius = 34.0
+height = 90.0
+
+[node name="Player" type="CharacterBody2D" unique_id=873583831]
+script = ExtResource("1_0e48y")
+
+[node name="Visual" type="Node2D" parent="." unique_id=325332550]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" unique_id=74658931]
+position = Vector2(0, -15)
+sprite_frames = ExtResource("1_wtcfe")
+animation = &"run"
+
+[node name="Marker2D" type="Marker2D" parent="Visual" unique_id=419225394]
+position = Vector2(69, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=824260810]
+shape = SubResource("CapsuleShape2D_epypp")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1901634512]
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=773532057]
+shape = SubResource("CapsuleShape2D_qlg0r")
+
+[node name="EffectManager" type="Node" parent="." unique_id=734462188]
+script = ExtResource("3_qhqgy")
+effects = Array[ExtResource("4_o822w")]([ExtResource("5_x42xx"), ExtResource("6_l271a")])
+metadata/_custom_type_script = "uid://7qwaxbvbhw7r"
+
+[node name="NameTag" parent="." unique_id=444290081 instance=ExtResource("7_fjrip")]
