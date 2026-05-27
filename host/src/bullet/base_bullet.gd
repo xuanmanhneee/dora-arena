@@ -11,6 +11,7 @@ var _traveled_distance: float = 0.0
 var shooter: Player = null 
 
 func _ready() -> void:
+	$AnimatedSprite2D.play("default")
 	body_entered.connect(_on_body_entered)
 	
 func setup(pos: Vector2, dir: Vector2, shooter_team: Enums.Team, shooter_player: Player = null) -> void:

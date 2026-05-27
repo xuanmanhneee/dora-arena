@@ -75,6 +75,7 @@ position = Vector2(1575, 771)
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1009606551]
 position = Vector2(682, 613)
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1717556844]
 position = Vector2(-172, -276)
@@ -96,6 +97,8 @@ one_way_collision_margin = 4.0
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]
 unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone" unique_id=1939328494]
 position = Vector2(75.75012, 10.254772)

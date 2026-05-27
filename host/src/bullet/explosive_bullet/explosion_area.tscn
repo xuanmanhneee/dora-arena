@@ -1,9 +1,45 @@
 [gd_scene format=3 uid="uid://bp3m83hwxlxui"]
 
 [ext_resource type="Script" uid="uid://dnla3hdkmtkmu" path="res://src/bullet/explosive_bullet/explosion_area.gd" id="1_pqkb4"]
+[ext_resource type="Texture2D" uid="uid://dkltkwlnjlq46" path="res://assets/sprite/explosion/291.png" id="2_bwpx0"]
+[ext_resource type="Texture2D" uid="uid://brkfx5ryhmfsy" path="res://assets/sprite/explosion/293.png" id="3_of06u"]
+[ext_resource type="Texture2D" uid="uid://dckanmelomvy4" path="res://assets/sprite/explosion/295.png" id="4_v7jao"]
+[ext_resource type="Texture2D" uid="uid://8aa5fsbtfukk" path="res://assets/sprite/explosion/297.png" id="5_dg4py"]
+[ext_resource type="Texture2D" uid="uid://de2lribcxpmxn" path="res://assets/sprite/explosion/299.png" id="6_knvg7"]
+[ext_resource type="Texture2D" uid="uid://bqp1n0qip0fxy" path="res://assets/sprite/explosion/301.png" id="7_jq0qd"]
+[ext_resource type="Texture2D" uid="uid://dbvbjpsefg2un" path="res://assets/sprite/explosion/303.png" id="8_l34hl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b7haw"]
 radius = 200.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ho5qd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bwpx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_of06u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_v7jao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dg4py")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_knvg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jq0qd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l34hl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ExplosionArea" type="Area2D" unique_id=952386957]
 collision_layer = 8
@@ -11,4 +47,10 @@ collision_mask = 0
 script = ExtResource("1_pqkb4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1130216594]
+position = Vector2(-3, 0)
 shape = SubResource("CircleShape2D_b7haw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=509394040]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_ho5qd")
+frame_progress = 0.09696452

@@ -17,9 +17,11 @@ func _ready() -> void:
 		sprite.texture = current_effect.icon
 		
 	
-	self.body_entered.connect(_on_body_entered)
+	area_entered.connect(_on_area_entered)
 
-func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		EventBus.emit("player_pickup_item", [body])
+func _on_area_entered(area: Area2D) -> void:
+	var player := area.get_parent()
+	
+	if player is Player:
+		EventBus.emit("player_pickup_item", [player])
 		queue_free()

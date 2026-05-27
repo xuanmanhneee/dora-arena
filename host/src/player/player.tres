@@ -1,150 +1,123 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://rogupnvtu83c"]
 
-[ext_resource type="Texture2D" uid="uid://cp05jr2fxo3kx" path="res://assets/animation_doraemon/DoremonFall.png" id="2_7scs2"]
-[ext_resource type="Texture2D" uid="uid://cp05jr2fxo3kx" path="res://assets/sprite/DoremonFall.png" id="1_6rl20"]
-[ext_resource type="Texture2D" uid="uid://1j6arsufgg0q" path="res://assets/sprite/animation_doraemon/drm.png" id="3_vs8di"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7scs2"]
-atlas = ExtResource("2_7scs2")
-region = Rect2(125, 0, 125, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vs8di"]
-atlas = ExtResource("2_7scs2")
-region = Rect2(250, 0, 125, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4quo"]
-atlas = ExtResource("2_7scs2")
-region = Rect2(375, 0, 125, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_avtko"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(0, 250, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6rl20"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(125, 250, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fstee"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(125, 375, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7scs2"]
-atlas = ExtResource("1_6rl20")
-region = Rect2(123, 0, 123, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vs8di"]
-atlas = ExtResource("1_6rl20")
-region = Rect2(246, 0, 123, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4quo"]
-atlas = ExtResource("1_6rl20")
-region = Rect2(369, 0, 123, 500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_avtko"]
-atlas = ExtResource("1_snmwc")
-region = Rect2(0, 250, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6rl20"]
-atlas = ExtResource("1_snmwc")
-region = Rect2(125, 250, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fstee"]
-atlas = ExtResource("1_snmwc")
-region = Rect2(125, 375, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ct1a1"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(0, 0, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2iceh"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(125, 0, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oojpf"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(250, 0, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5rgd"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(375, 0, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_squiv"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(0, 125, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eb5sr"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(125, 125, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hf38j"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(250, 125, 125, 125)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ubkoe"]
-atlas = ExtResource("3_vs8di")
-region = Rect2(375, 125, 125, 125)
+[ext_resource type="Texture2D" uid="uid://etk2sm863obl" path="res://assets/sprite/player/hit/621.png" id="2_28bka"]
+[ext_resource type="Texture2D" uid="uid://dfc8pnojogo1j" path="res://assets/sprite/player/idle/23.png" id="2_61fjg"]
+[ext_resource type="Texture2D" uid="uid://bjklulvrvrwg0" path="res://assets/sprite/player/idle/15.png" id="3_28bka"]
+[ext_resource type="Texture2D" uid="uid://rba313klk8sr" path="res://assets/sprite/New folder/161.png" id="3_slr2i"]
+[ext_resource type="Texture2D" uid="uid://bjvk5aoxu5gw5" path="res://assets/sprite/New folder/176.png" id="4_5jtdb"]
+[ext_resource type="Texture2D" uid="uid://cwofwkaphu2cr" path="res://assets/sprite/New folder/178.png" id="5_jc2e5"]
+[ext_resource type="Texture2D" uid="uid://cmqwf1q33eyj7" path="res://assets/sprite/player/idle/19.png" id="5_k3v32"]
+[ext_resource type="Texture2D" uid="uid://dvcj3cgegr8pw" path="res://assets/sprite/New folder/180.png" id="6_3l7v5"]
+[ext_resource type="Texture2D" uid="uid://dei4xvobp8ncr" path="res://assets/sprite/New folder/182.png" id="7_e1wjq"]
+[ext_resource type="Texture2D" uid="uid://b0omqtep6xwbu" path="res://assets/sprite/player/jump/32.png" id="7_mbdhh"]
+[ext_resource type="Texture2D" uid="uid://bnxvguqeewepq" path="res://assets/sprite/player/jump/34.png" id="8_8yw7t"]
+[ext_resource type="Texture2D" uid="uid://hvef52wbdh6a" path="res://assets/sprite/New folder/184.png" id="8_s725q"]
+[ext_resource type="Texture2D" uid="uid://3o2e77kgicgb" path="res://assets/sprite/player/jump/36.png" id="9_3jfey"]
+[ext_resource type="Texture2D" uid="uid://dxbrll3cid5er" path="res://assets/sprite/New folder/186.png" id="9_7w3wf"]
+[ext_resource type="Texture2D" uid="uid://ddimimd3g8ss3" path="res://assets/sprite/player/shoot/279.png" id="10_28bka"]
+[ext_resource type="Texture2D" uid="uid://btf5352kcr8s2" path="res://assets/sprite/player/jump/38.png" id="10_bbpew"]
+[ext_resource type="Texture2D" uid="uid://dm814jj5p7yd3" path="res://assets/sprite/New folder/188.png" id="10_r32ww"]
+[ext_resource type="Texture2D" uid="uid://cxyqs3k0vypm8" path="res://assets/sprite/New folder/190.png" id="11_1brhr"]
+[ext_resource type="Texture2D" uid="uid://ht2soncegvlg" path="res://assets/sprite/player/shoot/281.png" id="11_g1siq"]
+[ext_resource type="Texture2D" uid="uid://csoqy3xqkm7rk" path="res://assets/sprite/New folder/192.png" id="12_61fjg"]
+[ext_resource type="Texture2D" uid="uid://b6v8nh8wc3oe" path="res://assets/sprite/New folder/194.png" id="13_28bka"]
+[ext_resource type="Texture2D" uid="uid://bkdrunrnjuvtn" path="res://assets/sprite/New folder/196.png" id="14_g1siq"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7scs2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vs8di")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y4quo")
+"texture": ExtResource("2_28bka")
 }],
 "loop": true,
-"name": &"fall",
+"name": &"hit",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_avtko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6rl20")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fstee")
+"texture": ExtResource("2_61fjg")
 }],
 "loop": true,
-"name": &"receiveDamage",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ct1a1")
+"texture": ExtResource("7_mbdhh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2iceh")
+"texture": ExtResource("8_8yw7t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oojpf")
+"texture": ExtResource("9_3jfey")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e5rgd")
+"texture": ExtResource("10_bbpew")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_28bka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k3v32")
 }],
 "loop": true,
 "name": &"run",
-"speed": 4.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_squiv")
+"texture": ExtResource("10_28bka")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eb5sr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hf38j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ubkoe")
+"texture": ExtResource("11_g1siq")
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 8.0
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_slr2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5jtdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jc2e5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3l7v5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e1wjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s725q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7w3wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r32ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1brhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_61fjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_28bka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g1siq")
+}],
+"loop": false,
+"name": &"skill",
+"speed": 12.0
 }]
