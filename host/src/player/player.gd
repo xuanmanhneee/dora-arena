@@ -33,6 +33,10 @@ var is_camera_target: bool = true
 var is_stunned: bool = false
 var stun_timer: float = 0.0
 
+var was_on_floor: bool = false
+var hold_hit_until_floor: bool = false
+var was_hit_in_air: bool = false
+
 var is_reflecting: bool = false
 var is_explosive_bullet: bool = false
 
@@ -131,17 +135,39 @@ func _physics_process(delta: float) -> void:
 	input.shoot = false
 	input.skill = false
 
-	# animation
+		# animation
 	if not is_shooting:
+
 		if is_stunned:
-			if anim.animation != "receiveDamage":
-				anim.play("receiveDamage")
+			if anim.animation != "hit":
+				anim.play("hit")
+
 		elif not is_on_floor():
-			if anim.animation != "fall":
-				anim.play("fall")
+
+			# Nếu trước đó bị hit trên không
+			if was_hit_in_air:
+				if anim.animation == "hit":
+					anim.pause()
+					anim.frame = anim.sprite_frames.get_frame_count("hit") - 1
+				else:
+					anim.play("hit")
+					anim.pause()
+					anim.frame = anim.sprite_frames.get_frame_count("hit") - 1
+
+			else:
+				if anim.animation != "jump":
+					anim.play("jump")
+
 		else:
-			if anim.animation != "run":
-				anim.play("run")
+			# Chạm đất thì reset trạng thái
+			was_hit_in_air = false
+
+			if abs(velocity.x) > 10:
+				if anim.animation != "run":
+					anim.play("run")
+			else:
+				if anim.animation != "idle":
+					anim.play("idle")
 
 
 func _handle_shoot() -> void:
@@ -158,6 +184,9 @@ func _jump() -> void:
 
 	velocity.y = JUMP_VELOCITY
 	jumps_left -= 1
+	
+	if anim.animation != "jump":
+		anim.play("jump")
 
 
 func _shoot() -> void:
@@ -170,7 +199,10 @@ func _shoot() -> void:
 func _on_anim_finished() -> void:
 	if anim.animation == "shoot":
 		is_shooting = false
-
+	
+		if anim.animation == "hit" and hold_hit_until_floor and not is_on_floor():
+			anim.pause()
+			anim.frame = anim.sprite_frames.get_frame_count("hit") - 1
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	# 1. Nếu là Đạn, có thể phản lại
@@ -216,14 +248,17 @@ func _apply_color() -> void:
 
 
 func apply_knockback(force: Vector2) -> void:
-	velocity.x = force.x
-	velocity.y = force.y
+	velocity = force
 
 	is_stunned = true
 	stun_timer = stun_time
 
 	is_shooting = false
-	anim.play("receiveDamage")
+	
+	# Nếu đang trên không hoặc bị hất bay lên
+	was_hit_in_air = not is_on_floor() or force.y < 0
+
+	anim.play("hit")
 
 
 func freeze() -> void:

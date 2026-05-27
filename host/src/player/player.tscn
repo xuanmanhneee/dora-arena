@@ -17,14 +17,22 @@ radius = 34.0
 height = 90.0
 
 [node name="Player" type="CharacterBody2D" unique_id=873583831]
+collision_layer = 2
 script = ExtResource("1_0e48y")
+team = null
+shoot_interval = null
+stun_time = null
+knockback_decay = null
+max_jump_count = null
 
 [node name="Visual" type="Node2D" parent="." unique_id=325332550]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" unique_id=74658931]
-position = Vector2(0, -15)
+scale = Vector2(3, 3)
 sprite_frames = ExtResource("1_wtcfe")
-animation = &"run"
+animation = &"skill"
+frame = 11
+frame_progress = 1.0
 
 [node name="Marker2D" type="Marker2D" parent="Visual" unique_id=419225394]
 position = Vector2(69, 13)
@@ -34,7 +42,7 @@ shape = SubResource("CapsuleShape2D_epypp")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=1901634512]
 collision_layer = 4
-collision_mask = 10
+collision_mask = 56
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=773532057]
 shape = SubResource("CapsuleShape2D_qlg0r")

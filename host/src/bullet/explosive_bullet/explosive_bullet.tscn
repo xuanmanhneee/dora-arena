@@ -8,5 +8,5 @@
 script = ExtResource("2_mrf51")
 explosion_scene = ExtResource("3_4hebm")
 
-[node name="Sprite2D" parent="." index="1" unique_id=227093790]
-modulate = Color(0.94071615, 0.5125495, 0.20622376, 1)
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1752075685]
+modulate = Color(0.9764143, 0, 0.13797809, 1)

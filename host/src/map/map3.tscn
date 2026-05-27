@@ -76,6 +76,7 @@ position = Vector2(1378, 626)
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1009606551]
 position = Vector2(672, 623)
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1717556844]
 position = Vector2(304.25, 50)
@@ -91,6 +92,8 @@ shape = SubResource("RectangleShape2D_mltpi")
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]
 unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeathZone" unique_id=1939328494]
 position = Vector2(56.78416, 39.38571)

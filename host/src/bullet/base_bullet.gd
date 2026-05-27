@@ -10,6 +10,7 @@ var _start_pos: Vector2 = Vector2.ZERO
 var _traveled_distance: float = 0.0
 
 func _ready() -> void:
+	$AnimatedSprite2D.play("default")
 	body_entered.connect(_on_body_entered)
 	
 func setup(pos: Vector2, dir: Vector2, shooter_team: Enums.Team) -> void:

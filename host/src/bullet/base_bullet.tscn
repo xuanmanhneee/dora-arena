@@ -1,19 +1,39 @@
 [gd_scene format=3 uid="uid://c1n5xc16b4smn"]
 
-[ext_resource type="Texture2D" uid="uid://r4jpu26ratyu" path="res://assets/sprite/icon.svg" id="1_3p1gu"]
 [ext_resource type="Script" uid="uid://d2nabbk8qqpyk" path="res://src/bullet/base_bullet.gd" id="1_qynt6"]
+[ext_resource type="Texture2D" uid="uid://boldddqdsqp5y" path="res://assets/sprite/bullet/normal/283.png" id="2_jqb2j"]
+[ext_resource type="Texture2D" uid="uid://1p8nmwe4ows0" path="res://assets/sprite/bullet/normal/285.png" id="3_owu68"]
+[ext_resource type="Texture2D" uid="uid://dgjagttnqe7x2" path="res://assets/sprite/bullet/normal/287.png" id="4_674yk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
 radius = 17.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_36m0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jqb2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_owu68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_674yk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="BaseBullet" type="Area2D" unique_id=1271099429 groups=["bullets"]]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_qynt6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1138122802]
 shape = SubResource("CircleShape2D_rtl8c")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=227093790]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_3p1gu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1752075685]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_36m0x")
+frame_progress = 0.35715908
