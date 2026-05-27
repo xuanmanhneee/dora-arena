@@ -17,13 +17,13 @@ config/icon="res://assets/sprite/icon.svg"
 
 [autoload]
 
-SettingsManager="*uid://c77tidxq38088"
-NetworkManager="*uid://by38kb8clse5y"
-GameData="*uid://64v32hvejmvf"
-AudioManager="*uid://cby1njwotgq2g"
-EventBus="*uid://py60i274fsj0"
-InputManager="*uid://cf3ioh3m46uh"
-Localization="*uid://y3jxhmecra3x"
+AudioManager="*uid://djp44w704nbhb"
+SettingsManager="*uid://dugsp26awjei7"
+Localization="*uid://5kdnauoa8qjk"
+GameData="*uid://biylxaljp85uq"
+InputManager="*uid://bfon8k33m4uat"
+NetworkManager="*uid://pcb416nv6mpt"
+EventBus="*uid://cfsh32df1hogr"
 
 [debug]
 
@@ -37,10 +37,6 @@ window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-
-[dotnet]
-
-project/assembly_name="Host"
 
 [dotnet]
 

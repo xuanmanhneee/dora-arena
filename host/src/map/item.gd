@@ -1,8 +1,8 @@
 extends Area2D
 
 const EFFECTS: Array[Effect] = [
-	preload("res://scripts/effects/reflect/reflect_effect.tres"),
-	preload("res://scripts/effects/explosive_bullet/explosive_bullet_effect.tres"),
+	preload("res://src/effects/reflect/reflect_effect.tres"),
+	preload("res://src/effects/explosive_bullet/explosive_bullet_effect.tres"),
 ]
 
 @onready var sprite: Sprite2D = $Sprite2D
