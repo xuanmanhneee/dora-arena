@@ -24,6 +24,7 @@ AudioManager="*uid://cby1njwotgq2g"
 EventBus="*uid://py60i274fsj0"
 InputManager="*uid://cf3ioh3m46uh"
 Localization="*uid://y3jxhmecra3x"
+AnimatedCursor="*uid://b5e0r4g2k3rvt"
 
 [debug]
 

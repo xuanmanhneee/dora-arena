@@ -81,14 +81,17 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1717556844]
 position = Vector2(304.25, 50)
 shape = SubResource("RectangleShape2D_lnu2h")
+one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=249299879]
 position = Vector2(-303, -265)
 shape = SubResource("RectangleShape2D_8gtt8")
+one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground" unique_id=157104152]
 position = Vector2(876.75, -280)
 shape = SubResource("RectangleShape2D_mltpi")
+one_way_collision = true
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]
 unique_name_in_owner = true

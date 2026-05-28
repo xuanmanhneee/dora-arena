@@ -19,11 +19,6 @@ height = 90.0
 [node name="Player" type="CharacterBody2D" unique_id=873583831]
 collision_layer = 2
 script = ExtResource("1_0e48y")
-team = null
-shoot_interval = null
-stun_time = null
-knockback_decay = null
-max_jump_count = null
 
 [node name="Visual" type="Node2D" parent="." unique_id=325332550]
 

@@ -25,6 +25,8 @@ func _ready() -> void:
 	game_camera.setup(self)
 	item_manager.setup(self)
 	overlay_layer.setup(self)
+	
+	AnimatedCursor.hide_cursor()
 
 func _setup(config: MatchConfig) -> void:
 	match_config = config

@@ -18,6 +18,8 @@ func _ready() -> void:
 	
 	EventBus.subscribe("game_over", _on_game_over)
 	EventBus.subscribe("game_restarted", _on_game_restarted)
+	
+	
 
 func _on_play_again_button_pressed():
 	EventBus.emit("play_again_requested")
@@ -28,6 +30,7 @@ func _on_return_main_menu_button_pressed():
 func _on_game_over(winner: Enums.Team) -> void:
 	visible = true
 	winner_label.text = _get_winner_text(winner)
+	AnimatedCursor.show_cursor()
 
 func _get_winner_text(winner: Enums.Team) -> String:
 	if game.mode == Enums.GameMode.LOCAL_2P:

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b63vvkvf8t107"]
+
+[ext_resource type="Script" uid="uid://lxwybpgvnpmn" path="res://src/ui/cursor/cursor.gd" id="1_x2gd5"]
+[ext_resource type="Texture2D" uid="uid://dkypenp0q88ve" path="res://assets/sprite/cursor/cursor_00000.png" id="2_5djhm"]
+[ext_resource type="Texture2D" uid="uid://dw70plcq7m0b3" path="res://assets/sprite/cursor/cursor_00002.png" id="3_rp3he"]
+[ext_resource type="Texture2D" uid="uid://dvfego21n13cy" path="res://assets/sprite/cursor/cursor_00001.png" id="4_dyhoa"]
+[ext_resource type="Texture2D" uid="uid://bk502jm5gmyfo" path="res://assets/sprite/cursor/cursor_00003.png" id="5_pa4un"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0udh5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5djhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rp3he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dyhoa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pa4un")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cursor" type="Node2D" unique_id=694447314]
+top_level = true
+z_index = 999
+script = ExtResource("1_x2gd5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1539489612]
+sprite_frames = SubResource("SpriteFrames_0udh5")

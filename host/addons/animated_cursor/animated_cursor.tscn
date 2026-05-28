@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b5e0r4g2k3rvt"]
+
+[ext_resource type="Script" uid="uid://cp8uo5oeogywx" path="res://addons/animated_cursor/animated_cursor.gd" id="1_gpdgq"]
+[ext_resource type="Texture2D" uid="uid://dkypenp0q88ve" path="res://assets/sprite/cursor/cursor_00000.png" id="2_32deh"]
+[ext_resource type="Texture2D" uid="uid://dvfego21n13cy" path="res://assets/sprite/cursor/cursor_00001.png" id="3_edk0k"]
+[ext_resource type="Texture2D" uid="uid://dw70plcq7m0b3" path="res://assets/sprite/cursor/cursor_00002.png" id="4_ifkaa"]
+[ext_resource type="Texture2D" uid="uid://bk502jm5gmyfo" path="res://assets/sprite/cursor/cursor_00003.png" id="5_d5ch6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ngwt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_32deh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_edk0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ifkaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_d5ch6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedCursor" type="CanvasLayer" unique_id=719905653]
+script = ExtResource("1_gpdgq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=285848691]
+sprite_frames = SubResource("SpriteFrames_4ngwt")
