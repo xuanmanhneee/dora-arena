@@ -4,13 +4,9 @@
 **/*.uid
 **/.import/
 
-# Chặn file cấu hình xuất game (vì thường chứa đường dẫn máy cá nhân)
+# Chặn file cấu hình xuất game 
 **/export_presets.cfg
 
-# Chặn file nhạc và âm thanh (Trọng tâm để giảm 80MB)
-*.mp3
-*.wav
-*.ogg
 
 # Chặn các file rác của Windows
 Thumbs.db

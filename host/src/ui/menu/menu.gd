@@ -12,6 +12,8 @@ extends Control
 @onready var options_panel: Control = %OptionsPanel
 
 func _ready() -> void:
+	AudioManager.play_ui_bgm()
+	
 	two_players_button.pressed.connect(_on_two_players_button_pressed)
 	four_players_button.pressed.connect(_on_four_players_button_pressed)
 	options_button.pressed.connect(_on_options_button_pressed)

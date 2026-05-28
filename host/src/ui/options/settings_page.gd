@@ -55,11 +55,12 @@ func _update_locale() -> void:
 	_select_current_locale()
 	lang_label.text = Localization.text("setting_language")
 
+
 func _sync_audio_ui() -> void:
-	var bgm_volume = AudioManager.volume * 100.0
-	bgm_slider.value = bgm_volume
+	bgm_slider.value = AudioManager.bgm_volume * 100.0
 	bgm_value_label.text = str(int(bgm_slider.value))
 
+	sfx_slider.value = AudioManager.sfx_volume * 100.0
 	sfx_value_label.text = str(int(sfx_slider.value))
 
 
@@ -72,8 +73,11 @@ func _on_bgm_volume_value_changed(value: float) -> void:
 	bgm_value_label.text = str(int(value))
 
 	var normalized := value / 100.0
-	AudioManager.set_volume(normalized)
+	AudioManager.set_bgm_volume(normalized)
 
 
 func _on_sfx_volume_value_changed(value: float) -> void:
 	sfx_value_label.text = str(int(value))
+
+	var normalized := value / 100.0
+	AudioManager.set_sfx_volume(normalized)

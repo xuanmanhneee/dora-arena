@@ -195,6 +195,8 @@ func _shoot() -> void:
 	var pos = shoot_pos.global_position
 	b.setup(pos, facing_dir, team)
 	get_tree().current_scene.add_child(b)
+	
+	EventBus.emit("player_shoot", [self])
 
 
 func _on_anim_finished() -> void:
@@ -213,6 +215,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		
 		if is_reflecting:
 			_handle_reflection(area)
+			AudioManager.play_reflect_bullet()
 		else:
 			_handle_bullet_impact(area)
 
