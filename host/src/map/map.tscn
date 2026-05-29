@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cwj2ow6hpocey"]
 
-[ext_resource type="Script" uid="uid://duk8uo0dnol83" path="res://src/map/map.gd" id="1_paxxb"]
-[ext_resource type="Texture2D" uid="uid://cd66u4jdvcnjs" path="res://assets/sprite/map_vuong_quoc_tren_may.png" id="2_paxxb"]
-[ext_resource type="Texture2D" uid="uid://d1c1ykfbl3lhn" path="res://assets/bg_dora22.jpg" id="2_paxxb"]
+[ext_resource type="Script" uid="uid://cru1ycd76eynh" path="res://src/map/map.gd" id="1_paxxb"]
+[ext_resource type="Texture2D" uid="uid://cd66u4jdvcnjs" path="res://assets/sprite/map_vuong_quoc_tren_may.png" id="2_vfn15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lnu2h"]
 size = Vector2(686, 100)
@@ -21,15 +20,15 @@ offset_right = 1509.0
 offset_bottom = 971.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_paxxb")
+texture = ExtResource("2_vfn15")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1471629453]
+[node name="Background2" type="TextureRect" parent="." unique_id=1083943114]
 offset_right = 2730.0
 offset_bottom = 1536.0
 scale = Vector2(0.7, 0.7)
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("2_paxxb")
+texture = ExtResource("2_vfn15")
 
 [node name="PlayerSpawnPoints" type="Control" parent="." unique_id=14083712]
 layout_mode = 3

@@ -14,6 +14,7 @@ signal player_registered(id: int, player_name: String)
 signal movement_input_received(id: int, move: int)
 signal action_input_received(id: int, jump: bool, shoot: bool)
 
+
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
@@ -79,8 +80,10 @@ func send_movement_input(move: int):
 func send_action_input(action: int):
 	if not multiplayer.is_server():
 		return
-		
+	
+	
 	if not Enums.is_valid_action(action):
+		
 		return
 	
 	var id = multiplayer.get_remote_sender_id()

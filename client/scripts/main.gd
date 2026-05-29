@@ -16,7 +16,10 @@ func _ready() -> void:
 
 	up_button.pressed.connect(func(): _send_action(InputType.Action.JUMP))
 	shoot_button.pressed.connect(func(): _send_action(InputType.Action.SHOOT))
-	skill_button.pressed.connect(func(): _send_action(InputType.Action.SKILL))
+	skill_button.pressed.connect(func(): 
+		print("[CLIENT] Ấn skill button, gửi action: ", InputType.Action.SKILL)
+		_send_action(InputType.Action.SKILL)
+)
 
 
 func _send_move(move: int):

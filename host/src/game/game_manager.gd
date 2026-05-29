@@ -54,11 +54,13 @@ func _start_game() -> void:
 
 func _register_players() -> void:
 	player_inputs.clear()
-
+	print("[REGISTER] mode = ", game.mode)
+	print("[REGISTER] player_configs keys: ", game.player_configs.keys())
+	
 	if game.mode == Enums.GameMode.LAN_4P:
 		if not NetworkManager.movement_input_received.is_connected(_on_movement_input_received):
 			NetworkManager.movement_input_received.connect(_on_movement_input_received)
-
+			
 		if not NetworkManager.action_input_received.is_connected(_on_action_input_received):
 			NetworkManager.action_input_received.connect(_on_action_input_received)
 
@@ -129,16 +131,15 @@ func _create_player(id: int, data: Dictionary, input: PlayerInput, pos: Vector2)
 		return
 
 	var p := player_scene.instantiate() as Player
-
+	if not p:
+		push_error("Player Scene instantiated nhưng không thể cast thành lớp 'Player'!")
+		return
 	p.name = "Player_%d" % id
 	p.global_position = pos
 	p.modulate = Color(randf(), randf(), randf())
 	p.add_to_group("players")
-	get_parent().add_child(p)
 	
 	
-
-
 	p.setup(
 		id,
 		data.get("name", "P%d" % id),
@@ -266,7 +267,17 @@ func _on_movement_input_received(id: int, move: int) -> void:
 		player_inputs[id].move_direction = move
 
 func _on_action_input_received(id: int, action: int) -> void:
-	if not player_inputs.has(id): return
+	print("player_configs keys: ", game.player_configs.keys())
+	print("player_inputs keys: ", player_inputs.keys())
+	var target_id = id
+	if not player_inputs.has(id):
+		if game.player_configs.has(id):
+			player_inputs[id] = PlayerInput.new()
+			target_id = id
+		else:
+			print("[GAME] id ", id, " không có trong player_configs")
+		return
+	
 	match action:
 		Enums.Action.JUMP:  player_inputs[id].jump = true
 		Enums.Action.SHOOT: player_inputs[id].shoot = true

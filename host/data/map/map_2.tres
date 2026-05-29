@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="MapInfo" format=3 uid="uid://cdl6ngr7wb2tp"]
 
 [ext_resource type="Texture2D" uid="uid://br6ln7vgvgi1i" path="res://assets/sprite/map_tan_tich_atlantis.png" id="1_j5g8n"]
-[ext_resource type="Script" uid="uid://iexsr0iqd1dj" path="res://data/map/map_info.gd" id="2_qrbqo"]
+[ext_resource type="Script" uid="uid://c3nyaacjqbd1c" path="res://data/map/map_info.gd" id="2_qrbqo"]
 
 [resource]
 script = ExtResource("2_qrbqo")
 map_name = "Tàn tích Atlantis"
-scene_path = "uid://btkbrcx2y0sop"
+scene_path = "res://src/map/map2.tscn"
 preview = ExtResource("1_j5g8n")

@@ -27,7 +27,7 @@ func setup(player: Player) -> void:
 	fill_style.set_corner_radius_all(4)
 	bar.add_theme_stylebox_override(\"fill\", fill_style)
 	
-	GameEvents.energy_changed.connect(_on_energy_changed)
+	EventBus.energy_changed.connect(_on_energy_changed)
 
 func _on_energy_changed(player: Player, current: float, maximum: float) -> void:
 	if player != target_player: return

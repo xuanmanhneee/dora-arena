@@ -1,10 +1,10 @@
+Button
 Control
 ColorRect
 Label
 TextureRect
 Sprite2D
 Node2D
-Button
 HBoxContainer
 VBoxContainer
 GridContainer

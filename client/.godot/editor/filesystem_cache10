@@ -1,11 +1,12 @@
 72322a848ab928aa5c89f0cb78209805
-::res://::1779631555
+::res://::1779949052
 export_presets.cfg::TextFile::-1::1779466509::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::6653566025041660077::1774856098::1774856327::1::::<><><>0<>0<>c5a09e27e8547c03728ca383f62d79f8<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://asset/::1774966599
 ::res://asset/background/::1775293522
 backgroundLobby.png::CompressedTexture2D::1184138748664140347::1775293511::1775293522::1::::<><><>0<>0<>23b731d1f099ac9be50fe4cb9b80adef<>res://.godot/imported/backgroundLobby.png-d9a6805dfec5249553960b640f81fe52.ctex::
-::res://asset/move/::1774925429
+::res://asset/move/::1779937828
+button_skill.png::CompressedTexture2D::8240927248526619969::1779937820::1779937828::1::::<><><>0<>0<>5fd39ebac80366ed816051c850d45ac4<>res://.godot/imported/button_skill.png-055f2df52b5e5149c46d7baafa82abf2.ctex::
 dpad_element_down.png::CompressedTexture2D::8113121048304126235::1774862130::1774925429::1::::<><><>0<>0<>845f55d5942439064dde6a190d9e8693<>res://.godot/imported/dpad_element_down.png-a780d509483680aa77194e777b77f3d2.ctex::
 dpad_element_left.png::CompressedTexture2D::5163406782417754223::1774862130::1774925429::1::::<><><>0<>0<>6ff6be1880fea0250e2778a0adaac7cd<>res://.godot/imported/dpad_element_left.png-f1917cc8588647820041dffb1ff174e3.ctex::
 dpad_element_right.png::CompressedTexture2D::1694643771836074926::1774862130::1774925429::1::::<><><>0<>0<>03e9d087c0abaa90dffcd770e4413c85<>res://.godot/imported/dpad_element_right.png-86119cda3e266afdea2d0450e65b5743.ctex::
@@ -15,15 +16,14 @@ ic_Skill.png::CompressedTexture2D::9126445069774381400::1774925258::1774925374::
 ::res://Font/::1774856327
 Kenney Future Narrow.ttf::FontFile::4253724526705379730::1774856098::1774856327::1::::<><><>0<>0<>aae7796021efaba514bdfdb6b35e0d29<>res://.godot/imported/Kenney Future Narrow.ttf-63c43c4bf359e078c665f62de4957a9c.fontdata::
 Kenney Future.ttf::FontFile::8675986939074511581::1774856098::1774856327::1::::<><><>0<>0<>2cddbe076e2ad7fa026ff7976972f09d<>res://.godot/imported/Kenney Future.ttf-650a700b7597083268acd5025330d170.fontdata::
-::res://scenes/::1779469020
-connection_scene.tscn::PackedScene::1428920494181524482::1779469020::0::1::::<><><>0<>0<><>::uid://bolhwbekc7ynl::::res://scripts/connection_scene.gd<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png
-lobby.tscn::PackedScene::6606143653017136837::1778928167::0::1::::<><><>0<>0<><>::uid://drlc0dhp66pwq::::res://scripts/lobby.gd<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf
-main.tscn::PackedScene::8209655708089996688::1779441586::0::1::::<><><>0<>0<><>::uid://bm1herfpvw3v1::::res://scripts/main.gd<>uid://b6mcs4pwwlqev::::res://asset/move/dpad_element_up.png<>uid://cftgs47opionn::::res://asset/move/dpad_element_left.png<>uid://ye5sg3w4u3pq::::res://asset/move/dpad_element_right.png<>uid://dnub6ht2c6fcl::::res://asset/move/dpad_element_down.png<>uid://bnvn1glmcosgm::::res://asset/move/ic_Shoot.png<>uid://d3a6hm0netko3::::res://asset/move/ic_Skill.png
-scroll.gdshader::Shader::2374294894463700677::1779463626::0::1::::<><><>0<>0<><>::
-virtual_dpad.tscn::PackedScene::1581153646622529508::1774856098::0::1::::<><><>0<>0<><>::
-::res://scripts/::1779468751
-connection_scene.gd::GDScript::3392237015496365573::1779468751::0::1::::<>Control<><>0<>0<><>::
+::res://scenes/::1779944036
+connection_scene.tscn::PackedScene::1428920494181524482::1779853504::0::1::::<><><>0<>0<><>::uid://bolhwbekc7ynl::::res://scripts/connection_scene.gd<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png
+lobby.tscn::PackedScene::6606143653017136837::1779910828::0::1::::<><><>0<>0<><>::uid://drlc0dhp66pwq::::res://scripts/lobby.gd<>uid://q4uuetjav3nj::::res://asset/background/backgroundLobby.png<>uid://83ej4jcfunxt::::res://scenes/scroll.gdshader<>uid://b1ushsa75t7p3::::res://Font/Kenney Future Narrow.ttf
+main.tscn::PackedScene::8209655708089996688::1779944036::0::1::::<><><>0<>0<><>::uid://bm1herfpvw3v1::::res://scripts/main.gd<>uid://b6mcs4pwwlqev::::res://asset/move/dpad_element_up.png<>uid://cftgs47opionn::::res://asset/move/dpad_element_left.png<>uid://ye5sg3w4u3pq::::res://asset/move/dpad_element_right.png<>uid://dnub6ht2c6fcl::::res://asset/move/dpad_element_down.png<>uid://bnvn1glmcosgm::::res://asset/move/ic_Shoot.png<>uid://dpn74re1ss3c4::::res://asset/move/button_skill.png
+scroll.gdshader::Shader::2374294894463700677::1779935885::0::1::::<><><>0<>0<><>::
+::res://scripts/::1779943524
+connection_scene.gd::GDScript::3392237015496365573::1779853980::0::1::::<>Control<><>0<>0<><>::
 input_type.gd::GDScript::3854172623203610069::1774856098::0::1::::InputType<>RefCounted<><>0<>0<><>::
-lobby.gd::GDScript::8375346796161542208::1774856098::0::1::::<>Control<><>0<>0<><>::
-main.gd::GDScript::3282793692411495412::1775211279::0::1::::<>Control<><>0<>0<><>::
-network_manager.gd::GDScript::1607679469165358024::1778070858::0::1::::<>Node<><>0<>0<><>::
+lobby.gd::GDScript::8375346796161542208::1779851139::0::1::::<>Control<><>0<>0<><>::
+main.gd::GDScript::3282793692411495412::1779943524::0::1::::<>Control<><>0<>0<><>::
+network_manager.gd::GDScript::1607679469165358024::1779854017::0::1::::<>Node<><>0<>0<><>::

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1c1ykfbl3lhn"
-path="res://.godot/imported/bg_dora22.jpg-7c4593722b914387ebe838177cacf5a9.ctex"
+uid="uid://dpn74re1ss3c4"
+path="res://.godot/imported/button_skill.png-055f2df52b5e5149c46d7baafa82abf2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bg_dora22.jpg"
-dest_files=["res://.godot/imported/bg_dora22.jpg-7c4593722b914387ebe838177cacf5a9.ctex"]
+source_file="res://asset/move/button_skill.png"
+dest_files=["res://.godot/imported/button_skill.png-055f2df52b5e5149c46d7baafa82abf2.ctex"]
 
 [params]
 

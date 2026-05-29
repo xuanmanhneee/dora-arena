@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://bh4ur2brrsbec"]
 
-[ext_resource type="Texture2D" uid="uid://r4jpu26ratyu" path="res://assets/icon.svg" id="1_4gq7n"]
-[ext_resource type="Script" uid="uid://bhyb6rqil0id7" path="res://scripts/item.gd" id="1_s8enn"]
 [ext_resource type="Texture2D" uid="uid://r4jpu26ratyu" path="res://assets/sprite/icon.svg" id="1_4gq7n"]
-[ext_resource type="Script" uid="uid://cb2472byqsvbv" path="res://src/map/item.gd" id="1_s8enn"]
+[ext_resource type="Script" uid="uid://d1sssp812tdbc" path="res://src/map/item.gd" id="1_s8enn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r3ghi"]
 radius = 25.0
