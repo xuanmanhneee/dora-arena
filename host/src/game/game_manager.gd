@@ -197,6 +197,8 @@ func _respawn_player(player: Player) -> void:
 	player.is_camera_target = true
 	if player.has_method("reset_physics"):
 		player.reset_physics()
+	
+	EventBus.emit("player_respawned", [player])
 
 # --- KẾT THÚC GAME ---
 func _on_time_up() -> void:

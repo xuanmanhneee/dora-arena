@@ -40,7 +40,7 @@ position = Vector2(281, -259)
 position = Vector2(889, -273)
 
 [node name="Marker2D_4" type="Marker2D" parent="PlayerSpawnPoints" unique_id=678127531]
-position = Vector2(1010, -278)
+position = Vector2(1612, -259)
 
 [node name="ItemSpawnPoints" type="Control" parent="." unique_id=132246755]
 layout_mode = 3
@@ -79,14 +79,17 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1717556844]
 position = Vector2(151, 198)
 shape = SubResource("RectangleShape2D_lnu2h")
+one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground" unique_id=943426729]
 position = Vector2(-352, -163)
 shape = SubResource("RectangleShape2D_lk7cf")
+one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ground" unique_id=2028066396]
 position = Vector2(677.5, -163)
 shape = SubResource("RectangleShape2D_5kldx")
+one_way_collision = true
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=1129435351]
 unique_name_in_owner = true

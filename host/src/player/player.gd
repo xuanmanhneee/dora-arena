@@ -98,6 +98,7 @@ func _ready() -> void:
 	
 	name_tag.text = display_name
 	_apply_color()
+	_apply_team_color()
 
 
 func _physics_process(delta: float) -> void:
@@ -225,6 +226,8 @@ func _shoot() -> void:
 	# KHÔI PHỤC: Chạy âm thanh bắn
 	if has_node("ShootAudio"): 
 		shoot_audio.play()
+	
+	EventBus.emit("player_shoot", [self])
 
 
 func _on_anim_finished() -> void:
@@ -241,6 +244,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			return
 		if is_reflecting:
 			_handle_reflection(area)
+			AudioManager.play_reflect_bullet()
 		else:
 			_handle_bullet_impact(area)
 		return
@@ -271,6 +275,18 @@ func _handle_bullet_impact(bullet: BaseBullet) -> void:
 func _apply_color() -> void:
 	visual.modulate = color
 
+func _apply_team_color() -> void:
+	var team_color := Color.WHITE
+
+	match team:
+		Enums.Team.TEAM_A:
+			team_color = Color("6aff73ff")
+		Enums.Team.TEAM_B:
+			team_color = Color("e73846ff")
+
+	name_tag.add_theme_color_override("font_color", team_color)
+	name_tag.add_theme_color_override("font_outline_color", Color.BLACK)
+	name_tag.add_theme_constant_override("outline_size", 4)
 
 # KHÔI PHỤC: Trừ điểm và năng lượng khi dính đạn
 func apply_knockback(force: Vector2) -> void:

@@ -18,6 +18,7 @@ var current_map: Node2D
 var player_configs: Dictionary[int, Dictionary] = {}
 
 func _ready() -> void:
+	AudioManager.play_game_bgm()
 	_setup(GameData.match_config)
 	_load_map()
 
@@ -25,6 +26,8 @@ func _ready() -> void:
 	game_camera.setup(self)
 	item_manager.setup(self)
 	overlay_layer.setup(self)
+	
+	AnimatedCursor.hide_cursor()
 
 func _setup(config: MatchConfig) -> void:
 	match_config = config

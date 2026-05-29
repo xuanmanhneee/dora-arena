@@ -24,6 +24,7 @@ GameData="*uid://biylxaljp85uq"
 InputManager="*uid://bfon8k33m4uat"
 NetworkManager="*uid://pcb416nv6mpt"
 EventBus="*uid://cfsh32df1hogr"
+AnimatedCursor="*uid://b5e0r4g2k3rvt"
 
 [debug]
 

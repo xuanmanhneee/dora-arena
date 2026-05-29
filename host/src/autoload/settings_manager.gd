@@ -4,7 +4,8 @@ const CONFIG_PATH := "user://settings.cfg"
 
 const DEFAULTS := {
 	"audio": {
-		"volume": 0.5
+		"bgm_volume": 0.5,
+		"sfx_volume": 0.8
 	},
 	"localization": {
 		"locale": "vi"

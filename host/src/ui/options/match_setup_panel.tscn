@@ -408,5 +408,5 @@ theme_override_constants/buttons_vertical_separation = 5
 theme_override_constants/buttons_width = 40
 min_value = 1.0
 max_value = 600.0
-value = 5.0
+value = 60.0
 alignment = 1

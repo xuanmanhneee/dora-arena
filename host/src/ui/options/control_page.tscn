@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="2_ncmns"]
 [ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="3_cuk1a"]
 [ext_resource type="PackedScene" uid="uid://dbgv0eo8louma" path="res://src/ui/options/key_bind_popup.tscn" id="5_e28mp"]
-[ext_resource type="Texture2D" uid="uid://dr7m70j4pg1j4" path="res://assets/sprite/qr_placeholder.svg" id="5_o2s0f"]
+[ext_resource type="Texture2D" uid="uid://b7w2nrx3h75sj" path="res://assets/sprite/qrcode.png" id="5_matng"]
 
 [node name="ControlPage" type="MarginContainer" unique_id=1541413476]
 anchors_preset = 15
@@ -284,7 +284,7 @@ text = "1. DOWNLOAD MOBILE CLIENT:"
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("5_o2s0f")
+texture = ExtResource("5_matng")
 expand_mode = 1
 stretch_mode = 5
 
