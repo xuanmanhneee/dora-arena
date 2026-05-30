@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://b76ngywugtc1j" path="res://assets/audio/close_door.mp3" id="10_2smqc"]
 [ext_resource type="AudioStream" uid="uid://b267vlbt7xxoh" path="res://assets/audio/173.mp3" id="10_cwolq"]
 [ext_resource type="AudioStream" uid="uid://b1gcmpk44kova" path="res://assets/audio/198.mp3" id="11_2smqc"]
+[ext_resource type="AudioStream" uid="uid://bpglp0u66xqgr" path="res://assets/audio/459.mp3" id="12_2smqc"]
+[ext_resource type="AudioStream" uid="uid://bxdlgqf7r7agh" path="res://assets/audio/400.mp3" id="13_rl62b"]
 [ext_resource type="AudioStream" uid="uid://b6afhuruxyi21" path="res://assets/audio/sound_gun.wav" id="40_cs1tg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epypp"]
@@ -62,7 +64,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_smehm"]
 resource_name = "ultimate_cinematic"
-length = 12.0
+length = 12.2
 step = 0.0333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -71,7 +73,7 @@ tracks/0/path = NodePath("CanvasLayer/ColorRect_Top:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.3, 1.7, 2, 12.9, 14),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.3, 1.7, 2, 11.8, 12.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1920, 10), Vector2(1920, 30), Vector2(1920, 50), Vector2(1920, 70), Vector2(1920, 90), Vector2(1920, 90), Vector2(1920, 90), Vector2(1920, 0)]
@@ -83,7 +85,7 @@ tracks/1/path = NodePath("CanvasLayer/ColorRect_Bottom:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.3, 1.7, 2, 12.866667, 14),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.3, 1.7, 2, 11.8, 12.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1920, 10), Vector2(1920, 30), Vector2(1920, 50), Vector2(1920, 70), Vector2(1920, 90), Vector2(1920, 90), Vector2(1920, 90), Vector2(1920, 0)]
@@ -95,7 +97,7 @@ tracks/2/path = NodePath("CanvasLayer/ColorRect_Bottom:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.3, 1.7, 2, 12.866667, 14),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.3, 1.7, 2, 11.8, 12.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 1070), Vector2(0, 1050), Vector2(0, 1030), Vector2(0, 1010), Vector2(0, 990), Vector2(0, 990), Vector2(0, 990), Vector2(0, 1080)]
@@ -123,8 +125,16 @@ tracks/3/keys = {
 "end_offset": 0.0,
 "start_offset": 0.05,
 "stream": ExtResource("11_2smqc")
+}, {
+"end_offset": 1.1700001,
+"start_offset": 0.0,
+"stream": ExtResource("12_2smqc")
+}, {
+"end_offset": 2.0995865,
+"start_offset": 0.0,
+"stream": ExtResource("13_rl62b")
 }],
-"times": PackedFloat32Array(1, 1.6, 2.1666667, 3.5)
+"times": PackedFloat32Array(1, 1.6, 2.1666667, 3.5, 5.133333, 8.4)
 }
 tracks/3/use_blend = true
 
@@ -143,7 +153,7 @@ script = ExtResource("1_0e48y")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" unique_id=74658931]
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("1_wtcfe")
-animation = &"skill_effect"
+animation = &"skill_storm"
 
 [node name="Marker2D" type="Marker2D" parent="Visual" unique_id=419225394]
 position = Vector2(69, 13)
@@ -153,7 +163,14 @@ visible = false
 position = Vector2(30, 0)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("1_wtcfe")
-animation = &"skill_effect"
+animation = &"skill_nobita"
+
+[node name="SkillEffectGun" type="AnimatedSprite2D" parent="Visual" unique_id=1539734557]
+visible = false
+position = Vector2(260, 18)
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("1_wtcfe")
+animation = &"skill_effect_gun"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=824260810]
 shape = SubResource("CapsuleShape2D_epypp")
