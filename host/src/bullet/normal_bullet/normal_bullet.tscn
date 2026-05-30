@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmjxbh470jpss"]
 
-[ext_resource type="Script" uid="uid://bgkovio4hrahq" path="res://src/bullet/normal_bullet/normal_bullet.gd" id="1_6reey"]
+[ext_resource type="Script" uid="uid://cfyvc3fm50fxb" path="res://src/bullet/normal_bullet/normal_bullet.gd" id="1_6reey"]
 [ext_resource type="PackedScene" uid="uid://c1n5xc16b4smn" path="res://src/bullet/base_bullet.tscn" id="1_cmnci"]
 
 [node name="NormalBullet" unique_id=1271099429 instance=ExtResource("1_cmnci")]

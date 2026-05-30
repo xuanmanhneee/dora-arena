@@ -8,22 +8,20 @@ var knockback_force: float = 2000.0
 
 var _start_pos: Vector2 = Vector2.ZERO
 var _traveled_distance: float = 0.0
-var shooter: Player = null 
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("default")
 	body_entered.connect(_on_body_entered)
 	
-func setup(pos: Vector2, dir: Vector2, shooter_team: Enums.Team, shooter_player: Player = null) -> void:
+func setup(pos: Vector2, dir: Vector2, shooter_team: Enums.Team) -> void:
 	global_position = pos
 	_start_pos = pos
 	fly_dir = dir
 	team = shooter_team
 	rotation = dir.angle()
-	shooter = shooter_player 
-
-
+	
 # Trong BaseBullet.gd
+
 func reflect() -> void:
 	# 1. Đảo ngược hướng bay
 	fly_dir = -fly_dir
@@ -50,14 +48,7 @@ func _process(delta: float) -> void:
 		_on_max_distance_reached()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		if body.team != team:
-			if shooter and is_instance_valid(shooter):
-				shooter.add_energy(15.0)
-				shooter.add_score(10)   
-			body.apply_knockback(fly_dir * knockback_force) 
-			handle_impact()                                 
-	else:
+	if not body is Player: 
 		handle_impact()
 
 func _on_max_distance_reached() -> void:

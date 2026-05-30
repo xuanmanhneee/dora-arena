@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://rogupnvtu83c" path="res://src/player/player.tres" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://c02uqr1k183yg" path="res://src/effects/effect_manager.gd" id="3_qhqgy"]
 [ext_resource type="Script" uid="uid://bvijb5posujf3" path="res://src/effects/effect.gd" id="4_o822w"]
-[ext_resource type="Resource" uid="uid://bvxsnit77xjye" path="res://src/effects/explosive_bullet/explosive_bullet_effect.tres" id="5_x42xx"]
+[ext_resource type="Resource" uid="uid://bvxsnit77xjye" path="res://src/effects/explosive_bullet/explosive_bullet_effect.tres" id="6_cwolq"]
 [ext_resource type="Resource" uid="uid://bsq8dc4c1woei" path="res://src/effects/reflect/reflect_effect.tres" id="6_l271a"]
 [ext_resource type="PackedScene" uid="uid://c5wfled18urly" path="res://src/map/name_tag.tscn" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://cnhd6aafpol7k" path="res://assets/audio/open_door.mp3" id="8_ylhto"]
@@ -167,7 +167,7 @@ shape = SubResource("CapsuleShape2D_qlg0r")
 
 [node name="EffectManager" type="Node" parent="." unique_id=734462188]
 script = ExtResource("3_qhqgy")
-effects = Array[ExtResource("4_o822w")]([ExtResource("5_x42xx"), ExtResource("6_l271a")])
+effects = Array[ExtResource("4_o822w")]([ExtResource("6_l271a"), ExtResource("6_cwolq")])
 
 [node name="NameTag" parent="." unique_id=444290081 instance=ExtResource("7_fjrip")]
 

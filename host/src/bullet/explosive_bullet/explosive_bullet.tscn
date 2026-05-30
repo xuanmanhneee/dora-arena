@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b707cb5qg4f3g"]
 
 [ext_resource type="PackedScene" uid="uid://c1n5xc16b4smn" path="res://src/bullet/base_bullet.tscn" id="1_2cw4p"]
-[ext_resource type="Script" uid="uid://cnxjmtplrn12k" path="res://src/bullet/explosive_bullet/explosive_bullet.gd" id="2_mrf51"]
+[ext_resource type="Script" uid="uid://hhe3au4memab" path="res://src/bullet/explosive_bullet/explosive_bullet.gd" id="2_mrf51"]
 [ext_resource type="PackedScene" uid="uid://bp3m83hwxlxui" path="res://src/bullet/explosive_bullet/explosion_area.tscn" id="3_4hebm"]
 
 [node name="ExplosiveBullet" unique_id=1271099429 instance=ExtResource("1_2cw4p")]

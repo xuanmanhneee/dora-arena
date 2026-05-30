@@ -66,7 +66,13 @@ func clear_all_effects():
 func _on_item_picked(picker: Player) -> void:
 	if picker == player:
 		var effect: Effect = _select_random_effect()
+		if effect == null:
+			print("⚠️ Không có effect nào trong danh sách!")
+			return
 		add_effect(effect)
 
 func _select_random_effect() -> Effect:
+	if effects.is_empty():
+		push_warning("EffectManager: Mảng effects rỗng!")
+		return null
 	return effects.pick_random()

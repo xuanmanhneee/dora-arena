@@ -91,7 +91,6 @@ func setup(
 
 func _ready() -> void:
 	current_bullet = NORMAL_BULLET
-
 	anim.play("run")
 	anim.animation_finished.connect(_on_anim_finished)
 	hurt_box.area_entered.connect(_on_hurtbox_area_entered)
@@ -117,6 +116,8 @@ func _physics_process(delta: float) -> void:
 		stun_timer -= delta
 		if stun_timer <= 0.0:
 			is_stunned = false
+			if is_on_floor():
+				anim.play("idle")
 
 	elif is_controllable:
 		# movement
@@ -234,9 +235,9 @@ func _on_anim_finished() -> void:
 	if anim.animation == "shoot":
 		is_shooting = false
 	
-		if anim.animation == "hit" and hold_hit_until_floor and not is_on_floor():
-			anim.pause()
-			anim.frame = anim.sprite_frames.get_frame_count("hit") - 1
+	if anim.animation == "hit" and hold_hit_until_floor and not is_on_floor():
+		anim.pause()
+		anim.frame = anim.sprite_frames.get_frame_count("hit") - 1
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area is BaseBullet:
