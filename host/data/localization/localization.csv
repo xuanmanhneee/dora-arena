@@ -37,3 +37,6 @@ options_settings,Cài đặt,Settings
 options_controls,Điều khiển,Controls
 options_credits,Nhóm,Credits
 options_about,Giới thiệu,About
+pause_title,Tạm dừng,Pause
+pause_resume,Tiếp tục,Resume
+pause_exit_game,Thoát game,Exit game

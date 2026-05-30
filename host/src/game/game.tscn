@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kw4bjkuayhlf" path="res://src/player/player.tscn" id="4_u5sy4"]
 [ext_resource type="Script" uid="uid://befv0nktf5woq" path="res://src/game/item_manager.gd" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://7rotqlvewja5" path="res://src/ui/hud/result_layer.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://d1kq8p1j6v4h1" path="res://src/ui/hud/pause_layer.tscn" id="7_jf5mp"]
 
 [node name="Game" type="Node" unique_id=468330071]
 script = ExtResource("1_yarin")
@@ -32,3 +33,5 @@ script = ExtResource("3_lbhrr")
 
 [node name="ResultLayer" parent="." unique_id=301648816 instance=ExtResource("6_p57ef")]
 visible = false
+
+[node name="PauseLayer" parent="." unique_id=468940152 instance=ExtResource("7_jf5mp")]

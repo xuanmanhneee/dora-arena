@@ -17,13 +17,13 @@ config/icon="res://assets/sprite/icon.svg"
 
 [autoload]
 
-SettingsManager="*uid://c77tidxq38088"
-NetworkManager="*uid://by38kb8clse5y"
-GameData="*uid://64v32hvejmvf"
-AudioManager="*uid://cby1njwotgq2g"
-EventBus="*uid://py60i274fsj0"
-InputManager="*uid://cf3ioh3m46uh"
-Localization="*uid://y3jxhmecra3x"
+SettingsManager="*res://src/autoload/settings_manager.gd"
+NetworkManager="*uid://pcb416nv6mpt"
+GameData="*uid://biylxaljp85uq"
+AudioManager="*uid://6snfptekx7xr"
+EventBus="*uid://bjqm8s4r30aqm"
+InputManager="*uid://bbcacrnsk2qeb"
+Localization="*res://src/autoload/localization.gd"
 AnimatedCursor="*uid://b5e0r4g2k3rvt"
 
 [debug]

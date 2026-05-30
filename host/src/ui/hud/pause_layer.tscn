@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://d1kq8p1j6v4h1"]
+
+[ext_resource type="Script" uid="uid://b03neteqxkqon" path="res://src/ui/hud/pause_layer.gd" id="1_s1v4n"]
+[ext_resource type="FontFile" uid="uid://cqai0bevbeetk" path="res://assets/font/HL-Comic1_normal.ttf" id="2_2x0h0"]
+[ext_resource type="StyleBox" uid="uid://cq70olit3ddp1" path="res://themes/style/button_normal.tres" id="3_0h4jl"]
+[ext_resource type="StyleBox" uid="uid://uwi55ndfxj4t" path="res://themes/style/button_hover.tres" id="4_9ms8j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6whw2"]
+bg_color = Color(0, 0, 0, 0.55)
+
+[node name="PauseLayer" type="CanvasLayer" unique_id=468940152]
+layer = 5
+script = ExtResource("1_s1v4n")
+
+[node name="Control" type="Control" parent="." unique_id=1258125624]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Dimmer" type="Panel" parent="Control" unique_id=298005736]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_6whw2")
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=607000325]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=1100291701]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="PauseLabel" type="Label" parent="Control/CenterContainer/VBoxContainer" unique_id=647458198]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2x0h0")
+theme_override_font_sizes/font_size = 64
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1194404969]
+custom_minimum_size = Vector2(380, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("2_2x0h0")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_0h4jl")
+theme_override_styles/hover = ExtResource("4_9ms8j")
+text = "RESUME"
+
+[node name="ExitButton" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1021579527]
+custom_minimum_size = Vector2(380, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.029487593, 0.26667196, 1, 1)
+theme_override_fonts/font = ExtResource("2_2x0h0")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("3_0h4jl")
+theme_override_styles/hover = ExtResource("4_9ms8j")
+text = "EXIT GAME"
